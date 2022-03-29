@@ -1,0 +1,14 @@
+.new-task{
+    background-color: #1C0C5B;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+    margin: 2rem auto;
+    border-radius: 8px;
+    text-align: center;
+    padding: 1rem;
+    width: 70%;
+}
+
+h3{
+    text-align: center;
+    color: white;
+}

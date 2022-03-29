@@ -1,0 +1,9 @@
+.new-task__controls{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 2.3rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
