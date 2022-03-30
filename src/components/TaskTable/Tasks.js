@@ -4,15 +4,12 @@ import TaskTable from "./TaskTable";
 const Tasks = (props) => {
     return(
         <div>            
-            {/* <TaskTable 
-            date1={props.items[0].date}
-            data1={props.items[0].data}
-            /> */}
-            {props.items.map((task) => (
+            {props.items.map((task, id) => (
                 <TaskTable 
                 key={task.id}
                 date1={task.date}
                 data1={task.data}
+                removeTask={()=> props.removeTask(task.id)}
                 />
             ))}
         </div>
