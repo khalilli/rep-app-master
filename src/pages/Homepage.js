@@ -52,11 +52,11 @@ const Homepage = () => {
   const [tasks, setTasks] = useState(Initdata);
   const deleteTask = (index) => {
       console.log(tasks[index].data);
-      // const rows = [...tasks];
-      // let nay = rows[index].data;
-      // nay.splice(index,1);
-      // setTasks(rows);  
-      
+      const rows = [...tasks];
+      let nay = rows[index].data;
+      nay.splice(index,1);
+      setTasks(rows);  
+
     // console.log(tasks)
     // const newTasks = tasks.filter((item) => item.id !== index);
     // setTasks(newTasks);
