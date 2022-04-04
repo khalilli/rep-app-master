@@ -40,12 +40,11 @@ const Homepage = () => {
 
     const AddTaskHandler = (enteredTask) => {
       console.log("Entered", enteredTask)
-      // console.log("Existed", tasks[0]);
       setTasks((prevTasks)=>{
         return [enteredTask, ...prevTasks];
       });
       {enteredTask.data.map((task) => (
-        setData(enteredTask.date, task.stime, task.etime, task.tasktitle)
+        setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle)
       ))}
     };
     
