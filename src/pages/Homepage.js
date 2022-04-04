@@ -2,8 +2,8 @@ import React from 'react';
 import {useState} from 'react';
 import NewTask from "../components/TaskForm/NewTask";
 import Tasks from "../components/TaskTable/Tasks";
-import axios from 'axios';
-import moment from 'moment';
+// import axios from 'axios';
+// import moment from 'moment';
 import "./Navbar.css"
 
 const Initdata = [
