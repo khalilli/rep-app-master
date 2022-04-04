@@ -9,7 +9,7 @@ import "./Navbar.css"
 const Initdata = [
   {
   id:'0',
-  date: new Date("March 21, 2022").toDateString(),
+  date: new Date("March 21, 2022").toISOString(),
   data: 
     [
       {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
