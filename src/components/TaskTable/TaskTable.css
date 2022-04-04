@@ -2,13 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    /* gap:4px; */
 }  
 .task-date{
-    background: #e0e0e0;
-    border: 1px solid black;
-    border-radius: 9px;
-    padding: 0.4rem;
+    background: #051367;
+    color:#EEEEEE;
+    font-weight: bold;
+    border-radius: 2px 2px 0 0;
+    padding: 5px 30px 5px 30px;
 } 
     
 table{
@@ -21,13 +22,14 @@ table{
     
 th{
     text-align: center;
-    background-color: #1F1D36;
+    background-color: #051367;
     color: #EEEEEE;
+    padding: 7px;
     border-bottom: 1px solid black;
 }
     
 td{
     text-align: center;
-    background-color: #e0e0e0;
-    border-bottom: 1px solid black;
+    background-color: white;
+    border-bottom: 1px solid #92A9BD;
 }

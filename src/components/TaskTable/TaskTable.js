@@ -5,19 +5,17 @@ import { makeStyles } from '@material-ui/core';
 import './TaskTable.css';
 const useStyles = makeStyles(theme => ({
     removeButton: {
-        color: "#1F1D36"
+        color: "#DD4A48"
     }
 }));
 const TaskTable = (props) => {
     const classes = useStyles();
 
     const [row, setRow] = useState(props.data1);
-
+    console.log("TaskTable", row);
     const removeTask = (index) => {
-        const rows = [...row];
-        console.log(row);
-        setRow(row.splice(index,1));
-
+        console.log(row[index]);
+        setRow(props.data1.splice(index,1));
     };
 
     return(
@@ -39,7 +37,8 @@ const TaskTable = (props) => {
                            <td>{task.etime}</td>
                            <td>{task.tasktitle}</td>
                            <td>
-                                <IconButton onClick={props.removeTask}>
+                                {/* <IconButton onClick={props.removeTask}> */}
+                                <IconButton onClick={() => removeTask(index)}>
                                     <RemoveCircleIcon className={classes.removeButton} />
                                 </IconButton>
                            </td>

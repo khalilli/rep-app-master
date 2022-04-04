@@ -12,9 +12,11 @@ const NewTask = (props) => {
         props.onAddTask(Task);
     };
     return(
-        <div className="new-task">
+        <div className='task'>
             <h3>Add Your Tasks</h3>
-            <AddForm onSaveTask={onSaveTaskHandler} />
+            <div className="new-task">
+                <AddForm onSaveTask={onSaveTaskHandler} />
+            </div>
         </div>
     );
 };

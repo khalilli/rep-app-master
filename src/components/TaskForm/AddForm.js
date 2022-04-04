@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-// import TextField from '@mui/material/TextField';
-// import { makeStyles } from "@material-ui/core/styles";
-import { makeStyles, TextField } from '@material-ui/core';
+import TextField from '@mui/material/TextField';
+import { makeStyles } from "@material-ui/core/styles";
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
 import "./AddForm.css";
 
 const useStyles = makeStyles(theme => ({
     textField: {
         margin: theme.spacing(1),
-        background: "white",
-        boxShadow: "1px 1.3px",
         borderRadius: "6px"
     },
     addButton: {
-        color: "white"
-    }
+        color: "#041562"
+    },
 }));
 
 const AddForm = (props) => { 
@@ -52,62 +51,78 @@ const AddForm = (props) => {
     return(
 
         <form onSubmit={submitHandler}>
-            <div >
+            <Grid container direction={"column"} spacing={2}>
+            <Grid item >
                 <TextField
-                    className={classes.textField}
-                    label=""
-                    id="outlined-size-small"
-                    variant="filled"
+                    label="Date"
+                    id="date"
+                    variant="outlined"
                     size="small"
                     type="date"
-                    name='date' 
+                    name="date" 
+                    InputLabelProps={{
+                        shrink: true,
+                      }}
                     value={enteredDate} 
                     onChange={dateChangeHandler}
                     />
-            </div>
+            </Grid>
             {inputFields.map((inputfield, id) => (
-                <div key={id} className="new-task__controls">
+                <Grid item key={id} className="new-task__controls">
+                    <Grid container spacing={2} >
+                        <Grid item>
                             <TextField
-                            className={classes.textField}
                             label="From"
-                            id="outlined-size-small"
-                            variant="filled"
+                            id="time"
+                            variant="outlined"
                             size="small"
                             type="time" 
                             name='stime'
+                            InputLabelProps={{
+                                shrink: true,
+                              }}
                             value={inputFields.stime}
-                            onChange={ event => handleChangeInput(id, event)}
-                            placeholder="From" />
-
+                            onChange={ event => handleChangeInput(id, event)}/>
+                        </Grid>
+                        <Grid item>
                             <TextField
-                            className={classes.textField}
                             label="To"
-                            id="outlined-size-small"
-                            variant="filled"
+                            id="time"
+                            variant="outlined"
                             size="small"
                             type="time" 
-                            name='etime'
+                            name="etime"
+                            InputLabelProps={{
+                                shrink: true,
+                              }}
                             value={inputFields.etime}
-                            onChange={ event => handleChangeInput(id, event)}
-                            placeholder="To" />
-
+                            onChange={ event => handleChangeInput(id, event)}/>
+                        </Grid>
+                        <Grid item>
                             <TextField
-                            className={classes.textField}
                             label="Task"
                             id="outlined-size-small"
-                            variant="filled"
+                            variant="outlined"
                             size="small"
                             type="text"
                             name='tasktitle'
                             value={inputFields.tasktitle}
-                            onChange={ event => handleChangeInput(id, event)}
-                            placeholder="Task" />
+                            onChange={ event => handleChangeInput(id, event)}/>
+                        </Grid>
+                        <Grid item>
                             <IconButton onClick={handleAddFields}>
                                 <AddCircleIcon className={classes.addButton} />
                             </IconButton>
-                </div>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
             ))}
-            <button type='submit' className="btn btn-primary">Save</button>
+                <Grid item>
+                <Button variant="contained" type='submit'>Save</Button>
+                </Grid>
+            </Grid>
+            {/* <button type='submit' className="btn btn-primary">Save</button> */}
         </form>
     );
 };
