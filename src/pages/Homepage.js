@@ -34,7 +34,16 @@ const Homepage = () => {
          day = moment(day).format('YYYY-MM-DD');
          url += `&day=${day}`;
     }
-    url += '&nexturl=[LL_REPTAG_NEXTURL /]';
+    if(start_time){
+      url += `&start_time=${start_time}`;
+    }
+    if(end_time){
+          url += `&end_time=${end_time}`;
+    }
+    if(task){
+          url += `&task=${task}`;
+    }
+    url += '&nexturl='+ window.nextUrl;
     axios.get(url);
   };
 
