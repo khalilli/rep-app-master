@@ -31,12 +31,13 @@ const Homepage = () => {
         url += `&id=${id}`;
     }
     if(day){
-         day = moment(day).format('/Y/M/D:0:0:0');
+         day = moment(day).format('M/D/Y');
          console.log("date format", day);
          url += `&day=${day}`;
     }
     if(start_time){
       url += `&start_time=${start_time}`;
+      console.log("time format", start_time);
     }
     if(end_time){
           url += `&end_time=${end_time}`;
