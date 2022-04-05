@@ -31,7 +31,7 @@ const Homepage = () => {
         url += `&id=${id}`;
     }
     if(day){
-         day = moment(day).format('M/D/Y');
+         day = 'D/'+moment(day).format("YYYY/M/D")+':0:0:0';
          console.log("date format", day);
          url += `&day=${day}`;
     }
