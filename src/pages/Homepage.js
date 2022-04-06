@@ -23,17 +23,19 @@ const Initdata = [
 const Homepage = () => {
   const [tasks, setTasks] = useState(Initdata);
   const [loading, setLoading] = useState(false);
-
+  console.log("Tasks before", tasks);
   useEffect(() => {
     axios
       .get(
         "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D113704%26objAction%3DEditView%26viewType%3D1%26nexturl%3D%252Fotcs%252Fllisapi%252Edll%253Ffunc%253Dll%2526objid%253D100991%2526objAction%253Dbrowse%2526sort%253Dname"
       )
       .then((response) => {
-        console.log(response.data);
+        console.log("Response data",response.data);
         setTasks(response.data);
       });
   }, []);
+
+  console.log("Tasks after", tasks);
   
   const setData = async (id, day, start_time, end_time, task) => {
     var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=106810&objAction=RunReport";
