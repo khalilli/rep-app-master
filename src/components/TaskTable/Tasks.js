@@ -3,6 +3,7 @@ import TaskTable from "./TaskTable";
 
 const Tasks = (props) => {
     console.log("Tasks.js",props.items);
+    console.log("key in tasks", props.items.id);
     // const arr = [];
     // for (i=0; i<props.items.length-1; i++){
     //     for(j=i+1; j<props.items.length; j++){
@@ -13,7 +14,7 @@ const Tasks = (props) => {
     // }
     return(
         <div>            
-            {props.items.map((task, id) => (
+            {props.items.map((task) => (
                 <TaskTable 
                 key={task.id}
                 taskdate1={task.taskdate}
