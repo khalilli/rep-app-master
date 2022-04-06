@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import IconButton from '@mui/material/IconButton';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { makeStyles } from '@material-ui/core';
@@ -17,15 +17,9 @@ const TaskTable = (props) => {
         // console.log(row[index]);
         setRow(props.data1.splice(index,1));
     };
-    
-    console.log("taskdate", props.taskdate1);
-    console.log("start time", props.start_time1);
-    console.log("task", props.task1);
-    console.log("keys", props.key);
-
     return(
         <div className='task-table'>
-            <div className='task-date'>{props.taskdate1}</div>
+            <div className='task-date'>{props.date1}</div>
             <table>
                 <thead>
                     <tr>
@@ -38,9 +32,9 @@ const TaskTable = (props) => {
                 <tbody>
                     {(props.data1 || []).map((task, index) => (
                        <tr key={index}>
-                           <td>{task.start_time}</td>
-                           <td>{task.end_time}</td>
-                           <td>{task.task}</td>
+                           <td>{task.stime}</td>
+                           <td>{task.etime}</td>
+                           <td>{task.tasktitle}</td>
                            <td>
                                 {/* <IconButton onClick={props.removeTask}> */}
                                 <IconButton onClick={() => removeTask(index)}>
