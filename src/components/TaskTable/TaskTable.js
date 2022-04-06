@@ -18,7 +18,9 @@ const TaskTable = (props) => {
         setRow(props.data1.splice(index,1));
     };
     console.log("date", props.date1);
-    
+    console.log("data", props.data1);
+    console.log("data with index", props.data1[0]);
+
     return(
         <div className='task-table'>
             <div className='task-date'>{props.date1}</div>
