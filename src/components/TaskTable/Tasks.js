@@ -3,7 +3,6 @@ import TaskTable from "./TaskTable";
 
 const Tasks = (props) => {
     console.log("Tasks.js",props.items);
-    console.log("key in tasks", props.items[0].id);
     // const arr = [];
     // for (i=0; i<props.items.length-1; i++){
     //     for(j=i+1; j<props.items.length; j++){
