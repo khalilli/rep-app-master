@@ -119,7 +119,8 @@ const AddForm = (props) => {
                 </Grid>
             ))}
                 <Grid item>
-                <Button variant="contained" type='submit'>Save</Button>
+                { !props.load1 && <Button variant="contained" type='submit'>Save</Button>}
+                { props.load1 && <Button variant="contained" type='submit' disabled>Saving...</Button>}
                 </Grid>
             </Grid>
             {/* <button type='submit' className="btn btn-primary">Save</button> */}

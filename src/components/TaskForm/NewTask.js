@@ -15,7 +15,7 @@ const NewTask = (props) => {
         <div className='task'>
             <h3>Add Your Tasks</h3>
             <div className="new-task">
-                <AddForm onSaveTask={onSaveTaskHandler} />
+                <AddForm onSaveTask={onSaveTaskHandler} load1={props.load} />
             </div>
         </div>
     );
