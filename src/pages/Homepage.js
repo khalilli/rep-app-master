@@ -38,7 +38,9 @@ const Homepage = () => {
                     tasktitle: response.data[i].task}, ]
           };
           console.log("homepage task", Task);
-          // setTasks(Task);
+          setTasks((prevTasks)=>{
+            return [Task, ...prevTasks];
+          });
         }
       });
   }, []);
