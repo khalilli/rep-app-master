@@ -37,8 +37,8 @@ const Homepage = () => {
                     etime: response.data[i].end_time,
                     tasktitle: response.data[i].task}, ]
           };
-          console.log("Task", Task);
-          setTasks(Task);
+          console.log("homepage task", Task);
+          // setTasks(Task);
         }
       });
   }, []);
