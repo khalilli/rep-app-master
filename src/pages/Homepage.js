@@ -30,7 +30,7 @@ const Homepage = () => {
       )
       .then((response) => {
         console.log("length",response.data.length);
-        for (var i=0; i<response.data.length; i++){
+        for (var i=0; i<response.data.length-1; i++){
           const Task = {
             date: response.data[i].taskdate,
             data: [{stime: response.data[i].start_time,
