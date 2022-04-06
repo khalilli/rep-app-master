@@ -8,6 +8,7 @@ const Tasks = (props) => {
             {props.items.map((task, id) => (
                 <TaskTable 
                 key={task.id}
+                taskdate1={task.taskdate}
                 date1={task.date}
                 data1={task.data}
                 // removeTask={()=> props.removeTask(task.id)}

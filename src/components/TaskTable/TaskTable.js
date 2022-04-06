@@ -18,6 +18,7 @@ const TaskTable = (props) => {
         setRow(props.data1.splice(index,1));
     };
     console.log("date", props.date1);
+    console.log("taskdate", props.taskdate1);
     console.log("data", props.data1);
 
     return(
