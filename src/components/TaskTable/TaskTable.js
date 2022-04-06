@@ -20,6 +20,7 @@ const TaskTable = (props) => {
     console.log("date", props.date1);
     console.log("taskdate", props.taskdate1);
     console.log("data", props.data1);
+    console.log("keys", props.key);
 
     return(
         <div className='task-table'>
