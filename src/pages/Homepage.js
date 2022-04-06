@@ -37,7 +37,7 @@ const Homepage = () => {
                     etime: response.data[i].end_time,
                     tasktitle: response.data[i].task}, ]
           };
-          console.log("homepage task", Task);
+          console.log("id and task", response.data[i].id, Task);
           setTasks((prevTasks)=>{
             return [Task, ...prevTasks];
           });
