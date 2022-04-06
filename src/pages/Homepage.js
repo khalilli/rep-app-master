@@ -4,6 +4,7 @@ import NewTask from "../components/TaskForm/NewTask";
 import Tasks from "../components/TaskTable/Tasks";
 import axios from 'axios';
 import moment from 'moment';
+import { v4 as uuid } from 'uuid';
 import "./Navbar.css"
 
 const Initdata = [
@@ -33,7 +34,9 @@ const Homepage = () => {
           var taskdate = moment(response.data[i].taskdate).format('LL');
           const Task = {
             date: taskdate,
-            data: [{stime: response.data[i].start_time,
+            data: [{
+                    id: uuid(),
+                    stime: response.data[i].start_time,
                     etime: response.data[i].end_time,
                     tasktitle: response.data[i].task}, ]
           };
