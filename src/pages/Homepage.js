@@ -33,6 +33,15 @@ const Homepage = () => {
         console.log("Date",response.data[0].taskdate);
         console.log("Start time", response.data[0].start_time);
         console.log("Response data",response.data);
+        for (var i=0; i<response.data.length; i++){
+          const Task = {
+            date: response.data[i].taskdate,
+            data: [{stime: response.data[i].start_time,
+                    etime: response.data[i].end_time,
+                    tasktitle: response.data[i].task}, ]
+          };
+          console.log("Task", Task);
+        }
         setTasks(response.data);
       });
   }, []);
