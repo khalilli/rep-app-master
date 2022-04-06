@@ -23,7 +23,6 @@ const Initdata = [
 const Homepage = () => {
   const [tasks, setTasks] = useState(Initdata);
   const [loading, setLoading] = useState(false);
-  console.log("Tasks before", tasks);
   useEffect(() => {
     axios
       .get(
@@ -35,7 +34,6 @@ const Homepage = () => {
       });
   }, []);
 
-  console.log("Tasks after", tasks);
   
   const setData = async (id, day, start_time, end_time, task) => {
     var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=106810&objAction=RunReport";
@@ -72,6 +70,7 @@ const Homepage = () => {
 
     };
 
+    console.log("Homepage", tasks);
 
     
       return (
