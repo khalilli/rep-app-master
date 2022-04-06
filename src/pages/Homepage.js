@@ -31,8 +31,9 @@ const Homepage = () => {
       .then((response) => {
         console.log("length",response.data.length);
         for (var i=0; i<response.data.length-1; i++){
+          var taskdate = moment(response.data[i].taskdate).format("DD-MM-YYYY");
           const Task = {
-            date: response.data[i].taskdate,
+            date: taskdate,
             data: [{stime: response.data[i].start_time,
                     etime: response.data[i].end_time,
                     tasktitle: response.data[i].task}, ]
