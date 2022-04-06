@@ -7,17 +7,17 @@ import moment from 'moment';
 import "./Navbar.css"
 
 const Initdata = [
-  {
-  id:'0',
-  date: new Date("March 21, 2022").toDateString(),
-  data: 
-    [
-      {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
-      {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
-      {id: '3', stime: '13:00', etime: '14:00', tasktitle: 'laylay'},
-      {id: '4', stime: '14:00', etime: '15:00', tasktitle: 'oaylay'},
-    ]
-  },
+  // {
+  // id:'0',
+  // date: new Date("March 21, 2022").toDateString(),
+  // data: 
+  //   [
+  //     {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
+  //     {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
+  //     {id: '3', stime: '13:00', etime: '14:00', tasktitle: 'laylay'},
+  //     {id: '4', stime: '14:00', etime: '15:00', tasktitle: 'oaylay'},
+  //   ]
+  // },
 ];
 
 const Homepage = () => {
@@ -40,7 +40,6 @@ const Homepage = () => {
           console.log("Task", Task);
           setTasks(Task);
         }
-
       });
   }, []);
 
