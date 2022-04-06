@@ -23,28 +23,46 @@ const Initdata = [
 const Homepage = () => {
   const [tasks, setTasks] = useState(Initdata);
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    axios
-      .get(
-        "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D113704%26objAction%3DEditView%26viewType%3D1%26nexturl%3D%252Fotcs%252Fllisapi%252Edll%253Ffunc%253Dll%2526objid%253D100991%2526objAction%253Dbrowse%2526sort%253Dname"
-      )
-      .then((response) => {
-        console.log("length",response.data.length);
-        for (var i=0; i<response.data.length-1; i++){
-          var taskdate = moment(response.data[i].taskdate).format('LL');
-          const Task = {
-            date: taskdate,
-            data: [{stime: response.data[i].start_time,
-                    etime: response.data[i].end_time,
-                    tasktitle: response.data[i].task}, ]
-          };
-          console.log("homepage task", Task);
-          setTasks((prevTasks)=>{
-            return [Task, ...prevTasks];
-          });
-        }
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D113704%26objAction%3DEditView%26viewType%3D1%26nexturl%3D%252Fotcs%252Fllisapi%252Edll%253Ffunc%253Dll%2526objid%253D100991%2526objAction%253Dbrowse%2526sort%253Dname"
+  //     )
+  //     .then((response) => {
+  //       console.log("length",response.data.length);
+  //       for (var i=0; i<response.data.length-1; i++){
+  //         var taskdate = moment(response.data[i].taskdate).format('LL');
+  //         const Task = {
+  //           date: taskdate,
+  //           data: [{stime: response.data[i].start_time,
+  //                   etime: response.data[i].end_time,
+  //                   tasktitle: response.data[i].task}, ]
+  //         };
+  //         console.log("homepage task", Task);
+  //         setTasks((prevTasks)=>{
+  //           return [Task, ...prevTasks];
+  //         });
+  //       }
+  //     });
+  // }, []);
+
+  const getData = async () => {
+    var response = await axios.get("http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D113704%26objAction%3DEditView%26viewType%3D1%26nexturl%3D%252Fotcs%252Fllisapi%252Edll%253Ffunc%253Dll%2526objid%253D100991%2526objAction%253Dbrowse%2526sort%253Dname");
+    for (var i=0; i<response.data.length-1; i++){
+      var taskdate = moment(response.data[i].taskdate).format('LL');
+      const Task = {
+        date: taskdate,
+        data: [{stime: response.data[i].start_time,
+                etime: response.data[i].end_time,
+                tasktitle: response.data[i].task}, ]
+      };
+      console.log("homepage task", Task);
+      setTasks((prevTasks)=>{
+        return [Task, ...prevTasks];
       });
-  }, []);
+    } 
+  }
+  getData();
 
   
   const setData = async (id, day, start_time, end_time, task) => {
