@@ -23,7 +23,7 @@ const TaskTable = (props) => {
 
     return(
         <div className='task-table'>
-            <div className='task-date'>{props.date1}</div>
+            <div className='task-date'>{props.taskdate1}</div>
             <table>
                 <thead>
                     <tr>
@@ -36,9 +36,9 @@ const TaskTable = (props) => {
                 <tbody>
                     {(props.data1 || []).map((task, index) => (
                        <tr key={index}>
-                           <td>{task.stime}</td>
-                           <td>{task.etime}</td>
-                           <td>{task.tasktitle}</td>
+                           <td>{task.start_time}</td>
+                           <td>{task.end_time}</td>
+                           <td>{task.task}</td>
                            <td>
                                 {/* <IconButton onClick={props.removeTask}> */}
                                 <IconButton onClick={() => removeTask(index)}>
