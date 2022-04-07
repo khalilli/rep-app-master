@@ -31,7 +31,7 @@ const Homepage = () => {
         currentValue
       );
       return result;
-    }, {});
+    }, []);
   };
 
   useEffect(() => {
@@ -58,11 +58,12 @@ const Homepage = () => {
           });
         }
         console.log("TaskTable", taskTables)
-        const groupedTablesObj = groupBy(taskTables, 'id');
-        console.log("Grouped Tables Object", groupedTablesObj); 
+        const groupedTables = groupBy(taskTables, 'id');
+        console.log("Grouped Tables Object", groupedTables); 
+        console.log("indexed",groupedTables[3]);
         // const groupedArrTables = [{}, ];
         // for(var i=0;i<)
-        console.log("keys of object", Object.keys(groupedTablesObj).length); 
+        // console.log("keys of object", Object.keys(groupedTables).length); 
       });
   }, []);
   
