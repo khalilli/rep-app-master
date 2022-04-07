@@ -14,7 +14,7 @@ const TaskTable = (props) => {
     const [row, setRow] = useState(props.data1);
 
     const removeTask = (index) => {
-        console.log("Index and row",index, props.data1[index]);
+        console.log("Index and row and id",index, props.data1[index], props.data1.id);
         setRow(props.data1.splice(index,1));
     };
     return(
