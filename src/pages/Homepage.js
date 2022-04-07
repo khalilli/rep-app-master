@@ -54,11 +54,12 @@ const Homepage = () => {
           };
           taskTables.unshift(Task);
 
-          setTasks((prevTasks)=>{
-            return [Task, ...prevTasks];
-          });
+          // setTasks((prevTasks)=>{
+          //   return [Task, ...prevTasks];
+          // });
         }
         console.log("TaskTable", taskTables)
+
         const groupedTables = [];
         taskTables.forEach(function(item) {
           var existing = groupedTables.filter(function(v, i) {
@@ -73,11 +74,9 @@ const Homepage = () => {
             groupedTables.push(item);
           }
         });
+
         console.log("last", groupedTables);
-        // const groupedTables = groupBy(taskTables, 'id');
-        // console.log("Grouped Tables", groupedTables); 
-
-
+        setTasks(groupedTables);
       });
   }, []);
   
