@@ -31,7 +31,7 @@ const Homepage = () => {
         currentValue
       );
       return result;
-    }, {});
+    }, []);
   };
 
   useEffect(() => {
@@ -59,12 +59,10 @@ const Homepage = () => {
         }
         console.log("TaskTable", taskTables)
         const groupedTables = groupBy(taskTables, 'id');
-        console.log("Grouped Tables Object", groupedTables); 
+        console.log("Grouped Tables", groupedTables); 
         
         // const groupedArrTables = [{}, ];
         // for(var i=0;i<)
-        var keys = Object.keys(taskTables);
-        console.log("keys of object", Object.keys(groupedTables).length, keys); 
       });
   }, []);
   
