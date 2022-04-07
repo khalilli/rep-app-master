@@ -50,11 +50,8 @@ const Homepage = () => {
           });
         }
         console.log("TaskTable", taskTables)
-        // let tableId = response.data.id;
-        // const tables=response.data;
-        // console.log("tables", tables)
-        // const taskTable = tables.groupBy(table => {return table.id});
-        // console.log("Tables in Homepage", taskTable); 
+        const groupedTables = taskTables.groupBy(table => {return table.id});
+        console.log("Tables in Homepage", groupedTables); 
       });
   }, []);
   
