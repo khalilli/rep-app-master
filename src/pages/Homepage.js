@@ -97,6 +97,7 @@ const Homepage = () => {
       setTasks((prevTasks)=>{
         return [enteredTask, ...prevTasks];
       });
+     
       setLoading(false);
 
       {enteredTask.data.map((task) => (
@@ -107,6 +108,7 @@ const Homepage = () => {
       return (
         <div>
           <NewTask onAddTask={AddTaskHandler} />
+          {loading && <div>Loading...</div>}
           <Tasks items={tasks} load={loading}/>
         </div>
       );
