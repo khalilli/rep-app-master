@@ -31,7 +31,7 @@ const Homepage = () => {
         currentValue
       );
       return result;
-    }, {});
+    }, []);
   };
 
   useEffect(() => {
