@@ -51,16 +51,16 @@ const Homepage = () => {
                     etime: response.data[i].end_time,
                     tasktitle: response.data[i].task}, ]
           };
-          console.log("task", Task);
           taskTables.unshift(Task);
 
-          setTasks((prevTasks)=>{
-            return [Task, ...prevTasks];
-          });
+          // setTasks((prevTasks)=>{
+          //   return [Task, ...prevTasks];
+          // });
         }
         console.log("TaskTable", taskTables)
         const groupedTables = groupBy(taskTables, 'id');
         console.log("Grouped Tables", groupedTables); 
+        setTasks(groupedTables);
       });
   }, []);
   
