@@ -66,10 +66,10 @@ const Homepage = () => {
           });
           if (existing.length) {
             var existingIndex = groupedTables.indexOf(existing[0]);
-            groupedTables[existingIndex].value = groupedTables[existingIndex].value.concat(item.value);
+            groupedTables[existingIndex].data = groupedTables[existingIndex].data.concat(item.data);
           } else {
-            if (typeof item.value == 'string')
-              item.value = [item.value];
+            if (typeof item.data == 'string')
+              item.data = [item.data];
             groupedTables.push(item);
           }
         });
