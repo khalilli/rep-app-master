@@ -43,15 +43,15 @@ const Homepage = () => {
                     tasktitle: response.data[i].task}, ]
           };
           console.log("task", Task);
-          let tableId = response.data.id;
-          const tables=response.data;
-          console.log("tables", tables)
-          const table = tables.groupBy(({tableId}) => tableId);
-          console.log("Tables in Homepage", table); 
           setTasks((prevTasks)=>{
             return [Task, ...prevTasks];
           });
         }
+        let tableId = response.data.id;
+        const tables=response.data;
+        console.log("tables", tables)
+        const taskTable = tables.groupBy(table => {return table.id});
+        console.log("Tables in Homepage", taskTable); 
       });
   }, []);
   
