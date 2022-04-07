@@ -64,7 +64,7 @@ const Homepage = () => {
         // const groupedArrTables = [{}, ];
         // for(var i=0;i<)
         var keys = Object.keys(taskTables);
-        console.log("keys of object", Object.keys(groupedTables).length); 
+        console.log("keys of object", Object.keys(groupedTables).length, keys); 
       });
   }, []);
   
