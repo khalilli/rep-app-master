@@ -31,7 +31,7 @@ const Homepage = () => {
         currentValue
       );
       return result;
-    }, []);
+    }, {});
   };
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const Homepage = () => {
       )
       .then((response) => {
         const taskTables = [{},];
-
+       
         for (var i=0; i<response.data.length-1; i++){
           const Task = {
             id: response.data[i].id,
@@ -60,10 +60,11 @@ const Homepage = () => {
         console.log("TaskTable", taskTables)
         const groupedTables = groupBy(taskTables, 'id');
         console.log("Grouped Tables Object", groupedTables); 
-        console.log("indexed",groupedTables[3]);
+        
         // const groupedArrTables = [{}, ];
         // for(var i=0;i<)
-        // console.log("keys of object", Object.keys(groupedTables).length); 
+        var keys = Object.keys(taskTables);
+        console.log("keys of object", Object.keys(groupedTables).length); 
       });
   }, []);
   
