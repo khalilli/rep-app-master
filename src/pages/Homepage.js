@@ -25,14 +25,15 @@ const Homepage = () => {
   const [tasks, setTasks] = useState(Initdata);
   const [loading, setLoading] = useState(false);
 
-  const groupBy = (array, key) => {
-    return array.reduce((result, currentValue) => {
-      (result[currentValue[key]] = result[currentValue[key]] || []).push(
-        currentValue
-      );
-      return result;
-    }, []);
-  };
+  // const groupBy = (array, key) => {
+  //   return array.reduce((result, currentValue) => {
+  //     (result[currentValue[key]] = result[currentValue[key]] || []).push(
+  //       currentValue
+  //     );
+  //     return result;
+  //   }, []);
+  // };
+
 
   useEffect(() => {
     axios.get(
@@ -58,11 +59,25 @@ const Homepage = () => {
           });
         }
         console.log("TaskTable", taskTables)
-        const groupedTables = groupBy(taskTables, 'id');
-        console.log("Grouped Tables", groupedTables); 
-        
-        // const groupedArrTables = [{}, ];
-        // for(var i=0;i<)
+        const groupedTables = [];
+        taskTables.forEach(function(item) {
+          var existing = groupedTables.filter(function(v, i) {
+            return v.id == item.id;
+          });
+          if (existing.length) {
+            var existingIndex = groupedTables.indexOf(existing[0]);
+            groupedTables[existingIndex].value = groupedTables[existingIndex].value.concat(item.value);
+          } else {
+            if (typeof item.value == 'string')
+              item.value = [item.value];
+            groupedTables.push(item);
+          }
+        });
+        console.log("last", groupedTables);
+        // const groupedTables = groupBy(taskTables, 'id');
+        // console.log("Grouped Tables", groupedTables); 
+
+
       });
   }, []);
   
