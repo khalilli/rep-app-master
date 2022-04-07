@@ -58,9 +58,11 @@ const Homepage = () => {
           });
         }
         console.log("TaskTable", taskTables)
-        const groupedTables = groupBy(taskTables, 'id');
-        console.log("Grouped Tables", groupedTables); 
-        console.log("not grouped tasks", tasks);
+        const groupedTablesObj = groupBy(taskTables, 'id');
+        console.log("Grouped Tables Object", groupedTablesObj); 
+        // const groupedArrTables = [{}, ];
+        // for(var i=0;i<)
+        console.log("keys of object", Object.keys(groupedTablesObj).length); 
       });
   }, []);
   
