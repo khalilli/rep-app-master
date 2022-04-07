@@ -12,9 +12,9 @@ const TaskTable = (props) => {
     const classes = useStyles();
 
     const [row, setRow] = useState(props.data1);
-    // console.log("TaskTable", row);
+
     const removeTask = (index) => {
-        // console.log(row[index]);
+        console.log("Index and row",index, props.data1[index]);
         setRow(props.data1.splice(index,1));
     };
     return(

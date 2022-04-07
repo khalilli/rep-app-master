@@ -108,7 +108,6 @@ const Homepage = () => {
       return (
         <div>
           <NewTask onAddTask={AddTaskHandler} />
-          {loading && <div>Loading...</div>}
           <Tasks items={tasks} load={loading}/>
         </div>
       );
