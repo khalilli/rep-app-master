@@ -45,13 +45,14 @@ const Homepage = () => {
           };
           console.log("task", Task);
           taskTables.unshift(Task);
+
           setTasks((prevTasks)=>{
             return [Task, ...prevTasks];
           });
         }
         console.log("TaskTable", taskTables)
-        const groupedTables = taskTables.groupBy(table => {return table.id});
-        console.log("Tables in Homepage", groupedTables); 
+        taskTables.groupBy(table => {return table.id});
+        // console.log("Tables in Homepage", groupedTables); 
       });
   }, []);
   
