@@ -61,6 +61,7 @@ const Homepage = () => {
         const groupedTables = groupBy(taskTables, 'id');
         console.log("Grouped Tables", groupedTables); 
         setTasks(groupedTables);
+        console.log("last tasks", tasks);
       });
   }, []);
   
