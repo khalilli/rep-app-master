@@ -76,6 +76,7 @@ const Homepage = () => {
         });
 
         console.log("last", groupedTables);
+        groupedTables.pop();
         setTasks(groupedTables);
       });
   }, []);
