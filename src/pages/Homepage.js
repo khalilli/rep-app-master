@@ -32,6 +32,7 @@ const Homepage = () => {
       )
       .then((response) => {
         console.log("length",response.data.length);
+        const taskTables = [{},];
         for (var i=0; i<response.data.length-1; i++){
           const Task = {
             id: response.data[i].id,
@@ -43,15 +44,17 @@ const Homepage = () => {
                     tasktitle: response.data[i].task}, ]
           };
           console.log("task", Task);
+          taskTables.unshift(Task);
           setTasks((prevTasks)=>{
             return [Task, ...prevTasks];
           });
         }
-        let tableId = response.data.id;
-        const tables=response.data;
-        console.log("tables", tables)
-        const taskTable = tables.groupBy(table => {return table.id});
-        console.log("Tables in Homepage", taskTable); 
+        console.log("TaskTable", taskTables)
+        // let tableId = response.data.id;
+        // const tables=response.data;
+        // console.log("tables", tables)
+        // const taskTable = tables.groupBy(table => {return table.id});
+        // console.log("Tables in Homepage", taskTable); 
       });
   }, []);
   
