@@ -25,14 +25,22 @@ const Homepage = () => {
   const [tasks, setTasks] = useState(Initdata);
   const [loading, setLoading] = useState(false);
 
-  // const taskTables = [{}, ];
+  const groupBy = (array, key) => {
+    return array.reduce((result, currentValue) => {
+      (result[currentValue[key]] = result[currentValue[key]] || []).push(
+        currentValue
+      );
+      return result;
+    }, {});
+  };
+
   useEffect(() => {
     axios.get(
         "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D113704%26objAction%3DEditView%26viewType%3D1%26nexturl%3D%252Fotcs%252Fllisapi%252Edll%253Ffunc%253Dll%2526objid%253D100991%2526objAction%253Dbrowse%2526sort%253Dname"
       )
       .then((response) => {
-        console.log("length",response.data.length);
         const taskTables = [{},];
+
         for (var i=0; i<response.data.length-1; i++){
           const Task = {
             id: response.data[i].id,
@@ -51,8 +59,8 @@ const Homepage = () => {
           });
         }
         console.log("TaskTable", taskTables)
-        taskTables.groupBy(table => {return table.id});
-        // console.log("Tables in Homepage", groupedTables); 
+        const groupedTables = groupBy(taskTables, 'id');
+        console.log("Grouped Tables", groupedTables); 
       });
   }, []);
   
