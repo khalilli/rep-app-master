@@ -53,9 +53,9 @@ const Homepage = () => {
           };
           taskTables.unshift(Task);
 
-          // setTasks((prevTasks)=>{
-          //   return [Task, ...prevTasks];
-          // });
+          setTasks((prevTasks)=>{
+            return [Task, ...prevTasks];
+          });
         }
         console.log("TaskTable", taskTables)
         const groupedTables = groupBy(taskTables, 'id');
