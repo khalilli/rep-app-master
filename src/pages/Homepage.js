@@ -6,34 +6,24 @@ import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
 import "./Navbar.css"
-// userid, status(remove from db), group by
+// userid, status(remove from db)
 const Initdata = [
-  {
-  id:'0',
-  date: new Date("March 21, 2022").toDateString(),
-  data: 
-    [
-      {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
-      {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
-      {id: '3', stime: '13:00', etime: '14:00', tasktitle: 'laylay'},
-      {id: '4', stime: '14:00', etime: '15:00', tasktitle: 'oaylay'},
-    ]
-  },
+  // {
+  // id:'0',
+  // date: new Date("March 21, 2022").toDateString(),
+  // data: 
+  //   [
+  //     {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
+  //     {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
+  //     {id: '3', stime: '13:00', etime: '14:00', tasktitle: 'laylay'},
+  //     {id: '4', stime: '14:00', etime: '15:00', tasktitle: 'oaylay'},
+  //   ]
+  // },
 ];
 
 const Homepage = () => {
   const [tasks, setTasks] = useState(Initdata);
   const [loading, setLoading] = useState(false);
-
-  // const groupBy = (array, key) => {
-  //   return array.reduce((result, currentValue) => {
-  //     (result[currentValue[key]] = result[currentValue[key]] || []).push(
-  //       currentValue
-  //     );
-  //     return result;
-  //   }, []);
-  // };
-
 
   useEffect(() => {
     axios.get(
@@ -53,10 +43,6 @@ const Homepage = () => {
                     tasktitle: response.data[i].task}, ]
           };
           taskTables.unshift(Task);
-
-          // setTasks((prevTasks)=>{
-          //   return [Task, ...prevTasks];
-          // });
         }
         console.log("TaskTable", taskTables)
 
@@ -111,7 +97,6 @@ const Homepage = () => {
       setTasks((prevTasks)=>{
         return [enteredTask, ...prevTasks];
       });
-
       setLoading(false);
 
       {enteredTask.data.map((task) => (
