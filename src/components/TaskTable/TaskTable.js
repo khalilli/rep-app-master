@@ -20,8 +20,13 @@ const TaskTable = (props) => {
             if (x.id === props.data1[index].id)
                 return x.id;    
         }
+        // function selectId(){
+        //     for (i=0;i<props.items1.length;i++){
+        //         if (props.items1[i].id === props.data1[index])
+        //     }
+        // }
         console.log("table index",props.items1.findIndex(selectId));
-        console.log(props.items1[0].id);
+        console.log("check", props.items1);
         console.log(props.items1[1].id);
         setRow(props.data1.splice(index,1));
         if (props.data1.length === 0){
