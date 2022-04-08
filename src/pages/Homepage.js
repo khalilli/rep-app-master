@@ -105,7 +105,7 @@ const Homepage = () => {
         setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId)
       ))
     };
-    console.log("Row id",tasks);
+    console.log("Row id",tasks[1]);
     console.log("User id", window.userId);
     
       return (
