@@ -47,12 +47,11 @@ const AddForm = (props) => {
             data: inputFields,
         };
         props.onSaveTask(taskData);
-        setInputFields({stime: '', etime: '', tasktitle: ''});
     };
 
-    // const refresh = () => {
-    //     window.location.reload(true);
-    // }
+    const refresh = () => {
+        window.location.reload(true);
+    }
     return(
 
         <form onSubmit={submitHandler}>
@@ -127,7 +126,7 @@ const AddForm = (props) => {
                 {/* { !props.load1 && <Button variant="contained" type='submit'>Save</Button>}
                 { props.load1 && <Button variant="contained" type='submit' disabled>Saving...</Button>}
                  */}
-                 <Button variant="contained" type='submit' >Save</Button>
+                 <Button variant="contained" type='submit' onClick={refresh}>Save</Button>
                 </Grid>
             </Grid>
         </form>
