@@ -6,7 +6,7 @@ import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
 import "./Navbar.css"
-// userid, status(remove from db)
+// userid, status(remove from db), order
 const Initdata = [
   // {
   // id:'0',
@@ -24,6 +24,7 @@ const Initdata = [
 const Homepage = () => {
   const [tasks, setTasks] = useState(Initdata);
   const [loading, setLoading] = useState(false);
+
   setLoading(true);
   useEffect(() => {
     axios.get(
@@ -92,19 +93,14 @@ const Homepage = () => {
   };
 
     const AddTaskHandler = (enteredTask) => {
-
-      // setLoading(true);
-      
       console.log("Entered", enteredTask);
       setTasks((prevTasks)=>{
         return [enteredTask, ...prevTasks];
       });
-     
-      // setLoading(false);
 
-      {enteredTask.data.map((task) => (
+      enteredTask.data.map((task) => (
         setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle)
-      ))}
+      ))
     };
     
       return (

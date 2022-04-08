@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { makeStyles } from '@material-ui/core';
@@ -12,14 +12,19 @@ const TaskTable = (props) => {
     const classes = useStyles();
 
     const [row, setRow] = useState(props.data1);
+    const [showTable, setShowTable] = useState(true);
 
     const removeTask = (index) => {
         console.log("Index and row and id",index, props.data1[index], props.data1[index].id);
         console.log("table index",props.items1.findIndex(x => x.id === props.data1[index].id));
         setRow(props.data1.splice(index,1));
+        if (props.data1.length === 0){
+            setShowTable(false);
+        }
     };
     return(
-        <div className='task-table'>
+        <div>
+{showTable ? <div className='task-table'>
             <div className='task-date'>{props.date1}</div>
             <table>
                 <thead>
@@ -46,6 +51,7 @@ const TaskTable = (props) => {
                     ))}
                 </tbody>
             </table>
+            </div> : null}
         </div>
     );
 };
