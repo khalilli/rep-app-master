@@ -26,6 +26,8 @@ const AddForm = (props) => {
     ]);
     const [enteredDate, setEnteredDate] = useState('');
 
+    const [todos, setTodos] = useState([]);
+
     const dateChangeHandler = (event) => {
         setEnteredDate(event.target.value);
     };
@@ -53,8 +55,9 @@ const AddForm = (props) => {
     };
 
     const empty = useCallback(() => {
-    }, [setInputFields({stime: '', etime: '', tasktitle: ''}), setEnteredDate('') ]);
-    
+        setTodos([setInputFields({stime: '', etime: '', tasktitle: ''}), setEnteredDate('') ]);
+    }, [todos]);
+
     // const refresh = () => {
     //     window.location.reload(false);
     // }
