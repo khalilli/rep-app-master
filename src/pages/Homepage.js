@@ -63,6 +63,7 @@ const Homepage = () => {
         });
 
         console.log("last", groupedTables);
+        console.log("last row id", groupedTables[1].data[0].id);
         groupedTables.pop();
         setTasks(groupedTables);
         // setLoading(false);
