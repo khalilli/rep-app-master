@@ -15,7 +15,6 @@ const TaskTable = (props) => {
     const [showTable, setShowTable] = useState(true);
 
     const removeTask = (index) => {
-        console.log(props.items1[1].data);
         console.log("Index and row and id",index, props.data1[index], props.data1[index].id);
         function selectId(x) {
             if (x.data.id === props.data1[index].id)
@@ -27,7 +26,7 @@ const TaskTable = (props) => {
         //     }
         // }
         console.log("table index",props.items1.findIndex(selectId));
-        console.log("check", props.items1);
+        
         setRow(props.data1.splice(index,1));
 
         if (props.data1.length === 0){
