@@ -44,11 +44,11 @@ const AddForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
         const taskData = {
-            date: moment(enteredDate).format("MM/DD/YYYY"),
+            date: moment(enteredDate).format('LL'),
             data: inputFields,
         };
         props.onSaveTask(taskData);
-
+        setEnteredDate('');
     };
     return(
 
