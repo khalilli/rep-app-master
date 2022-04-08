@@ -50,7 +50,8 @@ const AddForm = (props) => {
     };
 
     const refresh = () => {
-        window.location.reload(true);
+        // window.location.reload(true);
+        console.log("hey");
     }
     return(
 
