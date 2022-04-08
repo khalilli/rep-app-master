@@ -47,6 +47,8 @@ const AddForm = (props) => {
             data: inputFields,
         };
         props.onSaveTask(taskData);
+        setInputFields('');
+        setEnteredDate('');
     };
     return(
 

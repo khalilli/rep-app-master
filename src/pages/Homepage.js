@@ -6,7 +6,7 @@ import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
 import "./Navbar.css"
-// userid, status(remove from db), order
+// userid, status(remove from db),
 const Initdata = [
   // {
   // id:'0',
