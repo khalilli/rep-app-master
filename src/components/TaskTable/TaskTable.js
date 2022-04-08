@@ -16,12 +16,13 @@ const TaskTable = (props) => {
 
     const removeTask = (index) => {
         console.log("Index and row and id",index, props.data1[index], props.data1[index].id);
-        // function findId(x) {
-        //     x.id === props.data1[index].id;
-        // }
-        // console.log("table index",props.items1.findIndex(x => x.id === props.data1[index].id));
-        console.log(props.items1[0]);
-        console.log(props.items1[1]);
+        function selectId(x) {
+            if (x.id === props.data1[index].id)
+                return x.id;    
+        }
+        console.log("table index",props.items1.findIndex(selectId));
+        console.log(props.items1[0].id);
+        console.log(props.items1[1].id);
         setRow(props.data1.splice(index,1));
         if (props.data1.length === 0){
             setShowTable(false);
