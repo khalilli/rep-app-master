@@ -54,9 +54,9 @@ const AddForm = (props) => {
         
     };
 
-    const empty = useCallback(() => {
-        setTodos([setInputFields({stime: '', etime: '', tasktitle: ''}), setEnteredDate('') ]);
-    }, [todos]);
+    // const empty = useCallback(() => {
+    //     setTodos([setInputFields({stime: '', etime: '', tasktitle: ''}), setEnteredDate('') ]);
+    // }, [todos]);
 
     // const refresh = () => {
     //     window.location.reload(false);
@@ -135,7 +135,7 @@ const AddForm = (props) => {
                 {/* { !props.load1 && <Button variant="contained" type='submit'>Save</Button>}
                 { props.load1 && <Button variant="contained" type='submit' disabled>Saving...</Button>}
                  */}
-                 <Button variant="contained" type='submit' onClick={empty}>Save</Button>
+                 <Button variant="contained" type='submit'>Save</Button>
                 </Grid>
             </Grid>
             {/* <button type='submit' className="btn btn-primary">Save</button> */}
