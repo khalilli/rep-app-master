@@ -45,7 +45,7 @@ const Homepage = () => {
           };
           taskTables.unshift(Task);
         }
-        console.log("TaskTable", taskTables)
+        console.log("TaskTable", taskTables);
 
         const groupedTables = [];
         taskTables.forEach(function(item) {

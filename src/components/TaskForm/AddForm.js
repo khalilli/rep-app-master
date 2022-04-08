@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import TextField from '@mui/material/TextField';
@@ -31,7 +31,6 @@ const AddForm = (props) => {
     };
 
     const handleChangeInput = (id, event) => {
-        // console.log(index, event.target.value);
         const values = [...inputFields];
         values[id][event.target.name] = event.target.value;
         setInputFields(values);
@@ -48,17 +47,12 @@ const AddForm = (props) => {
             data: inputFields,
         };
         props.onSaveTask(taskData);
-
-        
+        setInputFields({stime: '', etime: '', tasktitle: ''});
     };
 
-    // const refresh = useCallback(() => {
-    //     setTodos([setInputFields({stime: '', etime: '', tasktitle: ''}), setEnteredDate('') ]);
-    // }, [todos]);
-
-    const refresh = () => {
-        window.location.reload(true);
-    }
+    // const refresh = () => {
+    //     window.location.reload(true);
+    // }
     return(
 
         <form onSubmit={submitHandler}>
@@ -133,10 +127,9 @@ const AddForm = (props) => {
                 {/* { !props.load1 && <Button variant="contained" type='submit'>Save</Button>}
                 { props.load1 && <Button variant="contained" type='submit' disabled>Saving...</Button>}
                  */}
-                 <Button variant="contained" type='submit' onClick={refresh}>Save</Button>
+                 <Button variant="contained" type='submit' >Save</Button>
                 </Grid>
             </Grid>
-            {/* <button type='submit' className="btn btn-primary">Save</button> */}
         </form>
     );
 };
