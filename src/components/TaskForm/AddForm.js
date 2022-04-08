@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import { makeStyles } from "@material-ui/core/styles";
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import moment from 'moment';
 import "./AddForm.css";
 
 const useStyles = makeStyles(theme => ({
@@ -43,7 +44,7 @@ const AddForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
         const taskData = {
-            date: new Date(enteredDate).toDateString(),
+            date: moment(enteredDate).format("MM/DD/YYYY"),
             data: inputFields,
         };
         props.onSaveTask(taskData);
