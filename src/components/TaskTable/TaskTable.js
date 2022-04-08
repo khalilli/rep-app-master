@@ -18,13 +18,13 @@ const TaskTable = (props) => {
         console.log("Index and row and id",index, props.data1[index], props.data1[index].id);
         console.log("table index",props.items1.findIndex(x => x.id === props.data1[index].id));
         setRow(props.data1.splice(index,1));
-        if (props.data1.length === 0){
-            setShowTable(false);
-        }
+        // if (props.data1.length === 0){
+        //     setShowTable(false);
+        // }
     };
     return(
         <div>
-{showTable ? <div className='task-table'>
+<div className='task-table'>
             <div className='task-date'>{props.date1}</div>
             <table>
                 <thead>
@@ -51,7 +51,7 @@ const TaskTable = (props) => {
                     ))}
                 </tbody>
             </table>
-            </div> : null}
+            </div> 
         </div>
     );
 };
