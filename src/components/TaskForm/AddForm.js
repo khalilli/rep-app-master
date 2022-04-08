@@ -26,7 +26,7 @@ const AddForm = (props) => {
     ]);
     const [enteredDate, setEnteredDate] = useState('');
 
-    const [todos, setTodos] = useState([]);
+    const [load, setLoad] = useState(false);
 
     const dateChangeHandler = (event) => {
         setEnteredDate(event.target.value);
@@ -54,13 +54,14 @@ const AddForm = (props) => {
         
     };
 
-    // const empty = useCallback(() => {
+    // const refresh = useCallback(() => {
     //     setTodos([setInputFields({stime: '', etime: '', tasktitle: ''}), setEnteredDate('') ]);
     // }, [todos]);
-
-    // const refresh = () => {
-    //     window.location.reload(false);
-    // }
+    setLoad(true);
+    const refresh = () => {
+        window.location.reload(false);
+    }
+    setLoad(true);
     return(
 
         <form onSubmit={submitHandler}>
@@ -132,11 +133,11 @@ const AddForm = (props) => {
                 </Grid>
             ))}
                 <Grid item>
-                {/* { !props.load1 && <Button variant="contained" type='submit'>Save</Button>}
-                { props.load1 && <Button variant="contained" type='submit' disabled>Saving...</Button>}
-                 */}
-                 <Button variant="contained" type='submit'>Save</Button>
-                </Grid>
+                { !load && <Button variant="contained" type='submit' onClick={refresh}>Save</Button>}
+                { load && <Button variant="contained" type='submit' disabled>Saving...</Button>}
+                
+                 {/* <Button variant="contained" type='submit' onClick={refresh}>Save</Button> */ }
+                </Grid> 
             </Grid>
             {/* <button type='submit' className="btn btn-primary">Save</button> */}
         </form>
