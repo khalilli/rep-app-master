@@ -6,7 +6,7 @@ import './TaskTable.css';
 const useStyles = makeStyles(theme => ({
     removeButton: {
         // color: "#DD4A48"
-        color: "#051367"
+        color: "#c21411"
     }
 }));
 const TaskTable = (props) => {
