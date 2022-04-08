@@ -25,7 +25,7 @@ const Homepage = () => {
   const [tasks, setTasks] = useState(Initdata);
   const [loading, setLoading] = useState(false);
 
-  setLoading(true);
+  // setLoading(true);
   useEffect(() => {
     axios.get(
         "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D113704%26objAction%3DEditView%26viewType%3D1%26nexturl%3D%252Fotcs%252Fllisapi%252Edll%253Ffunc%253Dll%2526objid%253D100991%2526objAction%253Dbrowse%2526sort%253Dname"
@@ -65,7 +65,7 @@ const Homepage = () => {
         console.log("last", groupedTables);
         groupedTables.pop();
         setTasks(groupedTables);
-        setLoading(false);
+        // setLoading(false);
       });
   }, []);
 
