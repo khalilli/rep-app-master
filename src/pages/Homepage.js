@@ -61,9 +61,6 @@ const Homepage = () => {
             groupedTables.push(item);
           }
         });
-
-        console.log("last", groupedTables);
-        console.log("last row id", groupedTables[1].data[0].id);
         groupedTables.pop();
         setTasks(groupedTables);
         // setLoading(false);
@@ -98,6 +95,7 @@ const Homepage = () => {
 
     const AddTaskHandler = (enteredTask) => {
       console.log("Entered", enteredTask);
+
       setTasks((prevTasks)=>{
         return [enteredTask, ...prevTasks];
       });
