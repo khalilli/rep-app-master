@@ -123,9 +123,6 @@ const AddForm = (props) => {
                 </Grid>
             ))}
                 <Grid item>
-                {/* { !props.load1 && <Button variant="contained" type='submit'>Save</Button>}
-                { props.load1 && <Button variant="contained" type='submit' disabled>Saving...</Button>}
-                 */}
                  <Button variant="contained" type='submit' onClick={refresh}>Save</Button>
                 </Grid>
             </Grid>

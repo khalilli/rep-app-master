@@ -16,9 +16,8 @@ const TaskTable = (props) => {
 
     const removeTask = (index) => {
         console.log("Index and row and id",index, props.data1[index], props.data1[index].id);
-        const rows = [];
-        rows = row;
-        setRow(rows.splice(index,1));
+        
+        setRow(props.data1.splice(index,1));
 
         if (props.data1.length === 0){
             setShowTable(false);
