@@ -5,7 +5,8 @@ import { makeStyles } from '@material-ui/core';
 import './TaskTable.css';
 const useStyles = makeStyles(theme => ({
     removeButton: {
-        color: "#DD4A48"
+        // color: "#DD4A48"
+        color: "#051367"
     }
 }));
 const TaskTable = (props) => {
