@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import IconButton from '@mui/material/IconButton';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import TextField from '@mui/material/TextField';
@@ -48,8 +48,14 @@ const AddForm = (props) => {
             data: inputFields,
         };
         props.onSaveTask(taskData);
-        setEnteredDate('');
+        // const empty = useCallback(() => {
+        //     setInputFields({stime: '', etime: '', tas})
+        // });
     };
+
+    const refresh = () => {
+        window.location.reload(false);
+    }
     return(
 
         <form onSubmit={submitHandler}>
@@ -121,8 +127,10 @@ const AddForm = (props) => {
                 </Grid>
             ))}
                 <Grid item>
-                { !props.load1 && <Button variant="contained" type='submit'>Save</Button>}
+                {/* { !props.load1 && <Button variant="contained" type='submit'>Save</Button>}
                 { props.load1 && <Button variant="contained" type='submit' disabled>Saving...</Button>}
+                 */}
+                 <Button variant="contained" type='submit' onClick={refresh}>Save</Button>
                 </Grid>
             </Grid>
             {/* <button type='submit' className="btn btn-primary">Save</button> */}
