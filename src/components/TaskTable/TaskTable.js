@@ -29,6 +29,7 @@ const TaskTable = (props) => {
         console.log("check", props.items1);
         console.log(props.items1[1].data);
         setRow(props.data1.splice(index,1));
+        console.log(props.items1[1].data);
         if (props.data1.length === 0){
             setShowTable(false);
         }
