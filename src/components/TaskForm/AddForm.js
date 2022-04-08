@@ -43,7 +43,7 @@ const AddForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
         const taskData = {
-            date: enteredDate,
+            date: new Date(enteredDate).toDateString(),
             data: inputFields,
         };
         props.onSaveTask(taskData);
