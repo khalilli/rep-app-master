@@ -47,7 +47,7 @@ const AddForm = (props) => {
             data: inputFields,
         };
         props.onSaveTask(taskData);
-        setInputFields('');
+        setInputFields({stime: '', etime: '', tasktitle: ''});
         setEnteredDate('');
     };
     return(
