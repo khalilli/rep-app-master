@@ -48,14 +48,16 @@ const AddForm = (props) => {
             data: inputFields,
         };
         props.onSaveTask(taskData);
-        // const empty = useCallback(() => {
-        //     setInputFields({stime: '', etime: '', tas})
-        // });
+
+        
     };
 
-    const refresh = () => {
-        window.location.reload(false);
-    }
+    const empty = useCallback(() => {
+    }, [setInputFields({stime: '', etime: '', tasktitle: ''}), setEnteredDate('') ]);
+    
+    // const refresh = () => {
+    //     window.location.reload(false);
+    // }
     return(
 
         <form onSubmit={submitHandler}>
@@ -130,7 +132,7 @@ const AddForm = (props) => {
                 {/* { !props.load1 && <Button variant="contained" type='submit'>Save</Button>}
                 { props.load1 && <Button variant="contained" type='submit' disabled>Saving...</Button>}
                  */}
-                 <Button variant="contained" type='submit' onClick={refresh}>Save</Button>
+                 <Button variant="contained" type='submit' onClick={empty}>Save</Button>
                 </Grid>
             </Grid>
             {/* <button type='submit' className="btn btn-primary">Save</button> */}
