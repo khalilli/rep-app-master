@@ -4,8 +4,6 @@ import NewTask from "../components/TaskForm/NewTask";
 import Tasks from "../components/TaskTable/Tasks";
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import { makeStyles } from "@material-ui/core/styles";
-import { spacing } from '@mui/system';
 import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
@@ -37,7 +35,7 @@ const Homepage = () => {
     const groupedTables = [];
     taskTables.forEach(function(item) {
       var existing = groupedTables.filter(function(v, i) {
-        return v.id == item.id;
+        return v.id === item.id;
       });
       if (existing.length) {
         var existingIndex = groupedTables.indexOf(existing[0]);
@@ -95,8 +93,11 @@ const Homepage = () => {
       ))
     };
 
-    console.log("Check date.js", Date.today());
+    // console.log("Check date.js", Date.today());
     // console.log("7 days from now", (7).day().fromNow());
+
+    const currentDate = new Date().toLocaleDateString();
+    console.log("Today's date", currentDate);
     
       return (
         <div>
