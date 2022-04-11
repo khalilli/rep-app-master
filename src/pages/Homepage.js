@@ -113,10 +113,11 @@ const Homepage = () => {
         if( task.date === day){
           console.log(task.date);
           // sendWeekdate(task.date);
-          task.data.map((task) => {
-            console.log(task.stime, task.etime, task.tasktitle);
-            // sendWeeklydata(task.stime, task.etime, task.tasktitle);
-          });
+          console.log(task.data.length);
+          // task.data.map((task) => {
+          //   console.log(task.stime, task.etime, task.tasktitle);
+          //   sendWeeklydata(task.stime, task.etime, task.tasktitle);
+          // });
         }
       }
     });
