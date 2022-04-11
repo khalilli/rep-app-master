@@ -106,7 +106,7 @@ const Homepage = () => {
     });
   };
 
-  console.log(Date.monday());
+  console.log("Datejs", moment(Date.monday()).format('LL'));
 
   const AddTaskHandler = (enteredTask) => {
     console.log("Entered", enteredTask);
