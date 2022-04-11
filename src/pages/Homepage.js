@@ -55,7 +55,6 @@ const Homepage = () => {
     getData();
   }, []);
 
-  
   const setData = async (id, day, start_time, end_time, task, userid) => {
     var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=106810&objAction=RunReport";
     if(id){
@@ -81,13 +80,24 @@ const Homepage = () => {
     axios.get(url);
   };
 
-  const setWeeklydata = async(task, userid) => {
+  const sendWeekdate = async(taskdate) => {
     var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=115288&objAction=RunReport";
-    if (task){
-      url += `&task=${task}`;
+    if (taskdate){
+      url += `&stime=${taskdate}`;
     }
-    if(userid){
-      url += `&userid=${userid}`;
+    url += '&nexturl=' + window.nextUrl;
+  }
+
+  const sendWeeklydata = async(stime, etime, tasktitle) => {
+    var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=115288&objAction=RunReport";
+    if (stime){
+      url += `&stime=${stime}`;
+    }
+    if (etime){
+      url += `&etime=${etime}`;
+    }
+    if (tasktitle){
+      url += `&tasktitle=${tasktitle}`;
     }
     url += '&nexturl=' + window.nextUrl;
   };
@@ -99,10 +109,11 @@ const Homepage = () => {
         const first = curr.getDate() - curr.getDay() + i 
         const day = moment(curr.setDate(first)).format('LL');
         if( task.date === day){
-          console.log(task);
           console.log(task.date);
-          task.data.map(task => console.log(task.stime));
-          // setWeeklydata(task, window.userId);
+          task.data.map((task) => {
+            console.log(task.stime, task.etime, task.tasktitle);
+          });
+
         }
       }
     });
