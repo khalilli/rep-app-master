@@ -91,21 +91,20 @@ const Homepage = () => {
 
   const sendDate = () => {
     // console.log("7 days from now", (7).day().fromNow());
-    let curr = new Date();
-    for (var i=1 ;i<=5; i++){
-      let first = curr.getDate() - curr.getDay() + i 
-      let day = moment(curr.setDate(first)).format('LL');
-      console.log(day);
-    }
-
+    const curr = new Date();
     // const current = new Date();
     // console.log("Today's date", moment(current).format('LL'));
 
-    // tasks.map(task => {
-    //   if( task.date === moment(current).format('LL')){
-    //     console.log(task);
-    //   }
-    // });
+    tasks.map(task => {
+      for (var i=1 ;i<=5; i++){
+        const first = curr.getDate() - curr.getDay() + i 
+        const day = moment(curr.setDate(first)).format('LL');
+        // console.log(day);
+        if( task.date === day){
+          console.log(task);
+        }
+      }
+    });
 
   };
 
@@ -124,7 +123,6 @@ const Homepage = () => {
       return (
         <div>
           <NewTask onAddTask={AddTaskHandler} />
-          <Tasks items={tasks} />
           <Grid container direction="column" alignItems="center">
             <Grid item>
               <Button variant="contained" type="submit" sx={{ mt: "10px", mb: "10px" }} onClick={sendDate}>
@@ -132,6 +130,7 @@ const Homepage = () => {
               </Button>
             </Grid>
           </Grid>
+          <Tasks items={tasks} />
         </div>
       );
 };
