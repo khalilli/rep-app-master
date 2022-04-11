@@ -101,8 +101,8 @@ const Homepage = () => {
       ))
     };
 
-    console.log("Check date.js", Date.today());
-    console.log("7 days from now", (7).day().fromNow());
+    // console.log("Check date.js", Date.today());
+    // console.log("7 days from now", (7).day().fromNow());
     
       return (
         <div>
