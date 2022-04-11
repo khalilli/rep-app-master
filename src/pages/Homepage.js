@@ -103,10 +103,9 @@ const Homepage = () => {
     url += '&nexturl=' + window.nextUrl;
     axios.get(url);
   };
-
+  const datas = [];
   const sendDate = () => {
     const curr = Date.monday();
-    const datas = [];
     tasks.map(task => {
       for (var i=1 ;i<=5; i++){
         const first = curr.getDate() - curr.getDay() + i 
@@ -119,11 +118,10 @@ const Homepage = () => {
             // console.log(task.stime, task.etime, task.tasktitle);
             // sendWeeklydata(task.stime, task.etime, task.tasktitle);
           });
-        console.log("end");
         }
       }
-      console.log(datas);
     });
+    console.log(datas);
   };
 
   const AddTaskHandler = (enteredTask) => {
