@@ -15,20 +15,20 @@ const Homepage = () => {
   const [tasks, setTasks] = useState(Initdata);
 
   const getData = async(TaskTables) => {
-    const response = await axios.get("http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D113704%26objAction%3DEditView%26viewType%3D1%26nexturl%3D%252Fotcs%252Fllisapi%252Edll%253Ffunc%253Dll%2526objid%253D100991%2526objAction%253Dbrowse%2526sort%253Dname");
-    const taskTables = [{},];
+  const response = await axios.get("http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D113704%26objAction%3DEditView%26viewType%3D1%26nexturl%3D%252Fotcs%252Fllisapi%252Edll%253Ffunc%253Dll%2526objid%253D100991%2526objAction%253Dbrowse%2526sort%253Dname");
+  const taskTables = [{},];
        
-    for (var i=0; i<response.data.length-1; i++){
-      const Task = {
-        id: response.data[i].id,
-        date: moment(response.data[i].taskdate).format('LL'),
-        data: [{
-                id: uuid(),
-                stime: response.data[i].start_time,
-                etime: response.data[i].end_time,
-                tasktitle: response.data[i].task}, ]
+  for (var i=0; i<response.data.length-1; i++){
+    const Task = {
+      id: response.data[i].id,
+      date: moment(response.data[i].taskdate).format('LL'),
+      data: [{
+        id: uuid(),
+        stime: response.data[i].start_time,
+        etime: response.data[i].end_time,
+        tasktitle: response.data[i].task}, ]
       };
-      taskTables.unshift(Task);
+    taskTables.unshift(Task);
     }
     console.log("TaskTable", taskTables);
 
@@ -81,31 +81,49 @@ const Homepage = () => {
     axios.get(url);
   };
 
-    const AddTaskHandler = (enteredTask) => {
-      console.log("Entered", enteredTask);
+  const setWeekdate = async(wdate) => {
+    var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=115288&objAction=RunReport";
+    if (wdate){
+      url += `&wdate=${wdate}`;
+    }
+    url += '&nexturl=' + window.nextUrl;
+  };
 
-      setTasks((prevTasks)=>{
-        return [enteredTask, ...prevTasks];
-      });
-
-      enteredTask.data.map((task) => (
-        setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId)
-      ))
-    };
-
+  const sendDate = () => {
     // console.log("Check date.js", Date.today());
     // console.log("7 days from now", (7).day().fromNow());
 
-    const currentDate = new Date().toLocaleDateString();
-    console.log("Today's date", currentDate);
+    // const current = new Date().toLocaleDateString();
+    // console.log("Today's date", current);
+    // console.log("This week");
+    // for(i=0;i<7;i++){
+    //   let first = current.getDate() - current.getDay() + i 
+    // }
+
+    console.log(tasks);
+  };
+
+  const AddTaskHandler = (enteredTask) => {
+    console.log("Entered", enteredTask);
+
+    setTasks((prevTasks)=>{
+      return [enteredTask, ...prevTasks];
+    });
+
+    enteredTask.data.map((task) => (
+      setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId)
+    ))
+    };
     
       return (
         <div>
           <NewTask onAddTask={AddTaskHandler} />
-          <Tasks items={tasks}/>
-          <Grid container direction="column" alignItems="center" >
+          <Tasks items={tasks} />
+          <Grid container direction="column" alignItems="center">
             <Grid item>
-              <Button variant="contained" type='submit' sx={{mt: "10px", mb:"10px"}}>Send..</Button>
+              <Button variant="contained" type="submit" sx={{ mt: "10px", mb: "10px" }} onClick={sendDate}>
+                Send..
+              </Button>
             </Grid>
           </Grid>
         </div>
