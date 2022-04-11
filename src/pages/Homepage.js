@@ -81,32 +81,32 @@ const Homepage = () => {
     axios.get(url);
   };
 
-  const setWeekdate = async(wdate) => {
+  const setWeeklydata = async(task, userid) => {
     var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=115288&objAction=RunReport";
-    if (wdate){
-      url += `&wdate=${wdate}`;
+    if (task){
+      url += `&task=${task}`;
+    }
+    if(userid){
+      url += `&userid=${userid}`;
     }
     url += '&nexturl=' + window.nextUrl;
   };
 
   const sendDate = () => {
-    // console.log("7 days from now", (7).day().fromNow());
     const curr = new Date();
-    // const current = new Date();
-    // console.log("Today's date", moment(current).format('LL'));
-
     tasks.map(task => {
       for (var i=1 ;i<=5; i++){
         const first = curr.getDate() - curr.getDay() + i 
         const day = moment(curr.setDate(first)).format('LL');
-        // console.log(day);
         if( task.date === day){
           console.log(task);
+          // setWeeklydata(task, window.userId);
         }
       }
     });
-
   };
+
+  console.log(Date.monday());
 
   const AddTaskHandler = (enteredTask) => {
     console.log("Entered", enteredTask);
@@ -125,7 +125,7 @@ const Homepage = () => {
           <NewTask onAddTask={AddTaskHandler} />
           <Grid container direction="column" alignItems="center">
             <Grid item>
-              <Button variant="contained" type="submit" sx={{ mt: "10px", mb: "10px" }} onClick={sendDate}>
+              <Button variant="contained" type="submit" sx={{mb: "10px" }} onClick={sendDate}>
                 Send..
               </Button>
             </Grid>
