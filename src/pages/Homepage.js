@@ -89,8 +89,11 @@ const Homepage = () => {
     axios.get(url);
   }
 
-  const sendWeeklydata = async(stime, etime, tasktitle) => {
+  const sendWeeklydata = async(taskdate, stime, etime, tasktitle) => {
     var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=115288&objAction=RunReport";
+    if (taskdate){
+      url += `&taskdate=${taskdate}`;
+    }
     if (stime){
       url += `&stime=${stime}`;
     }
@@ -113,10 +116,14 @@ const Homepage = () => {
         if( task.date === day){
           console.log(task.date);
           // sendWeekdate(task.date);
-          task.data.map((task) => {
-            console.log(task.stime, task.etime, task.tasktitle);
-            // sendWeeklydata(task.stime, task.etime, task.tasktitle);
-          });
+          sendWeeklydata(task.date, task.data[0].stime, task.data[0].etime, task.data[0].tasktitle);
+          console.log(task.date, task.data[0].stime, task.data[0].etime, task.data[0].tasktitle);
+
+          // task.data.map((task) => {
+          //   console.log(task.stime, task.etime, task.tasktitle);
+          //   sendWeeklydata(task.stime, task.etime, task.tasktitle);
+          // });
+
         console.log("end");
         }
       }
