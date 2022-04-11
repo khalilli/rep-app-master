@@ -83,7 +83,7 @@ const Homepage = () => {
   const sendWeekdate = async(taskdate) => {
     var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=115288&objAction=RunReport";
     if (taskdate){
-      url += `&stime=${taskdate}`;
+      url += `&taskdate=${taskdate}`;
     }
     url += '&nexturl=' + window.nextUrl;
   }
@@ -109,9 +109,11 @@ const Homepage = () => {
         const first = curr.getDate() - curr.getDay() + i 
         const day = moment(curr.setDate(first)).format('LL');
         if( task.date === day){
-          console.log(task.date);
+          // console.log(task.date);
+          sendWeekdate(task.date);
           task.data.map((task) => {
-            console.log(task.stime, task.etime, task.tasktitle);
+            // console.log(task.stime, task.etime, task.tasktitle);
+            sendWeeklydata(task.stime, task.etime, task.tasktitle);
           });
 
         }
