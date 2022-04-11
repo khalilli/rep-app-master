@@ -132,9 +132,6 @@ const Homepage = () => {
       }
     });
     console.log("dates", dates);
-    console.log("stime", stimes);
-    console.log("etime", etimes);
-    console.log("tasktitles", tasktitles);
   };
 
   const AddTaskHandler = (enteredTask) => {
@@ -155,7 +152,7 @@ const Homepage = () => {
           <Grid container direction="column" alignItems="center">
             <Grid item>
               <Button variant="contained" type="submit" sx={{mb: "10px" }} onClick={sendDate}>
-                Send..
+                Send
               </Button>
             </Grid>
           </Grid>
