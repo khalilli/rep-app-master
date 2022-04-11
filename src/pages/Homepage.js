@@ -102,7 +102,7 @@ const Homepage = () => {
 
     console.log("All dates");
     tasks.map(task => {
-      console.log(task.date);
+      console.log(new Date(task.date).toLocaleDateString);
       console.log(task);
     });
 
