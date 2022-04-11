@@ -90,20 +90,15 @@ const Homepage = () => {
   };
 
   const sendDate = () => {
-    // console.log("Check date.js", Date.today());
     // console.log("7 days from now", (7).day().fromNow());
 
     const current = new Date();
     console.log("Today's date", moment(current).format('LL'));
-    // console.log("This week");
-    // for(i=0;i<7;i++){
-    //   let first = current.getDate() - current.getDay() + i 
-    // }
-
-    console.log("All dates");
+    // currentDate = moment(current).format('LL');
     tasks.map(task => {
-      console.log(task.date);
-      console.log(task);
+      if( task.date === moment(current).format('LL')){
+        console.log(task);
+      }
     });
 
   };
