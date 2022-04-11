@@ -91,15 +91,21 @@ const Homepage = () => {
 
   const sendDate = () => {
     // console.log("7 days from now", (7).day().fromNow());
+    let curr = new Date();
+    for (var i=0 ;i<=7; i++){
+      let first = curr.getDate() - curr.getDay() + i 
+      let day = moment(curr.setDate(first)).format('LL');
+      console.log(day);
+    }
 
-    const current = new Date();
-    console.log("Today's date", moment(current).format('LL'));
-    // currentDate = moment(current).format('LL');
-    tasks.map(task => {
-      if( task.date === moment(current).format('LL')){
-        console.log(task);
-      }
-    });
+    // const current = new Date();
+    // console.log("Today's date", moment(current).format('LL'));
+
+    // tasks.map(task => {
+    //   if( task.date === moment(current).format('LL')){
+    //     console.log(task);
+    //   }
+    // });
 
   };
 
