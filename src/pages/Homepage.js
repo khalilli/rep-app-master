@@ -100,7 +100,8 @@ const Homepage = () => {
     //   let first = current.getDate() - current.getDay() + i 
     // }
 
-    console.log(tasks);
+    console.log("All dates");
+    tasks.map(task => console.log(task.date));
   };
 
   const AddTaskHandler = (enteredTask) => {
