@@ -93,7 +93,7 @@ const Homepage = () => {
   };
 
   const sendDate = () => {
-    const curr = new Date();
+    const curr = Date.monday();
     tasks.map(task => {
       for (var i=1 ;i<=5; i++){
         const first = curr.getDate() - curr.getDay() + i 
@@ -105,8 +105,6 @@ const Homepage = () => {
       }
     });
   };
-
-  console.log("Datejs", moment(Date.monday()).format('LL'));
 
   const AddTaskHandler = (enteredTask) => {
     console.log("Entered", enteredTask);
