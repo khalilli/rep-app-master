@@ -2,26 +2,25 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import NewTask from "../components/TaskForm/NewTask";
 import Tasks from "../components/TaskTable/Tasks";
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import { makeStyles } from "@material-ui/core/styles";
 import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
 import "./Navbar.css"
-// status(remove from db),
-const Initdata = [
-  // {
-  // id:'0',
-  // date: new Date("March 21, 2022").toDateString(),
-  // data: 
-  //   [
-  //     {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
-  //     {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
-  //     {id: '3', stime: '13:00', etime: '14:00', tasktitle: 'laylay'},
-  //     {id: '4', stime: '14:00', etime: '15:00', tasktitle: 'oaylay'},
-  //   ]
-  // },
-];
+
+const useStyles = makeStyles(theme => ({
+  sendButton: {
+      marginTop: "5px"
+  },
+}));
+
+const Initdata = [];
 
 const Homepage = () => {
+  const classes = useStyles();
+
   const [tasks, setTasks] = useState(Initdata);
 
   useEffect(() => {
@@ -101,11 +100,19 @@ const Homepage = () => {
         setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId)
       ))
     };
+
+    console.log("Check date.js", Date.today());
+    console.log("7 days from now", (7).day().fromNow());
     
       return (
         <div>
           <NewTask onAddTask={AddTaskHandler} />
           <Tasks items={tasks}/>
+          <Grid container direction="column" alignItems="center" >
+            <Grid item>
+              <Button variant="contained" type='submit' className={classes.sendButton}>Send</Button>
+            </Grid>
+          </Grid>
         </div>
       );
 };
