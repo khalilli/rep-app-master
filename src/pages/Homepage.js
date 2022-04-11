@@ -111,11 +111,11 @@ const Homepage = () => {
         const first = curr.getDate() - curr.getDay() + i 
         const day = moment(curr.setDate(first)).format('LL');
         if( task.date === day){
-          // console.log(task.date);
-          sendWeekdate(task.date);
+          console.log(task.date);
+          // sendWeekdate(task.date);
           task.data.map((task) => {
-            // console.log(task.stime, task.etime, task.tasktitle);
-            sendWeeklydata(task.stime, task.etime, task.tasktitle);
+            console.log(task.stime, task.etime, task.tasktitle);
+            // sendWeeklydata(task.stime, task.etime, task.tasktitle);
           });
 
         }
