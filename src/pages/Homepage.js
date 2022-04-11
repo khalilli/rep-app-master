@@ -119,7 +119,7 @@ const Homepage = () => {
           // console.log(task.date);
           dates.push(task.date);
           // sendWeekdate(task.date);
-          for (i=0; i<task.data.length; i++){
+          for (i=0; i<10; i++){
             stimes.push(tasks.data[i].stime);
             etimes.push(tasks.data[i].etime);
             tasktitles.push(tasks.data[i].tasktitle);
