@@ -100,6 +100,8 @@ const Homepage = () => {
         const day = moment(curr.setDate(first)).format('LL');
         if( task.date === day){
           console.log(task);
+          console.log(task.date);
+          console.log(task.data.stime);
           // setWeeklydata(task, window.userId);
         }
       }
