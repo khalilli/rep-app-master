@@ -101,7 +101,7 @@ const Homepage = () => {
         if( task.date === day){
           console.log(task);
           console.log(task.date);
-          console.log(task.data);
+          task.data.map(task => console.log(task.stime));
           // setWeeklydata(task, window.userId);
         }
       }
