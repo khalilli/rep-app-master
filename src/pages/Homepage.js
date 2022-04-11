@@ -118,7 +118,7 @@ const Homepage = () => {
           console.log(task.date);
           taskdates.push(task.date);
           // sendWeekdate(task.date);
-          sendWeeklydata(taskdates, task.data[0].stime, task.data[0].etime, task.data[0].tasktitle);
+          // sendWeeklydata(taskdates, task.data[0].stime, task.data[0].etime, task.data[0].tasktitle);
           console.log(task.date, task.data[0].stime, task.data[0].etime, task.data[0].tasktitle);
 
           // task.data.map((task) => {
@@ -129,6 +129,8 @@ const Homepage = () => {
         console.log("end");
         }
       }
+      console.log(taskdates);
+      sendWeeklydata(taskdates, task.data[0].stime, task.data[0].etime, task.data[0].tasktitle);
     });
   };
 
