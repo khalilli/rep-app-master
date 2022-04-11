@@ -92,7 +92,7 @@ const Homepage = () => {
   const sendDate = () => {
     // console.log("7 days from now", (7).day().fromNow());
     let curr = new Date();
-    for (var i=0 ;i<=7; i++){
+    for (var i=1 ;i<=5; i++){
       let first = curr.getDate() - curr.getDay() + i 
       let day = moment(curr.setDate(first)).format('LL');
       console.log(day);
