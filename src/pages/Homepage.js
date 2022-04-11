@@ -110,7 +110,7 @@ const Homepage = () => {
           <Tasks items={tasks}/>
           <Grid container direction="column" alignItems="center" >
             <Grid item>
-              <Button variant="contained" type='submit' className={classes.sendButton}>Send</Button>
+              <Button variant="contained" type='submit' className={classes.sendButton}>Send..</Button>
             </Grid>
           </Grid>
         </div>
