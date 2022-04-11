@@ -104,11 +104,6 @@ const Homepage = () => {
     axios.get(url);
   };
 
-  const dates = [];
-  const stimes = [];
-  const etimes = [];
-  const tasktitles = [];
-
   const sendDate = () => {
     const curr = Date.monday();
     tasks.map(task => {
@@ -116,25 +111,15 @@ const Homepage = () => {
         const first = curr.getDate() - curr.getDay() + i 
         const day = moment(curr.setDate(first)).format('LL');
         if( task.date === day){
-          // console.log(task.date);
-          dates.push(task.date);
+          console.log(task.date);
           // sendWeekdate(task.date);
-          for (i=0; i<10; i++){
-            stimes.push(tasks.data[i].stime);
-            etimes.push(tasks.data[i].etime);
-            tasktitles.push(tasks.data[i].tasktitle);
-          }
-          // task.data.map((task) => {
-          //   console.log(task.stime, task.etime, task.tasktitle);
-          //   sendWeeklydata(task.stime, task.etime, task.tasktitle);
-          // });
+          task.data.map((task) => {
+            console.log(task.stime, task.etime, task.tasktitle);
+            // sendWeeklydata(task.stime, task.etime, task.tasktitle);
+          });
         }
       }
     });
-    console.log("dates", dates);
-    console.log("stime", stimes);
-    console.log("etime", etimes);
-    console.log("titles", tasktitles);
   };
 
   const AddTaskHandler = (enteredTask) => {
@@ -155,7 +140,7 @@ const Homepage = () => {
           <Grid container direction="column" alignItems="center">
             <Grid item>
               <Button variant="contained" type="submit" sx={{mb: "10px" }} onClick={sendDate}>
-                Send
+                Send..
               </Button>
             </Grid>
           </Grid>
