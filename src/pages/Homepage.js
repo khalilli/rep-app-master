@@ -120,9 +120,9 @@ const Homepage = () => {
           dates.push(task.date);
           // sendWeekdate(task.date);
           for (i=0; i<tasks.data.length; i++){
-            stimes.push(tasks.data[0].stime);
-            etimes.push(tasks.data[0].etime);
-            tasktitles.push(tasks.data[0].tasktitle);
+            stimes.push(tasks.data[i].stime);
+            etimes.push(tasks.data[i].etime);
+            tasktitles.push(tasks.data[i].tasktitle);
           }
           // task.data.map((task) => {
           //   console.log(task.stime, task.etime, task.tasktitle);
