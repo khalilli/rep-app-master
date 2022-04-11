@@ -11,57 +11,50 @@ import moment from 'moment';
 import { v4 as uuid } from 'uuid';
 import "./Navbar.css"
 
-const useStyles = makeStyles(theme => ({
-  sendButton: {
-      marginTop: "5px"
-  },
-}));
-
 const Initdata = [];
 
 const Homepage = () => {
-  const classes = useStyles();
-
   const [tasks, setTasks] = useState(Initdata);
 
-  useEffect(() => {
-    axios.get(
-        "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D113704%26objAction%3DEditView%26viewType%3D1%26nexturl%3D%252Fotcs%252Fllisapi%252Edll%253Ffunc%253Dll%2526objid%253D100991%2526objAction%253Dbrowse%2526sort%253Dname"
-      )
-      .then((response) => {
-        const taskTables = [{},];
+  const getData = async(TaskTables) => {
+    const response = await axios.get("http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D113704%26objAction%3DEditView%26viewType%3D1%26nexturl%3D%252Fotcs%252Fllisapi%252Edll%253Ffunc%253Dll%2526objid%253D100991%2526objAction%253Dbrowse%2526sort%253Dname");
+    const taskTables = [{},];
        
-        for (var i=0; i<response.data.length-1; i++){
-          const Task = {
-            id: response.data[i].id,
-            date: moment(response.data[i].taskdate).format('LL'),
-            data: [{
-                    id: uuid(),
-                    stime: response.data[i].start_time,
-                    etime: response.data[i].end_time,
-                    tasktitle: response.data[i].task}, ]
-          };
-          taskTables.unshift(Task);
-        }
-        console.log("TaskTable", taskTables);
+    for (var i=0; i<response.data.length-1; i++){
+      const Task = {
+        id: response.data[i].id,
+        date: moment(response.data[i].taskdate).format('LL'),
+        data: [{
+                id: uuid(),
+                stime: response.data[i].start_time,
+                etime: response.data[i].end_time,
+                tasktitle: response.data[i].task}, ]
+      };
+      taskTables.unshift(Task);
+    }
+    console.log("TaskTable", taskTables);
 
-        const groupedTables = [];
-        taskTables.forEach(function(item) {
-          var existing = groupedTables.filter(function(v, i) {
-            return v.id == item.id;
-          });
-          if (existing.length) {
-            var existingIndex = groupedTables.indexOf(existing[0]);
-            groupedTables[existingIndex].data = groupedTables[existingIndex].data.concat(item.data);
-          } else {
-            if (typeof item.data == 'string')
-              item.data = [item.data];
-            groupedTables.push(item);
-          }
-        });
-        groupedTables.pop();
-        setTasks(groupedTables);
+    const groupedTables = [];
+    taskTables.forEach(function(item) {
+      var existing = groupedTables.filter(function(v, i) {
+        return v.id == item.id;
       });
+      if (existing.length) {
+        var existingIndex = groupedTables.indexOf(existing[0]);
+        groupedTables[existingIndex].data = groupedTables[existingIndex].data.concat(item.data);
+      } else {
+        if (typeof item.data == 'string')
+          item.data = [item.data];
+        groupedTables.push(item);
+      }
+    });
+    groupedTables.pop();
+    setTasks(groupedTables);
+
+  }
+
+  useEffect(() => {
+    getData();
   }, []);
 
   
@@ -102,7 +95,7 @@ const Homepage = () => {
       ))
     };
 
-    // console.log("Check date.js", Date.today());
+    console.log("Check date.js", Date.today());
     // console.log("7 days from now", (7).day().fromNow());
     
       return (
@@ -111,7 +104,7 @@ const Homepage = () => {
           <Tasks items={tasks}/>
           <Grid container direction="column" alignItems="center" >
             <Grid item>
-              <Button variant="contained" type='submit' sx={{mt: "5px"}}>Send..</Button>
+              <Button variant="contained" type='submit' sx={{mt: "10px", mb:"10px"}}>Send..</Button>
             </Grid>
           </Grid>
         </div>
