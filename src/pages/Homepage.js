@@ -5,6 +5,7 @@ import Tasks from "../components/TaskTable/Tasks";
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { makeStyles } from "@material-ui/core/styles";
+import { spacing } from '@mui/system';
 import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
@@ -110,7 +111,7 @@ const Homepage = () => {
           <Tasks items={tasks}/>
           <Grid container direction="column" alignItems="center" >
             <Grid item>
-              <Button variant="contained" type='submit' className={classes.sendButton}>Send..</Button>
+              <Button variant="contained" type='submit' sx={{mt: "5px"}}>Send..</Button>
             </Grid>
           </Grid>
         </div>
