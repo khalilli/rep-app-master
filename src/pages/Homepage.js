@@ -86,6 +86,7 @@ const Homepage = () => {
       url += `&taskdate=${taskdate}`;
     }
     url += '&nexturl=' + window.nextUrl;
+    axios.get(url);
   }
 
   const sendWeeklydata = async(stime, etime, tasktitle) => {
@@ -100,6 +101,7 @@ const Homepage = () => {
       url += `&tasktitle=${tasktitle}`;
     }
     url += '&nexturl=' + window.nextUrl;
+    axios.get(url);
   };
 
   const sendDate = () => {
