@@ -117,7 +117,7 @@ const Homepage = () => {
             console.log(task.stime, task.etime, task.tasktitle);
             // sendWeeklydata(task.stime, task.etime, task.tasktitle);
           });
-
+        console.log("end");
         }
       }
     });
