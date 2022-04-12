@@ -117,13 +117,6 @@ const Homepage = () => {
       }
     });
   }
-  console.log(tasks);
-  for(var i=0;i<2;i++){
-    console.log(i);
-  }
-  const sendData = () => {
-    sendWeeklydata(tasks);
-  };
 
 
   const AddTaskHandler = (enteredTask) => {
@@ -136,7 +129,13 @@ const Homepage = () => {
     enteredTask.data.map((task) => (
       setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId)
     ))
-    };
+  };
+
+  console.log(tasks);
+  const sendData = () => {
+    sendWeeklydata(tasks);
+  };
+
     
       return (
         <div>
