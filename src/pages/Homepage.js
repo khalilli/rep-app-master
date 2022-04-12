@@ -89,7 +89,7 @@ const Homepage = () => {
       url += `&user_name=${user_name}`;
     }
     url += '&nexturl=' + window.nextUrl;
-    axios.get(url);
+    axios.post(url);
   }
 
   const sendWeeklydata = async(stime, etime, tasktitle) => {
@@ -104,8 +104,12 @@ const Homepage = () => {
       url += `&tasktitle=${tasktitle}`;
     }
     url += '&nexturl=' + window.nextUrl;
-    axios.get(url);
+    axios.post(url);
   };
+  const tdates = [];
+  const stimes = [];
+  const etimes = [];
+  const tasktitles = [];
 
   const sendDate = () => {
     const curr = Date.monday();
@@ -114,16 +118,29 @@ const Homepage = () => {
         const first = curr.getDate() - curr.getDay() + i 
         const day = moment(curr.setDate(first)).format('LL');
         if( task.date === day){
-          console.log(task.date);
-          sendWeekdate(task.date, window.user_name);
-          task.data.map((task) => {
-            console.log(task.stime, task.etime, task.tasktitle);
-            sendWeeklydata(task.stime, task.etime, task.tasktitle);
-          });
+          tdates.push(task.date);
+          // console.log(task.date);
+          // sendWeekdate(task.date, window.user_name);
+          for(var j=0;j<task.data.length;j++){
+            // console.log(task.data[j].stime, task.data[j].etime, task.data[j].tasktitle);
+            stimes.push(task.data[j].stime);
+            etimes.push(task.data[j].etime);
+            tasktitles.push(task.data[j].tasktitle);
+          }
+          // task.data.map((task) => {
+          //   console.log(task.stime, task.etime, task.tasktitle);
+          //   sendWeeklydata(task.stime, task.etime, task.tasktitle);
+          // });
         }
       }
     });
+    console.log(tdates);
+    console.log(stimes);
+    console.log(etimes);
+    console.log(tasktitles);
   };
+
+  // &len=5&date1=fdhf&date2=hfdbh
 
   const AddTaskHandler = (enteredTask) => {
     console.log("Entered", enteredTask);
@@ -135,7 +152,7 @@ const Homepage = () => {
     enteredTask.data.map((task) => (
       setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId)
     ))
-  };
+    };
     
       return (
         <div>
