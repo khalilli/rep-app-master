@@ -118,7 +118,7 @@ const Homepage = () => {
     });
   }
   console.log(tasks);
-  const newTasks = tasks;
+  const newTasks = [...tasks];
   console.log("One", newTasks);
   const sendData = () => {
     sendWeeklydata(tasks);
