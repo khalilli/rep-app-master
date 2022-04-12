@@ -106,10 +106,6 @@ const Homepage = () => {
     url += '&nexturl=' + window.nextUrl;
     axios.get(url);
   };
-  const tdates = [];
-  const stimes = [];
-  const etimes = [];
-  const tasktitles = [];
 
   const sendDate = () => {
     const curr = Date.monday();
@@ -118,20 +114,15 @@ const Homepage = () => {
         const first = curr.getDate() - curr.getDay() + i 
         const day = moment(curr.setDate(first)).format('LL');
         if( task.date === day){
-          tdates.push(task.date);
-          // console.log(task.date);
+          console.log(task.date);
           sendWeekdate(task.date, window.user_name);
-          for(var j=0;j<task.data.length;j++){
-            console.log(task.data[j].stime, task.data[j].etime, task.data[j].tasktitle);
-          }
-          // task.data.map((task) => {
-          //   console.log(task.stime, task.etime, task.tasktitle);
-          //   sendWeeklydata(task.stime, task.etime, task.tasktitle);
-          // });
+          task.data.map((task) => {
+            console.log(task.stime, task.etime, task.tasktitle);
+            sendWeeklydata(task.stime, task.etime, task.tasktitle);
+          });
         }
       }
     });
-    console.log(tdates);
   };
 
   const AddTaskHandler = (enteredTask) => {
@@ -144,7 +135,7 @@ const Homepage = () => {
     enteredTask.data.map((task) => (
       setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId)
     ))
-    };
+  };
     
       return (
         <div>
