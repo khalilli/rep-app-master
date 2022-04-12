@@ -141,6 +141,7 @@ const Homepage = () => {
     // console.log("check f/d", formData);
     console.log(tdates);
     sendWeekdate(tdates, window.user_name);
+    sendWeeklydata(stimes, etimes, tasktitles);
     console.log(stimes);
     console.log(etimes);
     console.log(tasktitles);
