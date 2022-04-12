@@ -87,26 +87,26 @@ const Homepage = () => {
     formData.append('user_name', window.user_name);
     formData.append('datelength', 5);
     const curr = Date.monday();
-    tasks.map(task => {
+    for(var k=0;k<tasks.length;k++){
       for (var i=1 ;i<=5; i++){
         const first = curr.getDate() - curr.getDay() + i 
         const day = moment(curr.setDate(first)).format('LL');
-        if( task.date === day){
-          console.log("date", task.date, "i", i);
-          formData.append('taskdate'+ i, task.date);
-          formData.append('datalength', task.data.length);
-          for(var j=0;j<task.data.length;j++){
-            console.log("stime", task.data[j].stime, "ij",i, j);
-            console.log("etime", task.data[j].etime, "ij", i, j);
-            console.log("tasktitle", task.data[j].tasktitle, "ij", i, j);
-            formData.append('stime' + i + (j+1), task.data[j].stime);
-            formData.append('etime' + i + (j+1), task.data[j].etime); 
-            formData.append('tasktitle' + i + (j+1), task.data[j].tasktitle); 
+        if( tasks[k].date === day){
+          console.log("date", tasks[k].date, "i", i);
+          formData.append('taskdate'+ i, tasks[k].date);
+          formData.append('datalength', tasks[k].data.length);
+          for(var j=0;j<tasks[k].data.length;j++){
+            console.log("stime", tasks[k].data[j].stime, "ij",i, j);
+            console.log("etime", tasks[k].data[j].etime, "ij", i, j);
+            console.log("tasktitle", tasks[k].data[j].tasktitle, "ij", i, j);
+            formData.append('stime' + i + (j+1), tasks[k].data[j].stime);
+            formData.append('etime' + i + (j+1), tasks[k].data[j].etime); 
+            formData.append('tasktitle' + i + (j+1), tasks[k].data[j].tasktitle); 
           }
         }
       }
     
-    });
+    };
     formData.append('nexturl', window.nextUrl);
     const result = await axios({
       method: 'POST',
@@ -135,8 +135,6 @@ const Homepage = () => {
   const sendData = () => {
     sendWeeklydata(tasks);
   };
-
-    
       return (
         <div>
           <NewTask onAddTask={AddTaskHandler} />
