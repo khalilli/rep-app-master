@@ -97,12 +97,12 @@ const Homepage = () => {
           formData.append('taskdate'+ i, task.date);
           formData.append('datalength', task.data.length);
           for(var j=0;j<task.data.length;j++){
-            console.log("stime", task.data[j].stime, "j", j);
-            console.log("etime", task.data[j].etime, "j", j);
-            console.log("tasktitle", task.data[j].tasktitle, "j", j);
-            formData.append('stime' + i + (j+1), task.data[j].stime); //1, 4 stime11 stime12 stime13 stime21
-            formData.append('etime' + i + (j+1), task.data[j].etime); //2, 5
-            formData.append('tasktitle' + i + (j+1), task.data[j].tasktitle); //3, 6
+            console.log("stime", task.data[j].stime, "ij",i, j);
+            console.log("etime", task.data[j].etime, "ij", i, j);
+            console.log("tasktitle", task.data[j].tasktitle, "ij", i, j);
+            formData.append('stime' + i + (j+1), task.data[j].stime);
+            formData.append('etime' + i + (j+1), task.data[j].etime); 
+            formData.append('tasktitle' + i + (j+1), task.data[j].tasktitle); 
           }
         }
       }
