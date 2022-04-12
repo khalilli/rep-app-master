@@ -119,7 +119,7 @@ const Homepage = () => {
         const first = curr.getDate() - curr.getDay() + i 
         const day = moment(curr.setDate(first)).format('LL');
         if( task.date === day){
-          tdates.push(task.date);
+          tdates.append("Date" + (i) + task.date);
           // formData.append('date'+(i), task.date);
           // console.log(task.date);
           // sendWeekdate(task.date, window.user_name);
