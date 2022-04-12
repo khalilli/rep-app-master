@@ -113,7 +113,9 @@ const Homepage = () => {
         if( task.date === day){
           console.log(task.date);
           // sendWeekdate(task.date);
-          console.log(task.data.length);
+          for(var j=0;j<task.data.length;j++){
+            console.log(task.data[j].stime, task.data[j].etime, task.data[j].tasktitle);
+          }
           // task.data.map((task) => {
           //   console.log(task.stime, task.etime, task.tasktitle);
           //   sendWeeklydata(task.stime, task.etime, task.tasktitle);
