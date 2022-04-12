@@ -103,6 +103,10 @@ const Homepage = () => {
     url += '&nexturl=' + window.nextUrl;
     axios.get(url);
   };
+  const tdates = [];
+  const stimes = [];
+  const etimes = [];
+  const tasktitles = [];
 
   const sendDate = () => {
     const curr = Date.monday();
@@ -111,7 +115,8 @@ const Homepage = () => {
         const first = curr.getDate() - curr.getDay() + i 
         const day = moment(curr.setDate(first)).format('LL');
         if( task.date === day){
-          console.log(task.date);
+          tdates.push(task.date);
+          // console.log(task.date);
           // sendWeekdate(task.date);
           for(var j=0;j<task.data.length;j++){
             console.log(task.data[j].stime, task.data[j].etime, task.data[j].tasktitle);
@@ -123,6 +128,7 @@ const Homepage = () => {
         }
       }
     });
+    console.log(tdates);
   };
 
   const AddTaskHandler = (enteredTask) => {
