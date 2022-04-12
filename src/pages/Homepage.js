@@ -30,7 +30,6 @@ const Homepage = () => {
       };
     taskTables.unshift(Task);
     }
-    console.log("TaskTable", taskTables);
 
     const groupedTables = [];
     taskTables.forEach(function(item) {
@@ -118,7 +117,7 @@ const Homepage = () => {
       }
     });
   }
-
+  console.log(tasks);
   const sendData = () => {
     sendWeeklydata(tasks);
   };
@@ -135,8 +134,6 @@ const Homepage = () => {
       setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId)
     ))
     };
-
-    console.log("tasks", tasks);
     
       return (
         <div>
