@@ -14,8 +14,16 @@ const Initdata = [];
 const Homepage = () => {
   const [tasks, setTasks] = useState(Initdata);
 
-  const getData = async(TaskTables) => {
+  const getData = async(userid) => {
   const response = await axios.get("http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D113704%26objAction%3DEditView%26viewType%3D1%26nexturl%3D%252Fotcs%252Fllisapi%252Edll%253Ffunc%253Dll%2526objid%253D100991%2526objAction%253Dbrowse%2526sort%253Dname");
+  var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=106810&objAction=RunReport";
+  if(userid){
+    url += `&userid=${userid}`;
+  }
+  url += '&nexturl='+ window.nextUrl;
+  axios.get(url);
+
+
   const taskTables = [{},];
        
   for (var i=0; i<response.data.length-1; i++){
@@ -51,7 +59,7 @@ const Homepage = () => {
   }
 
   useEffect(() => {
-    getData();
+    getData(window.userId);
   }, []);
 
   const setData = async (id, day, start_time, end_time, task, userid) => {
@@ -94,12 +102,14 @@ const Homepage = () => {
         const day = moment(curr.setDate(first)).format('LL');
         if( tasks[k].date === day){
           // console.log("date", tasks[k].date, "i", i);
+
           formData.append('taskdate'+ i, tasks[k].date);
           formData.append('datalength', tasks[k].data.length);
           for(var j=0;j<tasks[k].data.length;j++){
             // console.log("stime", tasks[k].data[j].stime, "ij",i, j);
             // console.log("etime", tasks[k].data[j].etime, "ij", i, j);
             // console.log("tasktitle", tasks[k].data[j].tasktitle, "ij", i, j);
+
             formData.append('stime' + i + (j+1), tasks[k].data[j] ? tasks[k].data[j].stime : undefined);
             formData.append('etime' + i + (j+1), tasks[k].data[j] ? tasks[k].data[j].etime : undefined); 
             formData.append('tasktitle' + i + (j+1),tasks[k].data[j] ? tasks[k].data[j].tasktitle : undefined); 
@@ -132,7 +142,6 @@ const Homepage = () => {
     ))
   };
 
-  console.log(tasks);
   const sendData = () => {
     sendWeeklydata(tasks);
   };
