@@ -99,9 +99,9 @@ const Homepage = () => {
             console.log("stime", tasks[k].data[j].stime, "ij",i, j);
             console.log("etime", tasks[k].data[j].etime, "ij", i, j);
             console.log("tasktitle", tasks[k].data[j].tasktitle, "ij", i, j);
-            formData.append('stime' + i + (j+1), tasks[k].data[j].stime);
-            formData.append('etime' + i + (j+1), tasks[k].data[j].etime); 
-            formData.append('tasktitle' + i + (j+1), tasks[k].data[j].tasktitle); 
+            formData.append('stime' + i + (j+1), tasks[k].data[j] ? tasks[k].data[j].stime : undefined);
+            formData.append('etime' + i + (j+1), tasks[k].data[j] ? tasks[k].data[j].etime : undefined); 
+            formData.append('tasktitle' + i + (j+1),tasks[k].data[j] ? tasks[k].data[j].tasktitle : undefined); 
           }
         }
       }
