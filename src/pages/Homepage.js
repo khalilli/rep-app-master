@@ -88,7 +88,7 @@ const Homepage = () => {
     formData.append('user_name', window.user_name);
     formData.append('datelength', 5);
     const curr = Date.monday();
-    tasks.map(async task => {
+    tasks.map(task => {
       for (var i=1 ;i<=5; i++){
         const first = curr.getDate() - curr.getDay() + i 
         const day = moment(curr.setDate(first)).format('LL');
@@ -102,6 +102,8 @@ const Homepage = () => {
           }
         }
       }
+    
+    });
     formData.append('nexturl', window.nextUrl);
     const result = await axios({
       method: 'POST',
@@ -111,8 +113,6 @@ const Homepage = () => {
           'Content-Type': 'multipart/form-data'
       }
     });
-    });
-
   }
 
   const sendData = () => {
@@ -131,6 +131,8 @@ const Homepage = () => {
       setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId)
     ))
     };
+
+    console.log("tasks", tasks);
     
       return (
         <div>
