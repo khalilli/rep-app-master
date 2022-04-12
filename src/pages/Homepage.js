@@ -80,37 +80,12 @@ const Homepage = () => {
     axios.get(url);
   };
 
-  // const sendWeekdate = async(taskdate, user_name) => {
-  //   var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=115288&objAction=RunReport";
-  //   if (taskdate){
-  //     url += `&taskdate=${taskdate}`;
-  //   }
-  //   if (user_name){
-  //     url += `&user_name=${user_name}`;
-  //   }
-  //   url += '&nexturl=' + window.nextUrl;
-  //   axios.get(url);
-  // }
-
-  // const sendWeeklydata = async(stime, etime, tasktitle) => {
-  //   var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=115288&objAction=RunReport";
-  //   if (stime){
-  //     url += `&stime=${stime}`;
-  //   }
-  //   if (etime){
-  //     url += `&etime=${etime}`;
-  //   }
-  //   if (tasktitle){
-  //     url += `&tasktitle=${tasktitle}`;
-  //   }
-  //   url += '&nexturl=' + window.nextUrl;
-  //   axios.get(url);
-  // };
   const sendWeeklydata = async (tasks) =>{
     const formData = new FormData();
     formData.append('func', 'll');
     formData.append('objId', 115288);
     formData.append('objAction', 'RunReport');
+    formData.append('user_name', window.user_name);
     formData.append('datelength', 5);
     const curr = Date.monday();
     tasks.map(async task => {
@@ -140,29 +115,10 @@ const Homepage = () => {
 
   }
 
-  const sendDate = () => {
+  const sendData = () => {
     sendWeeklydata(tasks);
-    // const formData = new FormData();
-    // const curr = Date.monday();
-    // tasks.map(task => {
-    //   for (var i=1 ;i<=5; i++){
-    //     const first = curr.getDate() - curr.getDay() + i 
-    //     const day = moment(curr.setDate(first)).format('LL');
-    //     if( task.date === day){
-    //       formData.append('date'+ i, task.date);
-    //       // console.log(task.date);
-    //       // sendWeekdate(task.date, window.user_name);
-    //       for(var j=0;j<task.data.length;j++){
-    //         formData.append('data' + (j+1), task.data[j].stime);
-    //         // console.log(task.data[j].stime, task.data[j].etime, task.data[j].tasktitle);
-
-    //       }
-    //     }
-    //   }
-    // });
   };
 
-  // &len=5&date1=fdhf&date2=hfdbh
 
   const AddTaskHandler = (enteredTask) => {
     console.log("Entered", enteredTask);
@@ -181,8 +137,8 @@ const Homepage = () => {
           <NewTask onAddTask={AddTaskHandler} />
           <Grid container direction="column" alignItems="center">
             <Grid item>
-              <Button variant="contained" type="submit" sx={{mb: "10px" }} onClick={sendDate}>
-                Send..
+              <Button variant="contained" type="submit" sx={{mb: "10px" }} onClick={sendData}>
+                Send
               </Button>
             </Grid>
           </Grid>
