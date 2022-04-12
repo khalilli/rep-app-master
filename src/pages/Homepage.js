@@ -118,8 +118,8 @@ const Homepage = () => {
     });
   }
   console.log(tasks);
-  const newTasks = [...tasks];
-  console.log("One", newTasks);
+  const newTasks = tasks.slice();
+  console.log("copied", newTasks);
   const sendData = () => {
     sendWeeklydata(tasks);
   };
