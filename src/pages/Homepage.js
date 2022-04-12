@@ -93,12 +93,16 @@ const Homepage = () => {
         const first = curr.getDate() - curr.getDay() + i 
         const day = moment(curr.setDate(first)).format('LL');
         if( task.date === day){
+          console.log("date", task.date, "i", i);
           formData.append('taskdate'+ i, task.date);
           formData.append('datalength', task.data.length);
           for(var j=0;j<task.data.length;j++){
-            formData.append('stime' + (j+1), task.data[j].stime);
-            formData.append('etime' + (j+1), task.data[j].etime);
-            formData.append('tasktitle' + (j+1), task.data[j].tasktitle);
+            console.log("stime", task.data[j].stime, "j", j);
+            console.log("etime", task.data[j].etime, "j", j);
+            console.log("tasktitle", task.data[j].tasktitle, "j", j);
+            formData.append('stime' + (j+1), task.data[j].stime); //1, 4
+            formData.append('etime' + (j+1), task.data[j].etime); //2, 5
+            formData.append('tasktitle' + (j+1), task.data[j].tasktitle); //3, 6
           }
         }
       }
