@@ -112,6 +112,7 @@ const Homepage = () => {
   const tasktitles = [];
 
   const sendDate = () => {
+    const formData = new FormData();
     const curr = Date.monday();
     tasks.map(task => {
       for (var i=1 ;i<=5; i++){
@@ -119,9 +120,11 @@ const Homepage = () => {
         const day = moment(curr.setDate(first)).format('LL');
         if( task.date === day){
           tdates.push(task.date);
+          formData.append('date'+(i), task.date);
           // console.log(task.date);
           // sendWeekdate(task.date, window.user_name);
           for(var j=0;j<task.data.length;j++){
+            formData.append('data' + (j+1), task.data[j].stime, task.data[j].etime, task.data[j].tasktitle);
             // console.log(task.data[j].stime, task.data[j].etime, task.data[j].tasktitle);
             stimes.push(task.data[j].stime);
             etimes.push(task.data[j].etime);
@@ -134,6 +137,8 @@ const Homepage = () => {
         }
       }
     });
+    formData.append('nexturl', window.nextUrl);
+    console.log("check f/d", formData);
     console.log(tdates);
     console.log(stimes);
     console.log(etimes);
