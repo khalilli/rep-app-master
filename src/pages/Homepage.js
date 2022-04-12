@@ -89,7 +89,7 @@ const Homepage = () => {
       url += `&user_name=${user_name}`;
     }
     url += '&nexturl=' + window.nextUrl;
-    axios.post(url);
+    // axios.post(url);
   }
 
   const sendWeeklydata = async(stime, etime, tasktitle) => {
@@ -104,12 +104,8 @@ const Homepage = () => {
       url += `&tasktitle=${tasktitle}`;
     }
     url += '&nexturl=' + window.nextUrl;
-    axios.post(url);
+    // axios.post(url);
   };
-  const tdates = [];
-  const stimes = [];
-  const etimes = [];
-  const tasktitles = [];
 
   const sendDate = () => {
     const formData = new FormData();
@@ -127,16 +123,9 @@ const Homepage = () => {
             // console.log(task.data[j].stime, task.data[j].etime, task.data[j].tasktitle);
 
           }
-          // task.data.map((task) => {
-          //   console.log(task.stime, task.etime, task.tasktitle);
-          // });
         }
       }
     });
-    formData.append('nexturl', window.nextUrl);
-    // console.log("check f/d", formData);
-    sendWeekdate(tdates, window.user_name);
-    sendWeeklydata(stimes, etimes, tasktitles);
   };
 
   // &len=5&date1=fdhf&date2=hfdbh
