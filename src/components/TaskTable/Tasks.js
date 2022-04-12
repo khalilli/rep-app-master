@@ -2,7 +2,6 @@ import React from 'react';
 import TaskTable from "./TaskTable";
 import './TaskTable';
 const Tasks = (props) => {
-    console.log("One", props.items);
     return(
         <div className='tasks'>            
             {props.items.map((task, id) => (
