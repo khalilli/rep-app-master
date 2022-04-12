@@ -29,7 +29,7 @@ const Homepage = () => {
         tasktitle: response.data[i].task}, ]
       };
     taskTables.unshift(Task);
-    }
+  }
 
     const groupedTables = [];
     taskTables.forEach(function(item) {
@@ -118,8 +118,9 @@ const Homepage = () => {
     });
   }
   console.log(tasks);
-  const newTasks = tasks.slice();
-  console.log("copied", newTasks);
+  for(var i=0;i<2;i++){
+    console.log(i);
+  }
   const sendData = () => {
     sendWeeklydata(tasks);
   };
