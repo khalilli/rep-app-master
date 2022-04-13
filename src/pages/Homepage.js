@@ -24,10 +24,16 @@ const Homepage = () => {
   const classes = useStyles(); 
   const [tasks, setTasks] = useState(Initdata);
 
-  const getData = async(userid) => {
+  const getData = async(userid, staskdate, etaskdate) => {
   var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport";
   if(userid){
     url += `&userid=${userid}`;
+  }
+  if(staskdate){
+    url += `&staskdate=${staskdate}`;
+  }
+  if(etaskdate){
+    url += `&etaskdate=${etaskdate}`;
   }
   url += '&nexturl='+ window.nextUrl;
   const response = await axios.get(url);
@@ -49,7 +55,7 @@ const Homepage = () => {
 
     const groupedTables = [];
     taskTables.forEach(function(item) {
-      var existing = groupedTables.filter(function(v, i) {
+      var existing = groupedTables.filter(function(v) {
         return v.id === item.id;
       });
       if (existing.length) {
@@ -62,19 +68,24 @@ const Homepage = () => {
       }
     });
     groupedTables.pop();
-    setTasks(groupedTables);
-    console.log("Displayed tables", groupedTables);
-    console.log("Current monday", moment(Date.monday()).format('LL'));
-    console.log("Today", moment(Date.today()).format('LL'));
+
+    const weeklytables = [];
+
+    const firstDate = Date.monday();
+    const lastDate = Date.today();
 
     for( var i=0; i<groupedTables.length; i++){
-      if(groupedTables[i].date === moment(Date.monday()).format('LL')){
-        console.log("First day", groupedTables[i].date);
-      }
-      if(groupedTables[i].date === moment(Date.today()).format('LL')){
-        console.log("Last day", groupedTables[i].date);
+      for( var j=firstDate.getDate(); j<lastDate.getDate(); j++){
+        const first = firstDate.getDate() - firstDate.getDay() + j
+        console.log("numbers", first);
+        const day = moment(firstDate.setDate(first)).format('LL');
+        if(groupedTables[i].date === day){
+          console.log(groupedTables[i].date);
+        }
       }
     }
+
+    setTasks(groupedTables);
 
   }
 
