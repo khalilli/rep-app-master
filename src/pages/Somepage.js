@@ -7,6 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import { makeStyles } from "@material-ui/core/styles";
 import Select from '@mui/material/Select';
+import './Somepage';
 import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
@@ -74,29 +75,30 @@ const Somepage = (props) => {
         <div>
             <Grid container direction={"column"} spacing={5}>
                 <Grid item container direction={"row"} spacing={3} sx={{mt: 4, ml: 3}} >
-                    <div>
-                        <Grid item>
-                            <p className='classes.Ctext'>Choose a user:</p>
-                        </Grid>
-                        <Grid item>
-                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                            <InputLabel id="demo-select-filled-small" >Age</InputLabel>
-                            <Select
-                                labelId="demo-select-small"
-                                id="demo-select-small"
-                                value={user}
-                                label="User"
-                                onChange={handleChange} >
-                                <MenuItem value="">
-                                <em>Users</em>
-                                </MenuItem>
-                                <MenuItem value={10}>Ten</MenuItem>
-                                <MenuItem value={20}>Twenty</MenuItem>
-                                <MenuItem value={30}>Thirty</MenuItem>
-                            </Select>
-                            </FormControl>
-                        </Grid>
-                    </div>
+                    <Grid item>
+                        <p className='classes.Ctext'>Choose a user:</p>
+                    </Grid>
+                    <Grid item>
+                        <div className='selectUser'>
+                        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                        <InputLabel id="demo-select-small" >Age</InputLabel>
+                        <Select
+                            labelId="demo-select-small"
+                            id="demo-select-small"
+                            value={user}
+                            label="User"
+                            onChange={handleChange}
+                            className='classes.dropdwn' >
+                            <MenuItem value="">
+                            <em>Users</em>
+                            </MenuItem>
+                            <MenuItem value={10}>User1</MenuItem>
+                            <MenuItem value={20}>User2</MenuItem>
+                            <MenuItem value={30}>User3</MenuItem>
+                        </Select>
+                        </FormControl>
+                        </div>
+                    </Grid>
                 </Grid>
                 <Grid item>
                     <Tasks items={tasks} />
