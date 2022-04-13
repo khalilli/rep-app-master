@@ -64,16 +64,18 @@ const Homepage = () => {
     groupedTables.pop();
     setTasks(groupedTables);
     console.log("Displayed tables", groupedTables);
+    console.log("Current monday", moment(Date.monday()).format('LL'));
+    console.log("Today", moment(Date.today()).format('LL'));
 
     for( var i=0; i<groupedTables.length; i++){
-      if(groupedTables[i].date == moment(Date.monday()).format('LL')){
+      if(groupedTables[i].date === moment(Date.monday()).format('LL')){
         console.log("First day", groupedTables[i].date);
       }
-      if(groupedTables[i].date == moment(Date.today()).format('LL')){
+      if(groupedTables[i].date === moment(Date.today()).format('LL')){
         console.log("Last day", groupedTables[i].date);
       }
     }
-    
+
   }
 
   useEffect(() => {
@@ -171,9 +173,11 @@ const Homepage = () => {
               <Button variant="contained" type="submit" sx={{mb: "10px" }} onClick={sendData}>
                 Send
               </Button>
-              <IconButton>
-                <ArrowCircleLeftIcon className={classes.backButton} />
-              </IconButton> 
+              <Grid item>
+                <IconButton>
+                  <ArrowCircleLeftIcon className={classes.backButton} />
+                </IconButton> 
+              </Grid>
             </Grid>
           </Grid>
           <Tasks items={tasks} />
