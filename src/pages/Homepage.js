@@ -82,10 +82,12 @@ const Homepage = () => {
         if(groupedTables[i].date === day){
           console.log("Days", groupedTables[i].date);
           console.log("Tasks", groupedTables[i]);
+          weeklytables.push(groupedTables[i]);
         }
       }
     }
 
+    console.log(weeklytables);
     setTasks(groupedTables);
 
   }
