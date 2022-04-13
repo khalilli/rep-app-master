@@ -4,11 +4,11 @@ import Somepage from "../pages/Somepage";
 
 export const publicRoutes = [
     {
-        path: '/homepage',
+        path: window.nextUrl + '/homepage',
         element: <Homepage/>
     },
     {
-        path: '/somepage',
+        path: window.nextUrl + '/somepage',
         element: <Somepage/>
     }
 ]
