@@ -78,8 +78,8 @@ const Somepage = (props) => {
                         <p className='classes.Ctext'>Choose a user:</p>
                     </Grid>
                     <Grid item>
-                        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                        <InputLabel id="demo-select-small" className='classes.dropdwn'>Age</InputLabel>
+                        <FormControl sx={{ mt: 5, minWidth: 120 }} size="small" className='classes.dropdwn'>
+                        <InputLabel id="demo-select-small" >Age</InputLabel>
                         <Select
                             labelId="demo-select-small"
                             id="demo-select-small"
