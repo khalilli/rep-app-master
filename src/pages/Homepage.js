@@ -73,12 +73,15 @@ const Homepage = () => {
 
     const firstDate = Date.monday();
     const lastDate = Date.today();
+    const curr = new Date();
 
     for( var i=0; i<groupedTables.length; i++){
       for( var j=firstDate.getDate(); j<=lastDate.getDate(); j++){
         const first = j;
-        console.log("numbers", first);
-        const day = moment(firstDate.setDate(first)).format('LL');
+        console.log("dates", first);
+        const day = moment(curr.setDate(first)).format('LL');
+        console.log("days", day)
+        console.log("table numbers", i);
         if(groupedTables[i].date === day){
           console.log(groupedTables[i].date);
         }
