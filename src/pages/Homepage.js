@@ -4,6 +4,9 @@ import NewTask from "../components/TaskForm/NewTask";
 import Tasks from "../components/TaskTable/Tasks";
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+import { makeStyles } from "@material-ui/core/styles";
 import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
@@ -11,11 +14,17 @@ import "./Navbar.css"
 
 const Initdata = [];
 
+const useStyles = makeStyles(theme => ({
+  backButton: {
+      color: "#041562"
+  },
+}));
+
 const Homepage = () => {
+  const classes = useStyles(); 
   const [tasks, setTasks] = useState(Initdata);
 
   const getData = async(userid) => {
-  // const response = await axios.get("http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D113704%26objAction%3DEditView%26viewType%3D1%26nexturl%3D%252Fotcs%252Fllisapi%252Edll%253Ffunc%253Dll%2526objid%253D100991%2526objAction%253Dbrowse%2526sort%253Dname");
   var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport";
   if(userid){
     url += `&userid=${userid}`;
@@ -54,7 +63,7 @@ const Homepage = () => {
     });
     groupedTables.pop();
     setTasks(groupedTables);
-
+    console.log("Displayed tables");
   }
 
   useEffect(() => {
@@ -152,6 +161,9 @@ const Homepage = () => {
               <Button variant="contained" type="submit" sx={{mb: "10px" }} onClick={sendData}>
                 Send
               </Button>
+              <IconButton>
+                <ArrowCircleLeftIcon className={classes.backButton} />
+              </IconButton> 
             </Grid>
           </Grid>
           <Tasks items={tasks} />
