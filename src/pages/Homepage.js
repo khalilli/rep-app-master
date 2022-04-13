@@ -63,7 +63,7 @@ const Homepage = () => {
     });
     groupedTables.pop();
     setTasks(groupedTables);
-    console.log("Displayed tables");
+    console.log("Displayed tables", groupedTables);
   }
 
   useEffect(() => {
