@@ -73,12 +73,12 @@ const Somepage = (props) => {
     return(
         <div>
             <Grid container direction={"column"} spacing={5}>
-                <Grid item container direction={"row"} spacing={3}>
+                <Grid item container direction={"row"} spacing={3} sx={{mt: 5}} className='classes.dropdwn'>
                     <Grid item>
                         <p className='classes.Ctext'>Choose a user:</p>
                     </Grid>
                     <Grid item>
-                        <FormControl sx={{ mt: 5, minWidth: 120 }} size="small" className='classes.dropdwn'>
+                        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                         <InputLabel id="demo-select-small" >Age</InputLabel>
                         <Select
                             labelId="demo-select-small"
