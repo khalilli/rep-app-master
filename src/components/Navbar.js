@@ -3,12 +3,12 @@ import "./Navbar"
 
 const Navbar = () => {
 return (
-    <ul class="nav justify-content-center">
-        <li class="nav-item">
-            <a class="nav-link" href="#">Homepage</a>
+    <ul className="nav justify-content-center">
+        <li className="nav-item">
+            <a className="nav-link" href="#">Homepage</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Another Page</a>
+        <li className="nav-item">
+            <a className="nav-link" href="#">Another Page</a>
         </li>
     </ul>
     );
