@@ -1,6 +1,11 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import Tasks from '../components/TaskTable/Tasks';
+import Grid from '@mui/material/Grid';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
@@ -48,9 +53,38 @@ const Somepage = (props) => {
     useEffect(() => {
         getData(window.userId);
     }, []);
+    const [age, setAge] = React.useState('');
+
+    const handleChange = (event) => {
+      setAge(event.target.value);
+    };
     return(
         <div>
-            <Tasks items={tasks} />
+            <Grid container direction={"column"} spacing={5}>
+                <Grid item>
+                    <Tasks items={tasks} />
+                </Grid>
+                <Grid item>
+                    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                    <InputLabel id="demo-select-small">Age</InputLabel>
+                    <Select
+                        labelId="demo-select-small"
+                        id="demo-select-small"
+                        value={age}
+                        label="Age"
+                        onChange={handleChange}
+                    >
+                        <MenuItem value="">
+                        <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={10}>Ten</MenuItem>
+                        <MenuItem value={20}>Twenty</MenuItem>
+                        <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                    </FormControl>
+                </Grid>
+                
+            </Grid>
         </div>
     );
 };
