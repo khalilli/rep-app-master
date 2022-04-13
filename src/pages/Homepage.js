@@ -64,6 +64,16 @@ const Homepage = () => {
     groupedTables.pop();
     setTasks(groupedTables);
     console.log("Displayed tables", groupedTables);
+
+    for( var i=0; i<groupedTables.length; i++){
+      if(groupedTables[i].date == moment(Date.monday()).format('LL')){
+        console.log("First day", groupedTables[i].date);
+      }
+      if(groupedTables[i].date == moment(Date.today()).format('LL')){
+        console.log("Last day", groupedTables[i].date);
+      }
+    }
+    
   }
 
   useEffect(() => {
