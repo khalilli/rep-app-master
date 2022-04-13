@@ -79,10 +79,9 @@ const Homepage = () => {
       for( var j=firstDate.getDate(); j<=lastDate.getDate(); j++){
         const first = j;
         const day = moment(curr.setDate(first)).format('LL');
-        console.log("day numbers and days", j, day)
-        console.log("table numbers and days", i, groupedTables[i].date);
         if(groupedTables[i].date === day){
-          console.log(groupedTables[i].date);
+          console.log("Days", groupedTables[i].date);
+          console.log("Tasks", groupedTables[i]);
         }
       }
     }
