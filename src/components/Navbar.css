@@ -1,0 +1,10 @@
+ul{
+    background: #051367;
+}
+a{
+    color: white;
+}
+li{
+    border: 1px solid white;
+    border-radius: 2px;
+}
