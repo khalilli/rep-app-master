@@ -4,13 +4,13 @@ import NewTask from "../components/TaskForm/NewTask";
 import Tasks from "../components/TaskTable/Tasks";
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
+import Navbar from '../components/Navbar.js'
 import IconButton from '@mui/material/IconButton';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import { makeStyles } from "@material-ui/core/styles";
 import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
-import "./Navbar.css"
 
 const Initdata = [];
 
@@ -73,12 +73,11 @@ const Homepage = () => {
 
   }
 
-  const staskdate = Date.monday();
-  const etaskdate = Date.today();
-
   useEffect(() => {
-    getData(window.userId, staskdate, etaskdate);
+    getData(window.userId);
   }, []);
+
+  console.log("Just check", window.userId);
 
   const setData = async (id, day, start_time, end_time, task, userid) => {
     var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=106810&objAction=RunReport";
@@ -183,6 +182,7 @@ const Homepage = () => {
   // }
       return (
         <div>
+          <Navbar />
           <NewTask onAddTask={AddTaskHandler} />
           <Grid container direction="column" alignItems="center">
             <Grid item>
