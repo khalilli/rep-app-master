@@ -65,15 +65,15 @@ const Somepage = (props) => {
     useEffect(() => {
         getData(window.userId);
     }, []);
-    const [age, setAge] = React.useState('');
+    const [user, setUser] = React.useState('');
 
     const handleChange = (event) => {
-      setAge(event.target.value);
+      setUser(event.target.value);
     };
     return(
         <div>
             <Grid container direction={"column"} spacing={5}>
-                <Grid item container direction={"row"} spacing={3} sx={{mt: 5}} className='classes.dropdwn'>
+                <Grid item container direction={"row"} spacing={3} sx={{mt: 4, ml: 3}} >
                     <Grid item>
                         <p className='classes.Ctext'>Choose a user:</p>
                     </Grid>
@@ -83,10 +83,10 @@ const Somepage = (props) => {
                         <Select
                             labelId="demo-select-small"
                             id="demo-select-small"
-                            value={age}
-                            label="Age"
+                            value={user}
+                            label="User"
                             onChange={handleChange}
-                        >
+                            className='classes.dropdwn' >
                             <MenuItem value="">
                             <em>Users</em>
                             </MenuItem>
