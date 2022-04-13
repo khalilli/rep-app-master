@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Somepage = () => {
+const Somepage = (props) => {
     return(
         <div>
-            <h3>Snowy weather</h3>
+            
         </div>
     );
 };

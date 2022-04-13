@@ -6,11 +6,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
     navBar: {
-        background: "#041562"
+        background: "white",
     },
-    Tab: {
-        color: "white",
-    }
   }));
 
 function LinkTab(props) {

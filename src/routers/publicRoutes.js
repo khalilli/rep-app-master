@@ -4,11 +4,11 @@ import Somepage from "../pages/Somepage";
 
 export const publicRoutes = [
     {
-        path: window.baseUrl + '?func=ll&objId' + window.currentWebreportId + '&objAction=RunReport' + '/',
+        path: window.baseUrl + '?func=ll&objId' + 107301 + '&objAction=RunReport' + '/',
         element: <Homepage/>
     },
     {
-        path: window.nextUrl + '/somepage',
+        path: '/somepage',
         element: <Somepage/>
     }
 ]
