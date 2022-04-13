@@ -71,24 +71,24 @@ const Homepage = () => {
 
     const weeklytables = [];
 
-    const firstDate = Date.monday();
-    const lastDate = Date.today();
+    const firstDate = staskdate;
+    const lastDate = etaskdate;
     const curr = new Date();
 
-    for( var i=0; i<groupedTables.length; i++){
-      for( var j=firstDate.getDate(); j<=lastDate.getDate(); j++){
-        const first = j;
-        const day = moment(curr.setDate(first)).format('LL');
-        if(groupedTables[i].date === day){
-          console.log("Days", groupedTables[i].date);
-          console.log("Tasks", groupedTables[i]);
-          weeklytables.push(groupedTables[i]);
-        }
-      }
-    }
+    // for( var i=0; i<groupedTables.length; i++){
+    //   for( var j=firstDate.getDate(); j<=lastDate.getDate(); j++){
+    //     const first = j;
+    //     const day = moment(curr.setDate(first)).format('LL');
+    //     if(groupedTables[i].date === day){
+    //       console.log("Days", groupedTables[i].date);
+    //       console.log("Tasks", groupedTables[i]);
+    //       weeklytables.push(groupedTables[i]);
+    //     }
+    //   }
+    // }
 
     console.log(weeklytables);
-    setTasks(weeklytables);
+    setTasks(groupedTables);
 
   }
 
@@ -187,11 +187,11 @@ const Homepage = () => {
               <Button variant="contained" type="submit" sx={{mb: "10px" }} onClick={sendData}>
                 Send
               </Button>
-              <Grid item>
+              {/* <Grid item>
                 <IconButton>
                   <ArrowCircleLeftIcon className={classes.backButton} />
                 </IconButton> 
-              </Grid>
+              </Grid> */}
             </Grid>
           </Grid>
           <Tasks items={tasks} />
