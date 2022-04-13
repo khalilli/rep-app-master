@@ -7,14 +7,13 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import { makeStyles } from "@material-ui/core/styles";
 import Select from '@mui/material/Select';
-import './Somepage';
 import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
 
 const useStyles = makeStyles(theme => ({
     Ctext: {
-        color: "black"
+        color: "white"
     },
     Dropdwn: {
         background: "white"
@@ -75,13 +74,13 @@ const Somepage = (props) => {
         <div>
             <Grid container direction={"column"} spacing={5}>
                 <Grid item container direction={"row"} spacing={3} sx={{mt: 4, ml: 3}} >
-                    <div className='selectUser'>
+                    <div>
                         <Grid item>
                             <p className='classes.Ctext'>Choose a user:</p>
                         </Grid>
                         <Grid item>
                             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                            <InputLabel id="demo-select-small" >Age</InputLabel>
+                            <InputLabel id="demo-select-filled-small" >Age</InputLabel>
                             <Select
                                 labelId="demo-select-small"
                                 id="demo-select-small"
