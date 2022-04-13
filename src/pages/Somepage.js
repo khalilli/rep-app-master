@@ -5,12 +5,24 @@ import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
+import { makeStyles } from "@material-ui/core/styles";
 import Select from '@mui/material/Select';
 import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
 
+const useStyles = makeStyles(theme => ({
+    Ctext: {
+        color: "white"
+    },
+    Dropdwn: {
+        background: "white"
+    }
+  }));
+
 const Somepage = (props) => {
+    const classes = useStyles(); 
+
     const [tasks, setTasks] = useState([]);
 
     const getData = async(userid) => {
@@ -61,29 +73,33 @@ const Somepage = (props) => {
     return(
         <div>
             <Grid container direction={"column"} spacing={5}>
+                <Grid item container direction={"row"} spacing={3}>
+                    <Grid item>
+                        <p className='classes.Ctext'>Choose a user:</p>
+                    </Grid>
+                    <Grid item>
+                        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                        <InputLabel id="demo-select-small" className='classes.dropdwn'>Age</InputLabel>
+                        <Select
+                            labelId="demo-select-small"
+                            id="demo-select-small"
+                            value={age}
+                            label="Age"
+                            onChange={handleChange}
+                        >
+                            <MenuItem value="">
+                            <em>Users</em>
+                            </MenuItem>
+                            <MenuItem value={10}>Ten</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                            <MenuItem value={30}>Thirty</MenuItem>
+                        </Select>
+                        </FormControl>
+                    </Grid>
+                </Grid>
                 <Grid item>
                     <Tasks items={tasks} />
                 </Grid>
-                <Grid item>
-                    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                    <InputLabel id="demo-select-small">Age</InputLabel>
-                    <Select
-                        labelId="demo-select-small"
-                        id="demo-select-small"
-                        value={age}
-                        label="Age"
-                        onChange={handleChange}
-                    >
-                        <MenuItem value="">
-                        <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                    </FormControl>
-                </Grid>
-                
             </Grid>
         </div>
     );
