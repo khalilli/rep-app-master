@@ -36,8 +36,8 @@ const Navbar = () => {
     return (
         <Box sx={{ width: '100%' }}>
         <Tabs value={value} onChange={handleChange} aria-label="nav tabs example" className={classes.navBar}>
-            <LinkTab label="HomePage" href="/drafts" />
-            <LinkTab label="Another Page" href="/trash" />
+            <LinkTab label="HomePage" href="/drafts" className={classes.Tab} />
+            <LinkTab label="Another Page" href="/trash" className={classes.Tab} />
         </Tabs>
         </Box>
     );
