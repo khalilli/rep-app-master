@@ -4,7 +4,7 @@ import Somepage from "../pages/Somepage";
 
 export const publicRoutes = [
     {
-        path: window.nextUrl + '/homepage',
+        path: window.nextUrl + '?func=ll&objId' + 107301 + '&objAction=RunReport' + '/',
         element: <Homepage/>
     },
     {
