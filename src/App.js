@@ -10,7 +10,7 @@ function App() {
       {/* <AppProvider>
         <AppRoutes />
       </AppProvider> */}
-      <Homepage />
+      <Somepage />
     </div>
   );
 }
