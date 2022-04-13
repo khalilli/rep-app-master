@@ -22,7 +22,6 @@ const Homepage = () => {
   }
   url += '&nexturl='+ window.nextUrl;
   const response = await axios.get(url);
-  console.log("see url", response);
 
   const taskTables = [{},];
        

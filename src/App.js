@@ -1,11 +1,14 @@
 import React from 'react';
 import Homepage from "./pages/Homepage.js";
-
+import AppProvider from "./providers/AppProvider.js"
+import AppRoutes from "./routers/AppRoutes.js"
 
 function App() {
   return (
     <div>
-      <Homepage />
+      <AppProvider>
+        <AppRoutes />
+      </AppProvider>
     </div>
   );
 }
