@@ -88,7 +88,7 @@ const Homepage = () => {
     }
 
     console.log(weeklytables);
-    setTasks(groupedTables);
+    setTasks(weeklytables);
 
   }
 
