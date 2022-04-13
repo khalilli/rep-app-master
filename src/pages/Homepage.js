@@ -69,31 +69,15 @@ const Homepage = () => {
     });
     groupedTables.pop();
 
-    const weeklytables = [];
-
-    const firstDate = staskdate;
-    const lastDate = etaskdate;
-    const curr = new Date();
-
-    // for( var i=0; i<groupedTables.length; i++){
-    //   for( var j=firstDate.getDate(); j<=lastDate.getDate(); j++){
-    //     const first = j;
-    //     const day = moment(curr.setDate(first)).format('LL');
-    //     if(groupedTables[i].date === day){
-    //       console.log("Days", groupedTables[i].date);
-    //       console.log("Tasks", groupedTables[i]);
-    //       weeklytables.push(groupedTables[i]);
-    //     }
-    //   }
-    // }
-
-    console.log(weeklytables);
     setTasks(groupedTables);
 
   }
 
+  const staskdate = Date.monday();
+  const etaskdate = Date.today();
+
   useEffect(() => {
-    getData(window.userId);
+    getData(window.userId, staskdate, etaskdate);
   }, []);
 
   const setData = async (id, day, start_time, end_time, task, userid) => {
@@ -179,6 +163,24 @@ const Homepage = () => {
   const sendData = () => {
     sendWeeklydata(tasks);
   };
+  // const previousWeek = () => {
+  //   const weeklytables = [];
+
+  //   const firstDate = Date.monday();
+  //   const lastDate = Date.today();
+  //   const curr = new Date();
+  //   for( var i=0; i<groupedTables.length; i++){
+  //     for( var j=firstDate.getDate(); j<=lastDate.getDate(); j++){
+  //       const first = j;
+  //       const day = moment(curr.setDate(first)).format('LL');
+  //       if(tasks[i].date === day){
+  //         console.log("Days", tasks[i].date);
+  //         console.log("Tasks", tasks[i]);
+  //         weeklytables.push(tasks[i]);
+  //       }
+  //     }
+  //   }
+  // }
       return (
         <div>
           <NewTask onAddTask={AddTaskHandler} />
@@ -188,7 +190,7 @@ const Homepage = () => {
                 Send
               </Button>
               {/* <Grid item>
-                <IconButton>
+                <IconButton onClick={previousWeek}>
                   <ArrowCircleLeftIcon className={classes.backButton} />
                 </IconButton> 
               </Grid> */}
