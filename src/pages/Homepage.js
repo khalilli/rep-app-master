@@ -156,8 +156,6 @@ const Homepage = () => {
     ))
   };
 
-  console.log("Compare with db", tasks);
-
   const sendData = () => {
     sendWeeklydata(tasks);
   };
