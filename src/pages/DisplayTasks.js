@@ -84,7 +84,8 @@ const DisplayTasks = (props) => {
       event.preventDefault();
       // console.log(firstDate)
       // console.log(secondDate)
-      console.log("check format", Date.monday());
+      console.log(firstDate.getDate());
+
       const weeklytables = [];
   
       const firstDate = Date.monday();
