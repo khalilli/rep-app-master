@@ -37,6 +37,7 @@ const DisplayTasks = (props) => {
         }
         url += '&nexturl='+ window.nextUrl;
         const response = await axios.get(url);
+        console.log("response", response);
         const taskTables = [{},];
         for (var i=0; i<response.data.length-1; i++){
             const Task = {
