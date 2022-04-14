@@ -40,10 +40,11 @@ const Dropdown = () => {
   const secondDateChange = (event) => {
     setSecondDate(event.target.value);
   };
-  const submitHandler = (event) => {
-    event.preventDefault();
-    console.log(firstDate)
-    console.log(secondDate)
+  const submitHandler = () => {
+    // console.log(firstDate)
+    // console.log(secondDate)
+    console.log("hey");
+    console.log("you");
   //   const weeklytables = [];
 
   //   const firstDate = Date.monday();
@@ -62,6 +63,31 @@ const Dropdown = () => {
   //   }
   };
   return(
+    <div>
+      <Grid container direction={"row"} spacing={3} sx={{mt: 4, ml: 3}} className={classes.root}>
+        <Grid item container direction={"row"} spacing={3} sx={{mb: 3}}>
+          <Grid item>
+          <h4 className={classes.Ctext}>Choose a user:</h4>
+          </Grid>
+          <Grid item>
+                <FormControl sx={{minWidth: 120 }} size="small">
+                <InputLabel id="demo-select-small" >Users</InputLabel>
+                <Select
+                    labelId="demo-select-small"
+                    id="demo-select-small"
+                    value={user}
+                    label="User"
+                    onChange={handleChange} >
+                <MenuItem value="">
+                <em>Users</em>
+                </MenuItem>
+                <MenuItem value={10}>User1</MenuItem>
+                <MenuItem value={20}>User2</MenuItem>
+                <MenuItem value={30}>User3</MenuItem>
+                </Select>
+                </FormControl>
+          </Grid>
+        </Grid>
         <form onSubmit={submitHandler}>
           <Grid item container direction={"row"} spacing={3} sx={{mb: 4}}>
             <Grid item>
@@ -99,6 +125,8 @@ const Dropdown = () => {
             </Grid>
           </Grid>
         </form>
+      </Grid>
+    </div>
   );
 };
 

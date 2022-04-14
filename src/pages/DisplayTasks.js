@@ -51,8 +51,6 @@ const DisplayTasks = (props) => {
         getData(window.userId);
     }, []);
 
-    console.log("Check one thing", tasks);
-
     return(
         <div>
           <div>
