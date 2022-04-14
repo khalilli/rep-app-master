@@ -82,12 +82,8 @@ const DisplayTasks = (props) => {
     };
     const submitHandler = (event) => {
       event.preventDefault();
-      window.location.reload(true);
-      // console.log(firstDate);
-      // console.log(secondDate);
 
       const weeklytables = [];
-  
       const frstdate = new Date(firstDate);
       const lastDate = new Date(secondDate);
       const curr = new Date();
@@ -104,6 +100,9 @@ const DisplayTasks = (props) => {
       }
       console.log(weeklytables);
       setTasks(weeklytables);
+    };
+    const Reset = () => {
+      window.location.reload(true);
     };
 
     return(
@@ -143,6 +142,9 @@ const DisplayTasks = (props) => {
                 </Grid>
                 <Grid item>
                 <Button variant="contained" type='submit'>Show</Button>
+                </Grid>
+                <Grid item>
+                <Button variant="contained" type='submit' onClick={Reset}>Reset</Button>
                 </Grid>
               </Grid>
             </form>
