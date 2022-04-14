@@ -102,7 +102,9 @@ const DisplayTasks = (props) => {
       setTasks(weeklytables);
     };
     const Reset = () => {
-      window.location.reload(true);
+      useEffect(() => {
+        getData(window.userId);
+      }, []);
     };
 
     return(
