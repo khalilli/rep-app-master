@@ -4,20 +4,17 @@ import NewTask from "../components/TaskForm/NewTask";
 import Tasks from "../components/TaskTable/Tasks";
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import Navbar from '../components/Navbar.js'
-import IconButton from '@mui/material/IconButton';
-import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+import Navbar from '../components/Navbar.js';
 import { makeStyles } from "@material-ui/core/styles";
 import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
+//set daterange, send only latest tasks, delete tasks from db
 
 const Initdata = [];
 
 const useStyles = makeStyles(theme => ({
-  backButton: {
-      color: "#041562"
-  },
+
 }));
 
 const Homepage = () => {
@@ -159,6 +156,8 @@ const Homepage = () => {
     ))
   };
 
+  console.log("Compare with db", tasks);
+
   const sendData = () => {
     sendWeeklydata(tasks);
   };
@@ -189,11 +188,6 @@ const Homepage = () => {
               <Button variant="contained" type="submit" sx={{mb: "10px" }} onClick={sendData}>
                 Send
               </Button>
-              {/* <Grid item>
-                <IconButton onClick={previousWeek}>
-                  <ArrowCircleLeftIcon className={classes.backButton} />
-                </IconButton> 
-              </Grid> */}
             </Grid>
           </Grid>
           <Tasks items={tasks} />
