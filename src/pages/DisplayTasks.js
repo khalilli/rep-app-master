@@ -31,13 +31,12 @@ const DisplayTasks = (props) => {
     const [tasks, setTasks] = useState([]);
 
     const getData = async(userid) => {
-        var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objAction=RunReport&objId=116154&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D116154%26objAction%3DEditReport%26nexturl%3D%252Fotcs%252Fllisapi%252Edll%253Ffunc%253Dll%2526objid%253D100991%2526objAction%253Dbrowse%2526sort%253Dname%2526viewType%253D1";
+        var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=116154&objAction=RunReport";
         // if(userid){
         //     url += `&userid=${userid}`;
         // }
-        // url += '&nexturl='+ window.nextUrl;
+        url += '&nexturl='+ window.nextUrl;
         const response = await axios.get(url);
-        console.log("response", response);
         const taskTables = [{},];
         for (var i=0; i<response.data.length-1; i++){
             const Task = {
@@ -66,7 +65,6 @@ const DisplayTasks = (props) => {
             }
             });
             groupedTables.pop();
-            console.log("grouped tables", groupedTables);
             setTasks(groupedTables);
     }
     useEffect(() => {
