@@ -81,6 +81,8 @@ const DisplayTasks = (props) => {
     const secondDateChange = (event) => {
       setSecondDate(event.target.value);
     };
+
+    let noTasks = <p>No tasks added.</p>
     const submitHandler = (event) => {
       event.preventDefault();
 
@@ -99,12 +101,13 @@ const DisplayTasks = (props) => {
           }
         }
       }
-      if (weeklytables === null){
-        alert("No tasks added!");
+      if (weeklytables.length === 0){
+        alert("No tasks added");
       }
       else{
         setTasks(weeklytables);
       }
+
     };
     const Reset = () => {
         getData(window.userId);
