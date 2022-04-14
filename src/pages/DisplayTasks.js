@@ -32,9 +32,9 @@ const DisplayTasks = (props) => {
 
     const getData = async(userid) => {
         var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113046&objAction=RunReport";
-        // if(userid){
-        //     url += `&userid=${userid}`;
-        // }
+        if(userid){
+            url += `&userid=${userid}`;
+        }
         url += '&nexturl='+ window.nextUrl;
         const response = await axios.get(url);
         console.log("response", response);
@@ -70,7 +70,7 @@ const DisplayTasks = (props) => {
             setTasks(groupedTables);
     }
     useEffect(() => {
-        getData();
+        getData(window.userid);
     }, []);
 
   
@@ -105,7 +105,7 @@ const DisplayTasks = (props) => {
       setTasks(weeklytables);
     };
     const Reset = () => {
-        getData();
+        getData(window.userid);
     };
 
     return(
