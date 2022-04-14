@@ -81,6 +81,7 @@ const Dropdown = () => {
                 <MenuItem value="">
                 <em>Users</em>
                 </MenuItem>
+                <MenuItem value={10}>All</MenuItem>
                 <MenuItem value={10}>User1</MenuItem>
                 <MenuItem value={20}>User2</MenuItem>
                 <MenuItem value={30}>User3</MenuItem>

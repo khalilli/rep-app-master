@@ -109,7 +109,7 @@ const DisplayTasks = (props) => {
         <div>
           <div>
             <form onSubmit={submitHandler}>
-              <Grid item container direction={"row"} spacing={3} sx={{mt: 3, mb:3}} className={classes.root}>
+              <Grid container direction={"row"} spacing={3} sx={{mt: 3, pb:3, pl:2}} className={classes.root}>
                 <Grid item>
                     <TextField
                     label="From"
