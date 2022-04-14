@@ -68,9 +68,9 @@ const DisplayTasks = (props) => {
             groupedTables.pop();
             setTasks(groupedTables);
     }
-    useEffect(() => {
-        getData(window.userId);
-    }, []);
+  
+    getData(window.userId);
+
 
   
     const [firstDate, setFirstDate] = useState('');
