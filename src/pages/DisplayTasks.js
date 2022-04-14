@@ -31,11 +31,10 @@ const DisplayTasks = (props) => {
     const [tasks, setTasks] = useState([]);
 
     const getData = async(userid) => {
-        var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=116154&objAction=RunReport";
+        var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=116154&objAction=RunReport&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objid%3D100991%26objAction%3Dbrowse%26sort%3Dname";
         // if(userid){
         //     url += `&userid=${userid}`;
         // }
-        url += '&nexturl='+ window.nextUrl;
         const response = await axios.get(url);
         const taskTables = [{},];
         for (var i=0; i<response.data.length-1; i++){
