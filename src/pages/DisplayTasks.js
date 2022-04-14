@@ -84,15 +84,16 @@ const DisplayTasks = (props) => {
       event.preventDefault();
       // console.log(firstDate)
       // console.log(secondDate)
-      console.log(firstDate.getDate());
+
+      console.log(new Date(firstDate));
 
       const weeklytables = [];
   
-      const firstDate = Date.monday();
+      const firstdate = Date.monday();
       const lastDate = Date.today();
       const curr = new Date();
       for( var i=0; i<tasks.length; i++){
-        for( var j=firstDate.getDate(); j<=lastDate.getDate(); j++){
+        for( var j=firstdate.getDate(); j<=lastDate.getDate(); j++){
           const first = j;
           const day = moment(curr.setDate(first)).format('LL');
           if(tasks[i].date === day){
