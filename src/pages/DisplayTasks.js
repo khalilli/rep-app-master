@@ -99,8 +99,12 @@ const DisplayTasks = (props) => {
           }
         }
       }
-      console.log(weeklytables);
-      setTasks(weeklytables);
+      if (weeklytables === null){
+        alert("No tasks added!");
+      }
+      else{
+        setTasks(weeklytables);
+      }
     };
     const Reset = () => {
         getData(window.userId);
