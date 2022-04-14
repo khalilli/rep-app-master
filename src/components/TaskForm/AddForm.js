@@ -53,7 +53,6 @@ const AddForm = (props) => {
         window.location.reload(true);
     }
     return(
-
         <form onSubmit={submitHandler}>
             <Grid container direction={"column"} spacing={2}>
             <Grid item >
