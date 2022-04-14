@@ -102,6 +102,7 @@ const DisplayTasks = (props) => {
         }
       }
       console.log(weeklytables);
+      setTasks(weeklytables);
     };
 
     return(
