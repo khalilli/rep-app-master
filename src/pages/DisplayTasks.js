@@ -101,12 +101,7 @@ const DisplayTasks = (props) => {
           }
         }
       }
-      if (weeklytables.length === 0){
-        alert("No tasks added");
-      }
-      else{
-        setTasks(weeklytables);
-      }
+      setTasks(weeklytables);
 
     };
     const Reset = () => {
