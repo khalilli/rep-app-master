@@ -65,6 +65,7 @@ const DisplayTasks = (props) => {
             }
             });
             groupedTables.pop();
+            console.log("grouped tables", groupedTables);
             setTasks(groupedTables);
     }
     useEffect(() => {
