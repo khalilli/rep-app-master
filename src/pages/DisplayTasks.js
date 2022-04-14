@@ -82,6 +82,7 @@ const DisplayTasks = (props) => {
     };
     const submitHandler = (event) => {
       event.preventDefault();
+      window.location.reload(true);
       // console.log(firstDate);
       // console.log(secondDate);
 
