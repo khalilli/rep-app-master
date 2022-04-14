@@ -82,26 +82,26 @@ const DisplayTasks = (props) => {
     };
     const submitHandler = (event) => {
       event.preventDefault();
-      console.log(firstDate)
-      console.log(secondDate)
+      // console.log(firstDate)
+      // console.log(secondDate)
+      console.log("check format", Date.monday());
+      const weeklytables = [];
   
-      // const weeklytables = [];
-  
-      // const firstDate = Date.monday();
-      // const lastDate = Date.today();
-      // const curr = new Date();
-      // for( var i=0; i<tasks.length; i++){
-      //   for( var j=firstDate.getDate(); j<=lastDate.getDate(); j++){
-      //     const first = j;
-      //     const day = moment(curr.setDate(first)).format('LL');
-      //     if(tasks[i].date === day){
-      //       console.log("Days", tasks[i].date);
-      //       console.log("Tasks", tasks[i]);
-      //       weeklytables.push(tasks[i]);
-      //     }
-      //   }
-      // }
-      // console.log(weeklytables);
+      const firstDate = Date.monday();
+      const lastDate = Date.today();
+      const curr = new Date();
+      for( var i=0; i<tasks.length; i++){
+        for( var j=firstDate.getDate(); j<=lastDate.getDate(); j++){
+          const first = j;
+          const day = moment(curr.setDate(first)).format('LL');
+          if(tasks[i].date === day){
+            console.log("Days", tasks[i].date);
+            console.log("Tasks", tasks[i]);
+            weeklytables.push(tasks[i]);
+          }
+        }
+      }
+      console.log(weeklytables);
     };
 
     return(
