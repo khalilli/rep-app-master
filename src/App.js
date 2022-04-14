@@ -7,10 +7,10 @@ import AppRoutes from "./routers/AppRoutes.js"
 function App() {
   return (
     <div>
-      {/* <AppProvider>
+      <AppProvider>
         <AppRoutes />
-      </AppProvider> */}
-      <Homepage />
+      </AppProvider>
+      {/* <Homepage /> */}
     </div>
   );
 }

@@ -8,7 +8,7 @@ export const publicRoutes = [
         element: <Homepage/>
     },
     {
-        path: '/displaytasks',
+        path: window.baseUrl + '?func=ll&objId' + 107301 + '&objAction=RunReport' + '/displaytasks',
         element: <DisplayTasks/>
     }
 ]
