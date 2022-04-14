@@ -71,15 +71,15 @@ const Dropdown = () => {
           </Grid>
         </Grid>
         <form onSubmit={submitHandler}>
-          <Grid item container direction={"row"} spacing={4} sx={{mb: 4}}>
+          <Grid item container direction={"row"} spacing={3} sx={{mb: 4}}>
             <Grid item>
                 <TextField
                 label="From"
-                id="date"
+                id="firstdate"
                 variant="outlined"
                 size="small"
                 type="date"
-                name="date"
+                name="firstdate"
                 InputLabelProps={{
                     shrink: true,
                   }}
@@ -90,11 +90,11 @@ const Dropdown = () => {
             <Grid item>
                 <TextField
                 label="To"
-                id="date"
+                id="seconddate"
                 variant="outlined"
                 size="small"
                 type="date"
-                name="date"
+                name="seconddate"
                 InputLabelProps={{
                     shrink: true,
                   }}

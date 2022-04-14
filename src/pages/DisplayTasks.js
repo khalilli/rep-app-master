@@ -52,7 +52,7 @@ const DisplayTasks = (props) => {
     }, []);
 
     console.log("Check one thing", tasks);
-    
+
     return(
         <div>
           <div>
