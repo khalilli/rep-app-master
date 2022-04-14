@@ -4,7 +4,7 @@ import DisplayTasks from "../pages/DisplayTasks";
 
 export const publicRoutes = [
     {
-        path: window.baseUrl + '?func=ll&objId' + 107301 + '&objAction=RunReport',
+        path: window.baseUrl + '?func=ll&objId' + 107301 + '&objAction=RunReport' + '/',
         element: <Homepage/>
     },
     {

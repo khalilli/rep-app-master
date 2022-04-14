@@ -6,7 +6,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from '@mui/material/TextField';
 import './DisplayTasks';
 import Tasks from '../components/TaskTable/Tasks';
-import './DisplayTasks';
+import UsersFilter from '../components/UsersFilter';
+import './DisplayTasks.css';
 import Dropdown from './Dropdown';
 import axios from 'axios';
 import moment from 'moment';
@@ -108,8 +109,10 @@ const DisplayTasks = (props) => {
     return(
         <div>
           <div>
-            <form onSubmit={submitHandler}>
-              <Grid container direction={"row"} spacing={3} sx={{mt: 3, pb:3, pl:2}} className={classes.root}>
+            <div className='selection'>
+              <UsersFilter/>
+              <form onSubmit={submitHandler}>
+              <Grid container direction={"row"} spacing={3} sx={{mt: 3, pb:3, pl:2}} >
                 <Grid item>
                     <TextField
                     label="From"
@@ -148,6 +151,7 @@ const DisplayTasks = (props) => {
                 </Grid>
               </Grid>
             </form>
+            </div>
           </div>
           <Tasks items={tasks} />
         </div>
