@@ -8,7 +8,6 @@ import './DisplayTasks';
 import Tasks from '../components/TaskTable/Tasks';
 import UsersFilter from '../components/UsersFilter';
 import './DisplayTasks.css';
-import Dropdown from './Dropdown';
 import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
@@ -25,15 +24,17 @@ const useStyles = makeStyles(theme => ({
     background: "white"
   }
 }));
+
+
 const DisplayTasks = (props) => {
   const classes = useStyles(); 
     const [tasks, setTasks] = useState([]);
 
     const getData = async(userid) => {
-        var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113046&objAction=RunReport";
-        if(userid){
-            url += `&userid=${userid}`;
-        }
+        var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=118508&objAction=EditView&viewType=1&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objtype%3D142%26objaction%3Dbrowse";
+        // if(userid){
+        //     url += `&userid=${userid}`;
+        // }
         url += '&nexturl='+ window.nextUrl;
         const response = await axios.get(url);
         console.log("response", response);
