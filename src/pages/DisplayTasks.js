@@ -88,11 +88,12 @@ const DisplayTasks = (props) => {
       return task.userid === filteredUser;
     });
 
-    let tasksContent = <p>No tasks found</p>
+    // let tasksContent = <p>No tasks found</p>
 
-    if(filteredTasks.length > 0){
-      tasksContent = <Tasks items={filteredTasks} />
-    }
+    // if(filteredTasks.length > 0){
+    //   tasksContent = <Tasks items={filteredTasks} />
+    // }
+    setTasks(filteredTasks);
     console.log("Check tasks", tasks);
   
     const [firstDate, setFirstDate] = useState('');
@@ -176,7 +177,8 @@ const DisplayTasks = (props) => {
             </form>
             </div>
           </div>
-          {tasksContent}
+          <Tasks items={tasks} />
+          {/* {tasksContent} */}
         </div>
     );
 };
