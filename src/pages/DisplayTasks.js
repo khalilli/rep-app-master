@@ -93,6 +93,7 @@ const DisplayTasks = (props) => {
     if(filteredTasks.length > 0){
       tasksContent = <Tasks items={filteredTasks} />
     }
+    console.log("Check tasks", tasks);
   
     const [firstDate, setFirstDate] = useState('');
     const [secondDate, setSecondDate] = useState('');
