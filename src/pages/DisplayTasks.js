@@ -74,16 +74,19 @@ const DisplayTasks = (props) => {
 
     const filterChange = selectedUser => {
       setFilteredUser(selectedUser);
+      console.log(filteredUser);
     };
 
-    const filteredTasks = [];
-    for( var i=0; i<tasks.length; i++){
-      if (tasks[i].userid === filteredUser){
-        filteredTasks.push(tasks[i]);
-      }
-    }
+    console.log(filteredUser);
+
+    // const filteredTasks = [];
+    // for( var i=0; i<tasks.length; i++){
+    //   if (tasks[i].userid === filteredUser){
+    //     filteredTasks.push(tasks[i]);
+    //   }
+    // }
     // setTasks(filteredTasks);
-    console.log("filtered tasks by users",filteredTasks);
+    // console.log("filtered tasks by users",filteredTasks);
   
     const [firstDate, setFirstDate] = useState('');
     const [secondDate, setSecondDate] = useState('');
