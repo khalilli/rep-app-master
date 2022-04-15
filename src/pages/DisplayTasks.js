@@ -76,14 +76,23 @@ const DisplayTasks = (props) => {
       setFilteredUser(selectedUser);
     };
 
-    const filteredTasks = [];
-    for( var i=0; i<tasks.length; i++){
-      if (tasks[i].userid === filteredUser){
-        filteredTasks.push(tasks[i]);
-      }
+    // const filteredTasks = [];
+    // for( var i=0; i<tasks.length; i++){
+    //   if (tasks[i].userid === filteredUser){
+    //     filteredTasks.push(tasks[i]);
+    //   }
+    // }
+    // console.log("filtered tasks by users",filteredTasks);
+    // console.log("displayed tasks", tasks);
+    const filteredTasks = tasks.filter(task => {
+      return task.userid === filteredUser;
+    });
+
+    let tasksContent = <p>No tasks found</p>
+
+    if(filteredTasks.length > 0){
+      tasksContent = <Tasks items={filteredTasks} />
     }
-    console.log("filtered tasks by users",filteredTasks);
-    console.log("displayed tasks", tasks);
   
     const [firstDate, setFirstDate] = useState('');
     const [secondDate, setSecondDate] = useState('');
@@ -166,7 +175,7 @@ const DisplayTasks = (props) => {
             </form>
             </div>
           </div>
-          <Tasks items={tasks} />
+          {tasksContent}
         </div>
     );
 };
