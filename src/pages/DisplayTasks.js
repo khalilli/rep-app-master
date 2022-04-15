@@ -40,6 +40,7 @@ const DisplayTasks = (props) => {
             const Task = {
             id: response.data[i].id,
             date: moment(response.data[i].taskdate).format('LL'),
+            userid: response.data[i].userid,
             data: [{
                 id: uuid(),
                 stime: response.data[i].start_time,
@@ -69,6 +70,20 @@ const DisplayTasks = (props) => {
         getData();
     }, []);
 
+    const [filteredUser, setFilteredUser] = useState('All');
+
+    const filterChange = selectedUser => {
+      setFilteredUser(selectedUser);
+    };
+
+    const filteredTasks = [];
+    for( var i=0; i<tasks.length; i++){
+      if (tasks[i].userid === filteredUser){
+        filteredTasks.push(tasks[i]);
+      }
+    }
+    // setTasks(filteredTasks);
+    console.log("filtered tasks by users",filteredTasks);
   
     const [firstDate, setFirstDate] = useState('');
     const [secondDate, setSecondDate] = useState('');
@@ -103,13 +118,6 @@ const DisplayTasks = (props) => {
     const Reset = () => {
         getData();
     };
-    const [filteredUser, setFilteredUser] = useState('All');
-
-    const filterChange = selectedUser => {
-      setFilteredUser(selectedUser);
-    };
-
-    console.log("Tasks", tasks);
 
     return(
         <div>
