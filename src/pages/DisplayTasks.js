@@ -29,11 +29,12 @@ const useStyles = makeStyles(theme => ({
 const DisplayTasks = (props) => {
   const classes = useStyles(); 
     const [tasks, setTasks] = useState([]);
+
     const getData = async(userid) => {
-      var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=117629&objAction=RunReport";
-      // if(userid){
-      //   url += `&userid=${userid}`;
-      // }
+      var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport";
+      if(userid){
+        url += `&userid=${userid}`;
+      }
       url += '&nexturl='+ window.nextUrl;
       const response = await axios.get(url);
         console.log("response", response);
@@ -46,8 +47,7 @@ const DisplayTasks = (props) => {
                 id: uuid(),
                 stime: response.data[i].start_time,
                 etime: response.data[i].end_time,
-                tasktitle: response.data[i].task}, ],
-            userid: response.data[i].userid
+                tasktitle: response.data[i].task}, ]
             };
             taskTables.unshift(Task);
         } 
@@ -72,22 +72,7 @@ const DisplayTasks = (props) => {
         getData(window.userId);
     }, []);
 
-    const [filteredUser, setFilteredUser] = useState('All');
-
-    const filterChange = selectedUser => {
-      setFilteredUser(selectedUser);
-    };
-
-    const filteredTasks = [];
-    for( var i=0; i<tasks.length; i++){
-      if (tasks[i].userid === filteredUser){
-        filteredTasks.push(tasks[i]);
-      }
-    }
-    setTasks(filteredTasks);
-    console.log("filtered tasks by users",filteredTasks);
-
-
+  
     const [firstDate, setFirstDate] = useState('');
     const [secondDate, setSecondDate] = useState('');
   
@@ -121,6 +106,13 @@ const DisplayTasks = (props) => {
     const Reset = () => {
         getData(window.userId);
     };
+    const [filteredUser, setFilteredUser] = useState('All');
+
+    const filterChange = selectedUser => {
+      setFilteredUser(selectedUser);
+    };
+
+    console.log("Tasks", tasks);
 
     return(
         <div>
