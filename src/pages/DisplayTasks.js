@@ -31,10 +31,7 @@ const DisplayTasks = (props) => {
     const [tasks, setTasks] = useState([]);
 
     const getData = async(userid) => {
-      var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport";
-      if(userid){
-        url += `&userid=${userid}`;
-      }
+      var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=117629&objAction=RunReport";
       url += '&nexturl='+ window.nextUrl;
       const response = await axios.get(url);
         console.log("response", response);
@@ -69,7 +66,7 @@ const DisplayTasks = (props) => {
             setTasks(groupedTables);
     }
     useEffect(() => {
-        getData(window.userId);
+        getData();
     }, []);
 
   
@@ -104,7 +101,7 @@ const DisplayTasks = (props) => {
       setTasks(weeklytables);
     };
     const Reset = () => {
-        getData(window.userId);
+        getData();
     };
     const [filteredUser, setFilteredUser] = useState('All');
 
