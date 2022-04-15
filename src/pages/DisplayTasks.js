@@ -84,7 +84,6 @@ const DisplayTasks = (props) => {
         filteredTasks.push(tasks[i]);
       }
     }
-    setTasks(filteredTasks);
     console.log("filtered tasks by users",filteredTasks);
   
     const [firstDate, setFirstDate] = useState('');
