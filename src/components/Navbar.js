@@ -6,8 +6,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
     navBar: {
-        background: "white",
-    },
+        background: "#D1D1D1",
+    }
   }));
 
 function LinkTab(props) {
@@ -34,7 +34,7 @@ const Navbar = () => {
         <Box sx={{ width: '100%' }}>
         <Tabs value={value} onChange={handleChange} aria-label="nav tabs example" className={classes.navBar}>
             <LinkTab label="Homepage" href="/homepage" className={classes.Tab} />
-            <LinkTab label="Displayed Tasks" href="/displaytasks" className={classes.Tab} />
+            <LinkTab label="All Tasks" href="/displaytasks" className={classes.Tab} />
         </Tabs>
         </Box>
     );
