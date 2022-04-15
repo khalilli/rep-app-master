@@ -85,9 +85,6 @@ const DisplayTasks = (props) => {
     if(filteredTasks.length > 0){
       tasksContent = <Tasks items={filteredTasks} />
     }
-    else if(filteredUser === "All"){
-      tasksContent = <Tasks items={tasks} />
-    }
     console.log("Check tasks", tasks);
     console.log("Filtered one", filteredTasks);
   
@@ -119,7 +116,7 @@ const DisplayTasks = (props) => {
           }
         }
       }
-      setTasks(weeklytables);
+      tasksContent = <Tasks items={weeklytables} />
     };
     const Reset = () => {
         getData();
