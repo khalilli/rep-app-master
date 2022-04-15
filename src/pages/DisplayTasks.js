@@ -74,19 +74,18 @@ const DisplayTasks = (props) => {
 
     const filterChange = selectedUser => {
       setFilteredUser(selectedUser);
-      console.log(filteredUser);
     };
 
     console.log("check if changes in every click", filteredUser);
 
-    // const filteredTasks = [];
-    // for( var i=0; i<tasks.length; i++){
-    //   if (tasks[i].userid === filteredUser){
-    //     filteredTasks.push(tasks[i]);
-    //   }
-    // }
-    // setTasks(filteredTasks);
-    // console.log("filtered tasks by users",filteredTasks);
+    const filteredTasks = [];
+    for( var i=0; i<tasks.length; i++){
+      if (tasks[i].userid === filteredUser){
+        filteredTasks.push(tasks[i]);
+      }
+    }
+    setTasks(filteredTasks);
+    console.log("filtered tasks by users",filteredTasks);
   
     const [firstDate, setFirstDate] = useState('');
     const [secondDate, setSecondDate] = useState('');
