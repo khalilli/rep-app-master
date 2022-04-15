@@ -12,6 +12,7 @@ import { v4 as uuid } from 'uuid';
 //set daterange, send only latest tasks, delete tasks from db
 //select userid from db and somehow get username from them
 // create second web report which returns json 
+// reset time to filtered user, reset filtered user to all
 const Initdata = [];
 
 const useStyles = makeStyles(theme => ({

@@ -29,7 +29,6 @@ const useStyles = makeStyles(theme => ({
 const DisplayTasks = (props) => {
   const classes = useStyles(); 
     const [tasks, setTasks] = useState([]);
-
     const getData = async(userid) => {
       var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport";
       if(userid){
@@ -47,7 +46,8 @@ const DisplayTasks = (props) => {
                 id: uuid(),
                 stime: response.data[i].start_time,
                 etime: response.data[i].end_time,
-                tasktitle: response.data[i].task}, ]
+                tasktitle: response.data[i].task}, ],
+            userid: response.data[i].userid
             };
             taskTables.unshift(Task);
         } 
@@ -72,7 +72,22 @@ const DisplayTasks = (props) => {
         getData(window.userId);
     }, []);
 
-  
+    const [filteredUser, setFilteredUser] = useState('All');
+
+    const filterChange = selectedUser => {
+      setFilteredUser(selectedUser);
+    };
+
+    const filteredTasks = [];
+    for( var i=0; i<tasks.length; i++){
+      if (tasks[i].userid === filteredUser){
+        filteredTasks.push(tasks[i]);
+      }
+    }
+    setTasks(filteredTasks);
+    console.log("filtered tasks by users",filteredTasks);
+
+
     const [firstDate, setFirstDate] = useState('');
     const [secondDate, setSecondDate] = useState('');
   
@@ -106,19 +121,12 @@ const DisplayTasks = (props) => {
     const Reset = () => {
         getData(window.userId);
     };
-    const [filteredYear, setFilteredYear] = useState('All');
-
-    const filterChange = selectedYear => {
-      setFilteredYear(selectedYear);
-    };
-
-    console.log("Tasks", tasks);
 
     return(
         <div>
           <div>
             <div className='selection'>
-              <UsersFilter selected={filteredYear} onChangefilter={filterChange}/>
+              <UsersFilter selected={filteredUser} onChangefilter={filterChange}/>
               <form onSubmit={submitHandler}>
               <Grid container direction={"row"} spacing={3} sx={{mt: 3, pb:3, pl:2}} >
                 <Grid item>
