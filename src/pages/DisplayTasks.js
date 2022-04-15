@@ -77,7 +77,7 @@ const DisplayTasks = (props) => {
       console.log(filteredUser);
     };
 
-    console.log(filteredUser);
+    console.log("check if changes in every click", filteredUser);
 
     // const filteredTasks = [];
     // for( var i=0; i<tasks.length; i++){

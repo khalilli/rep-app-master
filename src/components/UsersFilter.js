@@ -9,9 +9,9 @@ const UsersFilter = (props) => {
                 <label>Choose a user:</label>
                 <select value={props.selected} onChange={dropdownchange}>
                 <option value='0'>All</option>
-                <option value='1'>100991</option>
-                <option value='2'>18884</option>
-                <option value='2'>?</option>
+                <option value='100991'>100991</option>
+                <option value='18884'>18884</option>
+                <option value='?'>?</option>
                 </select>
             </div>
         </div>
