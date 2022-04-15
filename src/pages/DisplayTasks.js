@@ -80,7 +80,7 @@ const DisplayTasks = (props) => {
       return task.userid === filteredUser;
     });
 
-    let tasksContent = <p>No tasks found</p>
+    let tasksContent = <Tasks items={tasks} />
 
     if(filteredTasks.length > 0){
       tasksContent = <Tasks items={filteredTasks} />
