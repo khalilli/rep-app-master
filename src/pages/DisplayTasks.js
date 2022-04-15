@@ -80,11 +80,14 @@ const DisplayTasks = (props) => {
       return task.userid === filteredUser;
     });
 
-    let tasksContent = <Tasks items={tasks} />
+    // let tasksContent = <Tasks items={tasks} />
 
-    if(filteredTasks.length > 0){
-      tasksContent = <Tasks items={filteredTasks} />
-    }
+    // if(filteredTasks.length > 0){
+    //   tasksContent = <Tasks items={filteredTasks} />
+    // }
+    const show = () => {
+      setTasks(filteredTasks);
+    };
 
     console.log("Check tasks", tasks);
     console.log("Filtered one", filteredTasks);
@@ -128,6 +131,7 @@ const DisplayTasks = (props) => {
           <div>
             <div className='selection'>
               <UsersFilter selected={filteredUser} onChangefilter={filterChange}/>
+              <Button variant="contained" size="small" type='submit' onClick={show}>Show</Button>
               <form onSubmit={submitHandler}>
               <Grid container direction={"row"} spacing={3} sx={{mt: 3, pb:3, pl:2}} >
                 <Grid item>
@@ -170,8 +174,8 @@ const DisplayTasks = (props) => {
             </form>
             </div>
           </div>
-          {/* <Tasks items={tasks} /> */}
-          {tasksContent}
+          <Tasks items={tasks} />
+          {/* {tasksContent} */}
         </div>
     );
 };
