@@ -76,9 +76,6 @@ const DisplayTasks = (props) => {
       setFilteredUser(selectedUser);
     };
 
-    console.log("check if changes in every click", filteredUser);
-    console.log("Displayed tasks");
-
     const filteredTasks = [];
     for( var i=0; i<tasks.length; i++){
       if (tasks[i].userid === filteredUser){
@@ -86,6 +83,7 @@ const DisplayTasks = (props) => {
       }
     }
     console.log("filtered tasks by users",filteredTasks);
+    console.log("displayed tasks", tasks);
   
     const [firstDate, setFirstDate] = useState('');
     const [secondDate, setSecondDate] = useState('');
