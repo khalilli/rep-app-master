@@ -25,16 +25,15 @@ const useStyles = makeStyles(theme => ({
     background: "white"
   }
 }));
-
 const DisplayTasks = (props) => {
   const classes = useStyles(); 
     const [tasks, setTasks] = useState([]);
 
     const getData = async(userid) => {
-        var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=116154&objAction=RunReport";
-        // if(userid){
-        //     url += `&userid=${userid}`;
-        // }
+        var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113046&objAction=RunReport";
+        if(userid){
+            url += `&userid=${userid}`;
+        }
         url += '&nexturl='+ window.nextUrl;
         const response = await axios.get(url);
         console.log("response", response);
@@ -68,9 +67,9 @@ const DisplayTasks = (props) => {
             groupedTables.pop();
             setTasks(groupedTables);
     }
-  
-    getData(window.userId);
-
+    useEffect(() => {
+        getData(window.userId);
+    }, []);
 
   
     const [firstDate, setFirstDate] = useState('');
@@ -107,12 +106,17 @@ const DisplayTasks = (props) => {
     const Reset = () => {
         getData(window.userId);
     };
+    const [filteredYear, setFilteredYear] = useState('All');
+
+    const filterChange = selectedYear => {
+      setFilteredYear(selectedYear);
+    };
 
     return(
         <div>
           <div>
             <div className='selection'>
-              <UsersFilter/>
+              <UsersFilter selected={filteredYear} onChangefilter={filterChange}/>
               <form onSubmit={submitHandler}>
               <Grid container direction={"row"} spacing={3} sx={{mt: 3, pb:3, pl:2}} >
                 <Grid item>
@@ -146,10 +150,10 @@ const DisplayTasks = (props) => {
                     />
                 </Grid>
                 <Grid item>
-                <Button variant="contained" type='submit'>Show</Button>
+                <Button variant="contained" size="small" type='submit'>Show</Button>
                 </Grid>
                 <Grid item>
-                <Button variant="contained" type='submit' onClick={Reset}>Reset</Button>
+                <Button variant="contained"  size="small" type='submit' onClick={Reset}>Reset</Button>
                 </Grid>
               </Grid>
             </form>
