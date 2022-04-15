@@ -108,14 +108,14 @@ const DisplayTasks = (props) => {
       const frstdate = new Date(firstDate);
       const lastDate = new Date(secondDate);
       const curr = new Date();
-      for( var i=0; i<tasks.length; i++){
+      for( var i=0; i<filteredTasks.length; i++){
         for( var j=frstdate.getDate(); j<=lastDate.getDate(); j++){
           const first = j;
           const day = moment(curr.setDate(first)).format('LL');
           if(tasks[i].date === day){
             console.log("Days", tasks[i].date);
             console.log("Tasks", tasks[i]);
-            weeklytables.push(tasks[i]);
+            weeklytables.push(filteredTasks[i]);
           }
         }
       }
