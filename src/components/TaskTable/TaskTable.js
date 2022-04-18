@@ -16,12 +16,11 @@ const TaskTable = (props) => {
     const [showTable, setShowTable] = useState(true);
 
     const removeTask = (index) => {
-        
         setRow(props.data1.splice(index,1));
-
         if (props.data1.length === 0){
             setShowTable(false);
         }
+        console.log(index);
     };
     return(
         <div>
