@@ -55,15 +55,27 @@ const DisplayTasks = (props) => {
         getData();
     }, []);
 
-    const [filteredUser, setFilteredUser] = useState();
+    const [filteredUser, setFilteredUser] = useState('0');
 
     const filterChange = selectedUser => {
       setFilteredUser(selectedUser);
     };
     
-    const filteredTasks = tasks.filter(task => {
-      return task.userid === filteredUser;
-    });
+    // const filteredTasks = tasks.filter(task => {
+    //   return task.userid === filteredUser;
+    // });
+    const filteredTasks = [];
+    if(filteredUser === 0){
+      console.log("inside", filteredUser);
+      filteredTasks = tasks;
+    }
+    console.log("Outside", filteredUser);
+    for( var i=0;i<tasks.length;i++){
+      if(tasks[i].userid === filteredUser){
+        filteredTasks.push(tasks[i]);
+      }
+    }
+    console.log(filteredTasks);
 
     let tasksContent = <Tasks items={tasks} />
 
