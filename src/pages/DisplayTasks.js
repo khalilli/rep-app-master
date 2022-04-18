@@ -63,11 +63,11 @@ const DisplayTasks = (props) => {
 
 
     const filteredTasks = tasks.filter(task => {
-      return task.userid === filteredUser;
+      return filteredUser === 'All'  || task.userid === filteredUser;
     });
+    console.log(filteredTasks);
 
     let tasksContent = <Tasks items={tasks} />
-    console.log("Filtered Tasks", filteredTasks);
     if(filteredTasks.length > 0){
       tasksContent = <Tasks items={filteredTasks} />
     }
@@ -93,13 +93,10 @@ const DisplayTasks = (props) => {
           const first = j;
           const day = moment(curr.setDate(first)).format('LL');
           if(filteredTasks[i].date === day){
-            console.log("Days", tasks[i].date);
-            console.log("Tasks", tasks[i]);
             weeklytables.push(filteredTasks[i]);
           }
         }
       }
-      console.log("Weekly", weeklytables);
       setTasks(weeklytables);
     };
     const Reset = () => {
