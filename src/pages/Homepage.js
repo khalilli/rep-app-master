@@ -147,11 +147,9 @@ const Homepage = () => {
 
   const AddTaskHandler = (enteredTask) => {
     console.log("Entered", enteredTask);
-
     setTasks((prevTasks)=>{
       return [enteredTask, ...prevTasks];
     });
-
     enteredTask.data.map((task) => (
       setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId)
     ))
@@ -162,7 +160,6 @@ const Homepage = () => {
   };
       return (
         <div>
-          {/* <Navbar /> */}
           <NewTask onAddTask={AddTaskHandler} />
           <Grid container direction="column" alignItems="center">
             <Grid item>
