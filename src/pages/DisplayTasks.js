@@ -11,113 +11,49 @@ import './DisplayTasks.css';
 import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
-const Initdata = [
-  {
-  id:'0',
-  userid: '19',
-  date: moment(new Date("March 21, 2022")).format('LL'),
-  data: 
-    [
-      {id: '1', stime: '?', etime: '?', tasktitle: 'test'},
-      {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
-    ]
-  },
-  {
-    id:'1',
-    userid: '19',
-    date: moment(new Date("March 22, 2022")).format('LL'),
-    data: 
-      [
-        {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
-        {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
-      ]
-  },
-  {
-    id:'2',
-    userid: '38',
-    date: moment(new Date("March 24, 2022")).format('LL'),
-    data: 
-      [
-        {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
-        {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
-      ]
-  },
-  {
-    id:'3',
-    userid: '38',
-    date: moment(new Date("March 27, 2022")).format('LL'),
-    data: 
-      [
-        {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
-        {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
-      ]
-  },
-  {
-    id:'4',
-    userid: '19',
-    date: moment(new Date("March 30, 2022")).format('LL'),
-    data: 
-      [
-        {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
-        {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
-      ]
-  },
-  {
-    id:'5',
-    userid: '38',
-    date: moment(new Date("April 7, 2022")).format('LL'),
-    data: 
-      [
-        {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
-        {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
-      ]
-  },
-    
-];
-
 
 const DisplayTasks = (props) => {
-    const [tasks, setTasks] = useState(Initdata);
+    const [tasks, setTasks] = useState([]);
 
-    // const getData = async(userid) => {
-    //   var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=117629&objAction=RunReport";
-    //   url += '&nexturl='+ window.nextUrl;
-    //   const response = await axios.get(url);
-    //     console.log("response", response);
-    //     const taskTables = [{},];
-    //     for (var i=0; i<response.data.length-1; i++){
-    //         const Task = {
-    //         id: response.data[i].id,
-    //         date: moment(response.data[i].taskdate).format('LL'),
-    //         userid: response.data[i].userid,
-    //         data: [{
-    //             id: uuid(),
-    //             stime: response.data[i].start_time,
-    //             etime: response.data[i].end_time,
-    //             tasktitle: response.data[i].task}, ]
-    //         };
-    //         taskTables.unshift(Task);
-    //     } 
-    //         const groupedTables = [];
-    //         taskTables.forEach(function(item) {
-    //         var existing = groupedTables.filter(function(v) {
-    //             return v.id === item.id;
-    //         });
-    //         if (existing.length) {
-    //             var existingIndex = groupedTables.indexOf(existing[0]);
-    //             groupedTables[existingIndex].data = groupedTables[existingIndex].data.concat(item.data);
-    //         } else {
-    //             if (typeof item.data == 'string')
-    //             item.data = [item.data];
-    //             groupedTables.push(item);
-    //         }
-    //         });
-    //         groupedTables.pop();
-    //         setTasks(groupedTables);
-    // }
-    // useEffect(() => {
-    //     getData();
-    // }, []);
+    const getData = async(userid) => {
+      var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=117629&objAction=RunReport";
+      url += '&nexturl='+ window.nextUrl;
+      const response = await axios.get(url);
+        console.log("response", response);
+        const taskTables = [{},];
+        for (var i=0; i<response.data.length-1; i++){
+            const Task = {
+            id: response.data[i].id,
+            date: moment(response.data[i].taskdate).format('LL'),
+            userid: response.data[i].userid,
+            data: [{
+                id: uuid(),
+                stime: response.data[i].start_time,
+                etime: response.data[i].end_time,
+                tasktitle: response.data[i].task}, ]
+            };
+            taskTables.unshift(Task);
+        } 
+            const groupedTables = [];
+            taskTables.forEach(function(item) {
+            var existing = groupedTables.filter(function(v) {
+                return v.id === item.id;
+            });
+            if (existing.length) {
+                var existingIndex = groupedTables.indexOf(existing[0]);
+                groupedTables[existingIndex].data = groupedTables[existingIndex].data.concat(item.data);
+            } else {
+                if (typeof item.data == 'string')
+                item.data = [item.data];
+                groupedTables.push(item);
+            }
+            });
+            groupedTables.pop();
+            setTasks(groupedTables);
+    }
+    useEffect(() => {
+        getData();
+    }, []);
 
     const [filteredUser, setFilteredUser] = useState();
 
