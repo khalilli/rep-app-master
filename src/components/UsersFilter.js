@@ -3,8 +3,11 @@ const UsersFilter = (props) => {
     const dropdownchange = (event) => {
         props.onChangefilter(event.target.value);
     };
-    props.items.map((item) => {return item.userid})
-    console.log("new",props.items);
+    const userids = [];
+    for(var i=0; i<props.items.length; i++){
+        userids.push(props.items[i].userid);
+    }
+    console.log("Users", userids);
     return (
       <div className="expenses-filter">
         <div className="expenses-filter__control">
