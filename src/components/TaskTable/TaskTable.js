@@ -20,7 +20,8 @@ const TaskTable = (props) => {
         if (props.data1.length === 0){
             setShowTable(false);
         }
-        console.log(props.data1[index].id);
+        console.log("Data", props.data1);
+        console.log("Index", index);
     };
     return(
         <div>
