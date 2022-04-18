@@ -60,17 +60,10 @@ const DisplayTasks = (props) => {
     const filterChange = selectedUser => {
       setFilteredUser(selectedUser);
     };
-
-    const filteredTasks = [];
-    if (filteredUser === 0){
-      filteredTasks = [...tasks];
-    }
-    console.log(filteredTasks);
-    
-    
-    // const filteredTasks = tasks.filter(task => {
-    //   return task.userid === filteredUser;
-    // });
+    console.log("tasks", tasks);
+    const filteredTasks = tasks.filter(task => {
+      return task.userid === filteredUser;
+    });
 
     let tasksContent = <Tasks items={tasks} />
     // console.log("Filtered Tasks", filteredTasks);
