@@ -16,13 +16,19 @@ const TaskTable = (props) => {
     const [showTable, setShowTable] = useState(true);
 
     const removeTask = (index) => {
-        console.log(index);
-        console.log(props.data1[index]);
-        console.log(props.data1[index].id);
-        setRow(props.data1.splice(index,1));
-        if (props.data1.length === 0){
-            setShowTable(false);
-        }
+        setShowTable(prevTasks => {
+            const updatedRows = prevTasks.filter(task => task.id!==index);
+            console.log("Updated row", updatedRows);
+            return updatedRows;
+        });
+        // console.log(index);
+        // console.log(props.data1[index]);
+        // console.log(props.data1[index].id);
+        // setRow(props.data1.splice(index,1));
+        // if (props.data1.length === 0){
+        //     setShowTable(false);
+        // }
+
     };
     return(
         <div>
