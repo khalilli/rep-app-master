@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { makeStyles } from '@material-ui/core';
+import axios from 'axios';
 import './TaskTable.css';
 const useStyles = makeStyles(theme => ({
     removeButton: {
@@ -16,11 +17,16 @@ const TaskTable = (props) => {
     const [showTable, setShowTable] = useState(true);
 
     const removeTask = (index) => {
-        setShowTable(prevTasks => {
-            const updatedRows = prevTasks.filter(task => task.id!==index);
-            console.log("Updated row", updatedRows);
-            return updatedRows;
-        });
+        axios.delete(`https://jsonplaceholder.typicode.com/posts/${props.data1[index].id}`)  
+        .then(res => {  
+          console.log(res);  
+          console.log(res.data); 
+          setRow(props.data.splice(index,1));
+          if (props.data.length === 0){
+              setShowTable(false);
+          }  
+        }) 
+
         // console.log(index);
         // console.log(props.data1[index]);
         // console.log(props.data1[index].id);
@@ -28,7 +34,6 @@ const TaskTable = (props) => {
         // if (props.data1.length === 0){
         //     setShowTable(false);
         // }
-
     };
     return(
         <div>
