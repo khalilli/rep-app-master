@@ -3,6 +3,7 @@ const UsersFilter = (props) => {
     const dropdownchange = (event) => {
         props.onChangefilter(event.target.value);
     };
+    console.log("props", props.items);
     const userids = [];
     for(var i=0; i<props.items.length; i++){
         userids.push(props.items[i].userid);
