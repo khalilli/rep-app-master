@@ -61,21 +61,9 @@ const DisplayTasks = (props) => {
       setFilteredUser(selectedUser);
     };
     
-    // const filteredTasks = tasks.filter(task => {
-    //   return task.userid === filteredUser;
-    // });
-    const filteredTasks = [];
-    if(filteredUser === 0){
-      console.log("inside", filteredUser);
-      filteredTasks = tasks;
-    }
-    console.log("Outside", filteredUser);
-    for( var i=0;i<tasks.length;i++){
-      if(tasks[i].userid === filteredUser){
-        filteredTasks.push(tasks[i]);
-      }
-    }
-    console.log(filteredTasks);
+    const filteredTasks = tasks.filter(task => {
+      return task.userid === filteredUser;
+    });
 
     let tasksContent = <Tasks items={tasks} />
 
@@ -110,7 +98,7 @@ const DisplayTasks = (props) => {
           }
         }
       }
-      console.log(weeklytables);
+      setTasks(weeklytables);
     };
     const Reset = () => {
       window.location.reload(true);
