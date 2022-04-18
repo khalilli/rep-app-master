@@ -76,7 +76,6 @@ const DisplayTasks = (props) => {
   
     const firstDateChange = (event) => {
       setFirstDate(event.target.value);
-      console.log(event.target.value);
     };
     const secondDateChange = (event) => {
       setSecondDate(event.target.value);
@@ -84,7 +83,6 @@ const DisplayTasks = (props) => {
 
     const submitHandler = (event) => {
       event.preventDefault();
-
       const weeklytables = [];
       const frstdate = new Date(firstDate);
       const lastDate = new Date(secondDate);
@@ -100,7 +98,7 @@ const DisplayTasks = (props) => {
           }
         }
       }
-      setTasks(weeklytables);
+      console.log(weeklytables);
     };
     const Reset = () => {
       window.location.reload(true);
