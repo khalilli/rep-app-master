@@ -7,7 +7,8 @@ const UsersFilter = (props) => {
     for(var i=0; i<props.items.length; i++){
         userids.push(props.items[i].userid);
     }
-    console.log("Users", userids);
+    const uniqueUserids = [...new Set(userids)];
+    console.log("Unique", uniqueUserids);
     return (
       <div className="expenses-filter">
         <div className="expenses-filter__control">
