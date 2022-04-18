@@ -3,7 +3,7 @@ const UsersFilter = (props) => {
     const dropdownchange = (event) => {
         props.onChangefilter(event.target.value);
     };
-    console.log("props", props.items);
+
     const userids = [];
     for(var i=0; i<props.items.length; i++){
         userids.push(props.items[i].userid);
@@ -15,13 +15,13 @@ const UsersFilter = (props) => {
         <div className="expenses-filter__control">
           <label>Choose a user:</label>
           <select value={props.selected} onChange={dropdownchange}>
-            <option value='0'>Users</option>
-                <option value='100991'>100991</option>
-                <option value='18884'>18884</option>
-                <option value='?'>?</option>
-            {/* {props.items.map((item) => (
-              <option value={item.userid}>{item.userid}</option>
-            ))} */}
+            {/* <option value='0'>Users</option>
+            <option value='100991'>100991</option>
+            <option value='18884'>18884</option>
+            <option value='?'>?</option> */}
+            {uniqueUserids.map((item) => (
+              <option value={item}>{item}</option>
+            ))}
           </select>
         </div>
       </div>
