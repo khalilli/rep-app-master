@@ -66,7 +66,7 @@ const DisplayTasks = (props) => {
     });
 
     let tasksContent = <Tasks items={tasks} />
-
+    console.log("Filtered Tasks", filteredTasks);
     if(filteredTasks.length > 0){
       tasksContent = <Tasks items={filteredTasks} />
     }
@@ -98,6 +98,7 @@ const DisplayTasks = (props) => {
           }
         }
       }
+      console.log("Weekly", weeklytables);
       setTasks(weeklytables);
     };
     const Reset = () => {
