@@ -16,16 +16,20 @@ const TaskTable = (props) => {
     const [row, setRow] = useState(props.data1);
     const [showTable, setShowTable] = useState(true);
 
-    const removeTask = (index) => {
-        axios.delete(`https://jsonplaceholder.typicode.com/posts/${props.data1[index].id}`)  
-        .then(res => {  
-          console.log(res);  
-          console.log(res.data); 
-          setRow(props.data.splice(index,1));
-          if (props.data.length === 0){
-              setShowTable(false);
-          }  
-        }) 
+    const removeTask = async (index) => {
+        var url = (`http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport`);
+        if(index){
+            url += `&index=${index}`;
+        }
+        url += '&nexturl='+ window.nextUrl;  
+        const res = await axios.delete(url);
+        console.log(res);
+        console.log(res.data);
+        // setRow(props.data.splice(index,1));
+        // if (props.data.length === 0){
+        //     setShowTable(false);
+        // }  
+
 
         // console.log(index);
         // console.log(props.data1[index]);
