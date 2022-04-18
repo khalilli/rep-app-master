@@ -8,10 +8,13 @@ const UsersFilter = (props) => {
             <div className="expenses-filter__control">
                 <label>Choose a user:</label>
                 <select value={props.selected} onChange={dropdownchange}>
-                <option value='0'>All</option>
-                <option value='100991'>100991</option>
+                <option value='0'>Users</option>
+                <option value='42'>42</option>
+                {/* <option value='100991'>100991</option>
                 <option value='18884'>18884</option>
-                <option value='?'>?</option>
+                <option value='?'>?</option> */}
+                <option value='19'>19</option>
+                <option value='38'>38</option>
                 </select>
             </div>
         </div>

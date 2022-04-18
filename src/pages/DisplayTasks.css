@@ -6,3 +6,19 @@
     padding: 0.2rem;
     width: 80%;
 }
+
+/*     const [filteredUser, setFilteredUser] = useState();
+
+    const filterChange = selectedUser => {
+      setFilteredUser(selectedUser);
+    };
+    
+    const filteredTasks = tasks.filter(task => {
+      return task.userid === filteredUser;
+    });
+
+    let tasksContent = <Tasks items={tasks} />
+
+    if(filteredTasks.length > 0){
+      tasksContent = <Tasks items={filteredTasks} />
+    } */

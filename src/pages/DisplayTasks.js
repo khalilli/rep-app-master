@@ -11,92 +11,136 @@ import './DisplayTasks.css';
 import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
-
-
-const useStyles = makeStyles(theme => ({
-  Ctext: {
-      color: "#051367"
+const Initdata = [
+  {
+  id:'0',
+  userid: '19',
+  date: moment(new Date("March 21, 2022")).format('LL'),
+  data: 
+    [
+      {id: '1', stime: '?', etime: '?', tasktitle: 'test'},
+      {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
+    ]
   },
-  color: {
-    backgroundColor: 'white'
+  {
+    id:'1',
+    userid: '19',
+    date: moment(new Date("March 22, 2022")).format('LL'),
+    data: 
+      [
+        {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
+        {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
+      ]
   },
-  root: {
-    background: "white"
-  }
-}));
+  {
+    id:'2',
+    userid: '38',
+    date: moment(new Date("March 24, 2022")).format('LL'),
+    data: 
+      [
+        {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
+        {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
+      ]
+  },
+  {
+    id:'3',
+    userid: '38',
+    date: moment(new Date("March 27, 2022")).format('LL'),
+    data: 
+      [
+        {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
+        {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
+      ]
+  },
+  {
+    id:'4',
+    userid: '19',
+    date: moment(new Date("March 30, 2022")).format('LL'),
+    data: 
+      [
+        {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
+        {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
+      ]
+  },
+  {
+    id:'5',
+    userid: '38',
+    date: moment(new Date("April 7, 2022")).format('LL'),
+    data: 
+      [
+        {id: '1', stime: '9:00', etime: '10:00', tasktitle: 'test'},
+        {id: '2', stime: '11:00', etime: '12:00', tasktitle: 'text'},
+      ]
+  },
+    
+];
 
 
 const DisplayTasks = (props) => {
-  const classes = useStyles(); 
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState(Initdata);
 
-    const getData = async(userid) => {
-      var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=117629&objAction=RunReport";
-      url += '&nexturl='+ window.nextUrl;
-      const response = await axios.get(url);
-        console.log("response", response);
-        const taskTables = [{},];
-        for (var i=0; i<response.data.length-1; i++){
-            const Task = {
-            id: response.data[i].id,
-            date: moment(response.data[i].taskdate).format('LL'),
-            userid: response.data[i].userid,
-            data: [{
-                id: uuid(),
-                stime: response.data[i].start_time,
-                etime: response.data[i].end_time,
-                tasktitle: response.data[i].task}, ]
-            };
-            taskTables.unshift(Task);
-        } 
-            const groupedTables = [];
-            taskTables.forEach(function(item) {
-            var existing = groupedTables.filter(function(v) {
-                return v.id === item.id;
-            });
-            if (existing.length) {
-                var existingIndex = groupedTables.indexOf(existing[0]);
-                groupedTables[existingIndex].data = groupedTables[existingIndex].data.concat(item.data);
-            } else {
-                if (typeof item.data == 'string')
-                item.data = [item.data];
-                groupedTables.push(item);
-            }
-            });
-            groupedTables.pop();
-            setTasks(groupedTables);
-    }
-    useEffect(() => {
-        getData();
-    }, []);
+    // const getData = async(userid) => {
+    //   var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=117629&objAction=RunReport";
+    //   url += '&nexturl='+ window.nextUrl;
+    //   const response = await axios.get(url);
+    //     console.log("response", response);
+    //     const taskTables = [{},];
+    //     for (var i=0; i<response.data.length-1; i++){
+    //         const Task = {
+    //         id: response.data[i].id,
+    //         date: moment(response.data[i].taskdate).format('LL'),
+    //         userid: response.data[i].userid,
+    //         data: [{
+    //             id: uuid(),
+    //             stime: response.data[i].start_time,
+    //             etime: response.data[i].end_time,
+    //             tasktitle: response.data[i].task}, ]
+    //         };
+    //         taskTables.unshift(Task);
+    //     } 
+    //         const groupedTables = [];
+    //         taskTables.forEach(function(item) {
+    //         var existing = groupedTables.filter(function(v) {
+    //             return v.id === item.id;
+    //         });
+    //         if (existing.length) {
+    //             var existingIndex = groupedTables.indexOf(existing[0]);
+    //             groupedTables[existingIndex].data = groupedTables[existingIndex].data.concat(item.data);
+    //         } else {
+    //             if (typeof item.data == 'string')
+    //             item.data = [item.data];
+    //             groupedTables.push(item);
+    //         }
+    //         });
+    //         groupedTables.pop();
+    //         setTasks(groupedTables);
+    // }
+    // useEffect(() => {
+    //     getData();
+    // }, []);
 
-    const [filteredUser, setFilteredUser] = useState('All');
+    const [filteredUser, setFilteredUser] = useState();
 
     const filterChange = selectedUser => {
       setFilteredUser(selectedUser);
     };
-
+    
     const filteredTasks = tasks.filter(task => {
       return task.userid === filteredUser;
     });
 
-    // let tasksContent = <Tasks items={tasks} />
+    let tasksContent = <Tasks items={tasks} />
 
-    // if(filteredTasks.length > 0){
-    //   tasksContent = <Tasks items={filteredTasks} />
-    // }
-    const show = () => {
-      setTasks(filteredTasks);
-    };
-
-    console.log("Check tasks", tasks);
-    console.log("Filtered one", filteredTasks);
+    if(filteredTasks.length > 0){
+      tasksContent = <Tasks items={filteredTasks} />
+    }
   
     const [firstDate, setFirstDate] = useState('');
     const [secondDate, setSecondDate] = useState('');
   
     const firstDateChange = (event) => {
       setFirstDate(event.target.value);
+      console.log(event.target.value);
     };
     const secondDateChange = (event) => {
       setSecondDate(event.target.value);
@@ -131,7 +175,6 @@ const DisplayTasks = (props) => {
           <div>
             <div className='selection'>
               <UsersFilter selected={filteredUser} onChangefilter={filterChange}/>
-              <Button variant="contained" size="small" type='submit' onClick={show}>Show</Button>
               <form onSubmit={submitHandler}>
               <Grid container direction={"row"} spacing={3} sx={{mt: 3, pb:3, pl:2}} >
                 <Grid item>
@@ -174,8 +217,8 @@ const DisplayTasks = (props) => {
             </form>
             </div>
           </div>
-          <Tasks items={tasks} />
-          {/* {tasksContent} */}
+          {/* <Tasks items={tasks} /> */}
+          {tasksContent}
         </div>
     );
 };

@@ -39,9 +39,9 @@ const TaskTable = (props) => {
                 <tbody>
                     {(props.data1 || []).map((task, index) => (
                        <tr key={index}>
-                           <td>{task.stime}</td>
-                           <td>{task.etime}</td>
-                           <td>{task.tasktitle}</td>
+                           <td>{task.stime === '?' ? 'undefined' : task.stime}</td>
+                           <td>{task.etime === '?' ? 'undefined' : task.etime}</td>
+                           <td>{task.tasktitle === '?' ? 'undefined' : task.tasktitle}</td>
                            <td>
                                 {/* <IconButton onClick={props.removeTask}> */}
                                 <IconButton onClick={() => removeTask(index)}>

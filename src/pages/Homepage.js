@@ -11,7 +11,6 @@ import moment from 'moment';
 import { v4 as uuid } from 'uuid';
 //set daterange, send only latest tasks, delete tasks from db
 //select userid from db and somehow get username from them
-// create second web report which returns json 
 // reset time to filtered user, reset filtered user to all
 const Initdata = [];
 
@@ -163,7 +162,7 @@ const Homepage = () => {
   };
       return (
         <div>
-          <Navbar />
+          {/* <Navbar /> */}
           <NewTask onAddTask={AddTaskHandler} />
           <Grid container direction="column" alignItems="center">
             <Grid item>
