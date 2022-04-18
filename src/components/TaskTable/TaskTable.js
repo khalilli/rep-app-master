@@ -17,27 +17,13 @@ const TaskTable = (props) => {
     const [showTable, setShowTable] = useState(true);
 
     const removeTask = async (index) => {
-        var url = (`http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport`);
-        if(index){
-            url += `&index=${index}`;
+        console.log(index);
+        console.log(props.data1[index]);
+        console.log(props.data1[index].id);
+        setRow(props.data1.splice(index,1));
+        if (props.data1.length === 0){
+            setShowTable(false);
         }
-        url += '&nexturl='+ window.nextUrl;  
-        const res = await axios.delete(url);
-        console.log(res);
-        console.log(res.data);
-        // setRow(props.data.splice(index,1));
-        // if (props.data.length === 0){
-        //     setShowTable(false);
-        // }  
-
-
-        // console.log(index);
-        // console.log(props.data1[index]);
-        // console.log(props.data1[index].id);
-        // setRow(props.data1.splice(index,1));
-        // if (props.data1.length === 0){
-        //     setShowTable(false);
-        // }
     };
     return(
         <div>
