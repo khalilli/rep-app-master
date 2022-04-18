@@ -86,12 +86,15 @@ const DisplayTasks = (props) => {
       event.preventDefault();
       const weeklytables = [];
       const frstdate = new Date(firstDate);
+      console.log("firstday", frstdate);
       const lastDate = new Date(secondDate);
       const curr = new Date();
       for( var i=0; i<filteredTasks.length; i++){
+        console.log("filtered date", filteredTasks[i].date);
         for( var j=frstdate.getDate(); j<=lastDate.getDate(); j++){
           const first = j;
           const day = moment(curr.setDate(first)).format('LL');
+          console.log("day", day);
           if(filteredTasks[i].date === day){
             weeklytables.push(filteredTasks[i]);
           }
