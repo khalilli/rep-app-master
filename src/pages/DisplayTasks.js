@@ -107,7 +107,7 @@ const DisplayTasks = (props) => {
         <div>
           <div>
             <div className='selection'>
-              <UsersFilter selected={filteredUser} onChangefilter={filterChange}/>
+              <UsersFilter selected={filteredUser} onChangefilter={filterChange} items={tasks}/>
               <form onSubmit={submitHandler}>
               <Grid container direction={"row"} spacing={3} sx={{mt: 3, pb:3, pl:2}} >
                 <Grid item>

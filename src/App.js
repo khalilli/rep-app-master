@@ -13,8 +13,7 @@ function App() {
         <Navbar/>
         <AppRoutes />
       </AppProvider> */}
-      {window.baseUrl}
-      {/* <DisplayTasks /> */}
+      <DisplayTasks />
     </div>
     // <Router>
     //   <div className="App">

@@ -3,6 +3,7 @@ const UsersFilter = (props) => {
     const dropdownchange = (event) => {
         props.onChangefilter(event.target.value);
     };
+    console.log(props.items);
     return(
         <div className="expenses-filter">
             <div className="expenses-filter__control">
