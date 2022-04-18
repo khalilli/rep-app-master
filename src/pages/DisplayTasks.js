@@ -63,7 +63,7 @@ const DisplayTasks = (props) => {
 
 
     const filteredTasks = tasks.filter(task => {
-      return filteredUser === 'All'  || task.userid === filteredUser;
+      return task.userid === filteredUser;
     });
     console.log(filteredTasks);
 
