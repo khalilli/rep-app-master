@@ -63,7 +63,7 @@ const DisplayTasks = (props) => {
 
     const filteredTasks = [];
     if (filteredUser === 0){
-      filteredTasks = tasks;
+      filteredTasks = [...tasks];
     }
     console.log(filteredTasks);
     
