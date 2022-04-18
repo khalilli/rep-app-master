@@ -14,7 +14,7 @@ const UsersFilter = (props) => {
                 <option value='18884'>18884</option>
                 <option value='?'>?</option> */}
             {props.items.map((item) => (
-              <option value={item.userid}>{item.userid}</option>
+              new Set(<option value={item.userid}>{item.userid}</option>)
             ))}
           </select>
         </div>
