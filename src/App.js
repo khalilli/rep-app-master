@@ -9,11 +9,11 @@ import Navbar from './components/Navbar.js';
 function App() {
   return (
     <div>
-      {/* <AppProvider>
+      <AppProvider>
         <Navbar/>
         <AppRoutes />
-      </AppProvider> */}
-      <Homepage />
+      </AppProvider>
+      {/* <Homepage /> */}
     </div>
     // <Router>
     //   <div className="App">
