@@ -6,7 +6,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import moment from 'moment';
-import { v4 as uuid } from 'uuid';
 import "./AddForm.css";
 
 const useStyles = makeStyles(theme => ({
@@ -44,9 +43,10 @@ const AddForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
         const taskData = {
-          date: moment(enteredDate).format("LL"),
-          data: { id: uuid(), ...inputFields },
+            date: moment(enteredDate).format('LL'),
+            data: inputFields,
         };
+        // data: { row_id: uuid(), ...inputFields },
         props.onSaveTask(taskData);
     };
 
