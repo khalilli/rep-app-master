@@ -38,14 +38,14 @@ const Navbar = () => {
         //     <Link><LinkTab label="All Tasks" href="/about" className={classes.Tab} /></Link>
         // </Tabs>
         // </Box>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href={window.baseUrl + '/homepage' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>Homepage</a>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a className="nav-link" href={window.baseUrl + '/homepage' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>Homepage</a>
               </li>
-              <li class="nav-item">
-              <a class="nav-link" href={window.baseUrl + '/homepage' + '/displaytasks' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>All Tasks</a>
+              <li className="nav-item">
+              <a className="nav-link" href={window.baseUrl + '/displaytasks' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>All Tasks</a>
               </li>
             </ul>
           </div>
