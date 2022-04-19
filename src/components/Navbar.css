@@ -37,3 +37,8 @@ li{
     background-color: #04AA6D;
     color: white;
   }
+
+  .topnav a:visited {
+    text-decoration: none;
+    /* color: red; */
+  }

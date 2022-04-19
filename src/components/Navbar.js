@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { makeStyles } from "@material-ui/core/styles";
+import './Navbar.css';
 
 const useStyles = makeStyles(theme => ({
     navBar: {
@@ -39,23 +40,23 @@ const Navbar = () => {
         // </Box>
 
 
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <a className="nav-link" href={window.baseUrl + '/homepage' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>Homepage</a>
-              </li>
-              <li className="nav-item">
-              <a className="nav-link" href={window.baseUrl + '/displaytasks' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>All Tasks</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        // <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        //   <div className="collapse navbar-collapse" id="navbarNav">
+        //     <ul className="navbar-nav">
+        //       <li className="nav-item">
+        //         <a className="nav-link" href={window.baseUrl + '/homepage' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>Homepage</a>
+        //       </li>
+        //       <li className="nav-item">
+        //       <a className="nav-link" href={window.baseUrl + '/displaytasks' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>All Tasks</a>
+        //       </li>
+        //     </ul>
+        //   </div>
+        // </nav>
         
-        // <div className="topnav">
-        //   <a href={window.baseUrl + '/homepage' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>Homepage</a>
-        //   <a href={window.baseUrl + '/displaytasks' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>All Tasks</a>
-        // </div> 
+        <div className="topnav">
+          <a href={window.baseUrl + '/homepage' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>Homepage</a>
+          <a href={window.baseUrl + '/displaytasks' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>All Tasks</a>
+        </div> 
     );
 };
 export default Navbar;
