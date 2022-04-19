@@ -4,7 +4,6 @@ import NewTask from "../components/TaskForm/NewTask";
 import Tasks from "../components/TaskTable/Tasks";
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import Navbar from '../components/Navbar.js';
 import { makeStyles } from "@material-ui/core/styles";
 import axios from 'axios';
 import moment from 'moment';
@@ -158,7 +157,6 @@ const Homepage = () => {
   };
       return (
         <div>
-          <Navbar />
           <NewTask onAddTask={AddTaskHandler} />
           <Grid container direction="column" alignItems="center">
             <Grid item>
