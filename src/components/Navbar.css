@@ -8,3 +8,7 @@ li{
     border: 1px solid white;
     border-radius: 2px;
 } */
+a:visited { 
+    text-decoration: none; 
+    color: orange; 
+   }
