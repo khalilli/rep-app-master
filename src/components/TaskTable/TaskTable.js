@@ -42,11 +42,29 @@ const TaskTable = (props) => {
               <tbody>
                 {(props.data1 || []).map((task, index) => (
                   <tr key={index}>
-                    <td>{task.stime === "?" ? "undefined" : task.stime}</td>
-                    <td>{task.etime === "?" ? "undefined" : task.etime}</td>
-                    <td>
-                      {task.tasktitle === "?" ? "undefined" : task.tasktitle}
-                    </td>
+                    {props.button1 === false ? (
+                      <td style={{ padding: "10px" }}>
+                        {task.stime === "?" ? "undefined" : task.stime}
+                      </td>
+                    ) : (
+                      <td>{task.stime === "?" ? "undefined" : task.stime}</td>
+                    )}
+                    {props.button1 === false ? (
+                      <td style={{ padding: "10px" }}>
+                        {task.etime === "?" ? "undefined" : task.etime}
+                      </td>
+                    ) : (
+                      <td>{task.etime === "?" ? "undefined" : task.etime}</td>
+                    )}
+                    {props.button1 === false ? (
+                      <td style={{ padding: "10px" }}>
+                        {task.tasktitle === "?" ? "undefined" : task.tasktitle}
+                      </td>
+                    ) : (
+                      <td>
+                        {task.tasktitle === "?" ? "undefined" : task.tasktitle}
+                      </td>
+                    )}
                     {props.button1 === false ? null : (
                       <td>
                         <IconButton onClick={() => removeTask(index)}>
