@@ -10,7 +10,7 @@ export const publicRoutes = [
     },
     {
         path: window.baseUrl,
-        element: (<Navigate to={window.baseUrl + '/homepage/displaytasks' + '?func=ll&objId=' + 107301 + '&objAction=RunReport'} />)
+        element: (<Navigate to={window.baseUrl + '/homepage' + '?func=ll&objId=' + 107301 + '&objAction=RunReport'} />)
     },
     {
         path: window.baseUrl + '/homepage',
