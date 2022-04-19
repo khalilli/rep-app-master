@@ -43,10 +43,10 @@ const Navbar = () => {
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="/otcs/llisapi.dll?func=ll&objId=107301&objAction=RunReport/">Homepage</a>
+                <a class="nav-link" href={window.baseUrl + '/homepage'}>Homepage</a>
               </li>
               <li class="nav-item">
-              <a class="nav-link" href="/otcs/llisapi.dll?func=ll&objId=107301&objAction=RunReport/displaytasks">All Tasks</a>
+              <a class="nav-link" href={window.baseUrl + '/homepage' + '/displaytasks'}>All Tasks</a>
               </li>
             </ul>
           </div>

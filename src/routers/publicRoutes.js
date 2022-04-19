@@ -17,8 +17,12 @@ export const publicRoutes = [
         element: <Homepage />,
         children: [
             {
-                path: 'displaytasks',
-                element: <DisplayTasks/>
+                children: [
+                    {
+                        path: 'displaytasks',
+                        element: <DisplayTasks />
+                    }
+                ]
             }
         ]
     }
