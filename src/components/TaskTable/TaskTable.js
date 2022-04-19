@@ -73,7 +73,7 @@ const TaskTable = (props) => {
                       </td>
                     )}
                   </tr>
-                ))};
+                ))}
               </tbody>
             </table>
           </div>
