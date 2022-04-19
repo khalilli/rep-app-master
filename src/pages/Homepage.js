@@ -72,8 +72,6 @@ const Homepage = () => {
     getData(window.userId);
   }, []);
 
-  console.log("Just check", window.userId);
-
   const setData = async (id, day, start_time, end_time, task, userid) => {
     var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=106810&objAction=RunReport";
     if(id){
