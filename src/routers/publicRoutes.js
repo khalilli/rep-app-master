@@ -19,7 +19,7 @@ export const publicRoutes = [
             {
                 children: [
                     {
-                        path: '/displaytasks',
+                        path: 'displaytasks',
                         element: <DisplayTasks />
                     }
                 ]
