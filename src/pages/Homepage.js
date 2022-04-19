@@ -9,6 +9,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
+//set daterange, send only latest tasks, delete tasks from db
+//select userid from db and somehow get username from them
+// reset time to filtered user, reset filtered user to all
 const Initdata = [];
 
 const useStyles = makeStyles(theme => ({
