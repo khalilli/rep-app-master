@@ -11,6 +11,7 @@ const Tasks = (props) => {
                 date1={task.date}
                 data1={task.data}
                 items1={props.items}
+                button1={props.button}
                 />
             ))}
         </div>

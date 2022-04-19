@@ -68,9 +68,9 @@ const DisplayTasks = (props) => {
     });
     console.log(filteredTasks);
 
-    let tasksContent = <Tasks items={tasks} />
+    let tasksContent = <Tasks items={tasks} button={removeButton}/>
     if(filteredTasks.length > 0){
-      tasksContent = <Tasks items={filteredTasks} />
+      tasksContent = <Tasks items={filteredTasks} button={removeButton}/>
     }
   
     const [firstDate, setFirstDate] = useState('');
