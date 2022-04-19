@@ -158,13 +158,13 @@ const Homepage = () => {
       return (
         <div>
           <NewTask onAddTask={AddTaskHandler} />
-          <Grid container direction="column" alignItems="center">
+          {/* <Grid container direction="column" alignItems="center">
             <Grid item>
               <Button variant="contained" type="submit" sx={{mb: "10px" }} onClick={sendData}>
                 Send
               </Button>
             </Grid>
-          </Grid>
+          </Grid> */}
           <Tasks items={tasks} />
         </div>
       );

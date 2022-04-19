@@ -35,7 +35,7 @@ const TaskTable = (props) => {
                   <th scope="col">Start Time</th>
                   <th scope="col">End Time</th>
                   <th scope="col">Task</th>
-                  {props.button1 === false ? null : <th></th>}
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -46,7 +46,7 @@ const TaskTable = (props) => {
                     <td>
                       {task.tasktitle === "?" ? "undefined" : task.tasktitle}
                     </td>
-                    {props.button1 === false ? null : (
+                    {props.button1 === false ? <td></td> : (
                       <td>
                         <IconButton onClick={() => removeTask(index)}>
                           <RemoveCircleIcon className={classes.removeButton} />
