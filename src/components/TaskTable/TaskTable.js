@@ -6,7 +6,8 @@ import axios from 'axios';
 import './TaskTable.css';
 const useStyles = makeStyles(theme => ({
     removeButton: {
-        color: "#DD4A48"
+        // color: "#DD4A48"
+        color: "#EF224B"
     }
 }));
 const TaskTable = (props) => {
@@ -24,42 +25,36 @@ const TaskTable = (props) => {
             setShowTable(false);
         }
     };
-    return (
-      <div>
-        {showTable ? (
-          <div className="task-table">
-            <div className="task-date">{props.date1}</div>
+    return(
+        <div>
+{showTable ? <div className='task-table'>
+            <div className='task-date'>{props.date1}</div>
             <table>
-              <thead>
-                <tr>
-                  <th scope="col">Start Time</th>
-                  <th scope="col">End Time</th>
-                  <th scope="col">Task</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {(props.data1 || []).map((task, index) => (
-                  <tr key={index}>
-                    <td>{task.stime === "?" ? "undefined" : task.stime}</td>
-                    <td>{task.etime === "?" ? "undefined" : task.etime}</td>
-                    <td>
-                      {task.tasktitle === "?" ? "undefined" : task.tasktitle}
-                    </td>
-                    {props.button1 === false ? <td>hh</td> : (
-                      <td>
-                        <IconButton onClick={() => removeTask(index)}>
-                          <RemoveCircleIcon className={classes.removeButton} />
-                        </IconButton>
-                      </td>
-                    )}
-                  </tr>
-                ))}
-              </tbody>
+                <thead>
+                    <tr>
+                        <th scope="col">Start Time</th>
+                        <th scope="col">End Time</th>
+                        <th scope="col">Task</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {(props.data1 || []).map((task, index) => (
+                       <tr key={index}>
+                           <td>{task.stime === '?' ? 'undefined' : task.stime}</td>
+                           <td>{task.etime === '?' ? 'undefined' : task.etime}</td>
+                           <td>{task.tasktitle === '?' ? 'undefined' : task.tasktitle}</td>
+                           <td>
+                                <IconButton onClick={() => removeTask(index)}>
+                                    <RemoveCircleIcon className={classes.removeButton} />
+                                </IconButton>
+                           </td>
+                       </tr> 
+                    ))}
+                </tbody>
             </table>
-          </div>
-        ) : null}
-      </div>
+            </div> : null}
+        </div>
     );
 };
 
