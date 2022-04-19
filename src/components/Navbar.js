@@ -31,13 +31,12 @@ const Navbar = () => {
   };
 
     return (
-        // <Box sx={{ width: '100%' }}>
-        // <Tabs value={value} onChange={handleChange} aria-label="nav tabs example" className={classes.navBar}>
-        //     <LinkTab label="Homepage" href="/" className={classes.Tab} />
-        //     <LinkTab label="All Tasks" href="/about" className={classes.Tab} />
-        //     <Link><LinkTab label="All Tasks" href="/about" className={classes.Tab} /></Link>
-        // </Tabs>
-        // </Box>
+        <Box sx={{ width: '100%' }}>
+        <Tabs value={value} onChange={handleChange} aria-label="nav tabs example" className={classes.navBar}>
+            <LinkTab label="Homepage" href={window.baseUrl + '/homepage' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'} className={classes.Tab} />
+            <LinkTab label="All Tasks" href={window.baseUrl + '/displaytasks' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'} className={classes.Tab} />
+        </Tabs>
+        </Box>
 
 
         // <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -53,10 +52,10 @@ const Navbar = () => {
         //   </div>
         // </nav>
         
-        <div className="topnav">
-          <a href={window.baseUrl + '/homepage' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>Homepage</a>
-          <a href={window.baseUrl + '/displaytasks' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>All Tasks</a>
-        </div> 
+        // <div className="topnav">
+        //   <a href={window.baseUrl + '/homepage' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>Homepage</a>
+        //   <a href={window.baseUrl + '/displaytasks' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'}>All Tasks</a>
+        // </div> 
     );
 };
 export default Navbar;
