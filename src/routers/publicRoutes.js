@@ -6,11 +6,11 @@ import DisplayTasks from "../pages/DisplayTasks";
 export const publicRoutes = [
     {
         path:'/',
-        element: (<Navigate to={window.baseUrl + '/homepage' + '?func=ll&objId=' + 107301 + '&objAction=RunReport'} />)
+        element: (<Navigate to={window.baseUrl + '/homepage' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'} />)
     },
     {
         path: window.baseUrl,
-        element: (<Navigate to={window.baseUrl + '/homepage' + '?func=ll&objId=' + 107301 + '&objAction=RunReport'} />)
+        element: (<Navigate to={window.baseUrl + '/homepage' + '?func=ll&objId=' + window.currentWebreportId + '&objAction=RunReport'} />)
     },
     {
         path: window.baseUrl + '/homepage',
@@ -23,12 +23,4 @@ export const publicRoutes = [
             }
         ]
     }
-    // {
-    //     path: window.baseUrl + '?func=ll&objId=' + 107301 + '&objAction=RunReport' + '/',
-    //     element: <Homepage/>
-    // },
-    // {
-    //     path: window.baseUrl + '?func=ll&objId=' + 107301 + '&objAction=RunReport' + '/displaytasks',
-    //     element: <DisplayTasks/>
-    // }
 ]
