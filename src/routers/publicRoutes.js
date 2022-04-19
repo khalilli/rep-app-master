@@ -4,12 +4,11 @@ import DisplayTasks from "../pages/DisplayTasks";
 
 export const publicRoutes = [
     {
-        path: '/otcs/llisapi.dll?func=ll&objId=107301&objAction=RunReport/',
-        // path: '/',
+        path: window.baseUrl + '?func=ll&objId' + 107301 + '&objAction=RunReport' + '/',
         element: <Homepage/>
     },
     {
-        path: '/otcs/llisapi.dll?func=ll&objId=107301&objAction=RunReport/displaytasks',
+        path: window.baseUrl + '?func=ll&objId' + 107301 + '&objAction=RunReport' + '/displaytasks',
         element: <DisplayTasks/>
     }
 ]
