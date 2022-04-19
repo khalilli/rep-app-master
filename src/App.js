@@ -9,7 +9,6 @@ function App() {
   return (
     <div>
       <AppProvider>
-      {/* <Navbar/> */}
         <AppRoutes />
       </AppProvider>
       {/* <Homepage /> */}

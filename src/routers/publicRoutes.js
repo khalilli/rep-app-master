@@ -14,11 +14,11 @@ export const publicRoutes = [
     },
     {
         path: window.baseUrl + '/homepage',
-        element: <Homepage />,
+        element: <DisplayTasks />,
         children: [
             {
                 path: 'displaytasks',
-                element: <DisplayTasks />
+                element: <Homepage />
 
             }
         ]

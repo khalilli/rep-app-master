@@ -14,6 +14,7 @@ import { v4 as uuid } from 'uuid';
 
 const DisplayTasks = (props) => {
     const [tasks, setTasks] = useState([]);
+    const removeButton = false;
 
     const getData = async(userid) => {
       var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=117629&objAction=RunReport";
