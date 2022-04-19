@@ -99,6 +99,16 @@ const Homepage = () => {
     axios.get(url);
   };
 
+  const AddTaskHandler = (enteredTask) => {
+    console.log("Entered", enteredTask);
+    setTasks((prevTasks)=>{
+      return [enteredTask, ...prevTasks];
+    });
+    enteredTask.data.map((task) => (
+      setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId)
+    ))
+  };
+
   const sendWeeklydata = async (tasks) =>{
     console.log("Length", tasks.length);
     const formData = new FormData();
@@ -140,17 +150,6 @@ const Homepage = () => {
       }
     });
   }
-
-
-  const AddTaskHandler = (enteredTask) => {
-    console.log("Entered", enteredTask);
-    setTasks((prevTasks)=>{
-      return [enteredTask, ...prevTasks];
-    });
-    enteredTask.data.map((task) => (
-      setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId)
-    ))
-  };
 
   const sendData = () => {
     sendWeeklydata(tasks);

@@ -46,6 +46,7 @@ const AddForm = (props) => {
             date: moment(enteredDate).format('LL'),
             data: inputFields,
         };
+        console.log("Check", taskData);
         props.onSaveTask(taskData);
     };
 
