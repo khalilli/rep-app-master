@@ -160,6 +160,7 @@ const Homepage = () => {
   };
       return (
         <div>
+          <Navbar />
           <NewTask onAddTask={AddTaskHandler} />
           <Grid container direction="column" alignItems="center">
             <Grid item>

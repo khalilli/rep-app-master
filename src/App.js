@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <AppProvider>
-        <Navbar/>
+      {/* <Navbar/> */}
         <AppRoutes />
       </AppProvider>
       {/* <Homepage /> */}
