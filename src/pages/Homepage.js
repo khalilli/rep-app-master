@@ -32,7 +32,7 @@ const Homepage = () => {
   }
   url += '&nexturl='+ window.nextUrl;
   const response = await axios.get(url);
-
+  console.log("Response in Homepage", response);
   const taskTables = [{},];
        
   for (var i=0; i<response.data.length-1; i++){
@@ -40,7 +40,7 @@ const Homepage = () => {
       id: response.data[i].id,
       date: moment(response.data[i].taskdate).format('LL'),
       data: [{
-        id: response.data[i].row_id,
+        row_id: response.data[i].row_id,
         stime: response.data[i].start_time,
         etime: response.data[i].end_time,
         tasktitle: response.data[i].task}, ]
