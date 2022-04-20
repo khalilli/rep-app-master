@@ -18,6 +18,7 @@ const TaskTable = (props) => {
 
     const removeTask = async (index) => {
         console.log(index);
+        console.log("Array", props.data1);
         console.log(props.data1[index]);
         console.log("Row id", props.data1[index].row_id);
         setRow(props.data1.splice(index,1));
