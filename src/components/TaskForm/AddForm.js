@@ -23,7 +23,7 @@ const AddForm = (props) => {
     const classes = useStyles();
 
     const [inputFields, setInputFields] = useState([
-        {stime: '', etime: '', tasktitle: '', row_id: uuid()},
+        {stime: '', etime: '', tasktitle: '', row_id: ''},
     ]);
     const [enteredDate, setEnteredDate] = useState('');
 
