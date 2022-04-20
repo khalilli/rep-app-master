@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 const TaskTable = (props) => {
     const classes = useStyles();
 
-    const [row, setRow] = useState(props.data1);
+    const [rows, setRows] = useState(props.data1);
     const [showTable, setShowTable] = useState(true);
 
     const removeTask = async (index) => {
@@ -21,7 +21,9 @@ const TaskTable = (props) => {
         console.log("Array", props.data1);
         console.log(props.data1[index]);
         console.log("Row id", props.data1[index].row_id);
-        setRow(props.data1.splice(index,1));
+        // setRows(props.data1.splice(index,1));
+        const updatedRows = rows.filter(row => row.row_id !== props.data1[index].row_id);
+        setRows(updatedRows);
         if (props.data1.length === 0){
             setShowTable(false);
         }
