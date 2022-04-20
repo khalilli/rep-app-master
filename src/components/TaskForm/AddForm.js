@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import { makeStyles } from "@material-ui/core/styles";
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import { v4 as uuid } from 'uuid';
 import moment from 'moment';
 import "./AddForm.css";
 
@@ -22,7 +23,7 @@ const AddForm = (props) => {
     const classes = useStyles();
 
     const [inputFields, setInputFields] = useState([
-        {stime: '', etime: '', tasktitle: ''},
+        {stime: '', etime: '', tasktitle: '', row_id: uuid()},
     ]);
     const [enteredDate, setEnteredDate] = useState('');
 
@@ -37,7 +38,7 @@ const AddForm = (props) => {
     };
 
     const handleAddFields = () => {
-        setInputFields([...inputFields, {stime: '', etime: '', tasktitle: ''}]);
+        setInputFields([...inputFields, {stime: '', etime: '', tasktitle: '', row_id: uuid()}]);
     };
 
     const submitHandler = (event) => {
@@ -46,7 +47,6 @@ const AddForm = (props) => {
             date: moment(enteredDate).format('LL'),
             data: inputFields,
         };
-        // data: { row_id: uuid(), ...inputFields },
         props.onSaveTask(taskData);
     };
 
