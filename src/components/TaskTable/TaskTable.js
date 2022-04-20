@@ -21,6 +21,16 @@ const TaskTable = (props) => {
         console.log("Array", props.data1);
         console.log(props.data1[index]);
         console.log("Row id", props.data1[index].row_id);
+        const row_id = props.data1[index].row_id;
+
+        var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport";
+        if(row_id){
+          url += `&row_id=${row_id}`;
+        }
+        url += '&nexturl='+ window.nextUrl;
+        const response = await axios.delete(url);
+        
+        console.log("deleted", response);
         setRows(props.data1.splice(index,1));
         // setRows(props.data1.filter(row => row.row_id !== props.data1[index].row_id));
         if (props.data1.length === 0){
