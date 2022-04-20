@@ -51,7 +51,7 @@ const AddForm = (props) => {
     };
 
     const refresh = () => {
-        window.location.reload(true);
+        // window.location.reload(true);
     }
     return(
         <form onSubmit={submitHandler}>
