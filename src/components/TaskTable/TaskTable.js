@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import IconButton from '@mui/material/IconButton';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { makeStyles } from '@material-ui/core';
@@ -17,7 +17,7 @@ const TaskTable = (props) => {
     const [showTable, setShowTable] = useState(true);
 
     const deleteTask = async(userid, row_id) => {
-      var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113704&objAction=RunReport";
+      var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=113046&objAction=RunReport";
       if(userid){
         url += `&userid=${userid}`;
       }
@@ -33,10 +33,8 @@ const TaskTable = (props) => {
         console.log("Array", props.data1);
         console.log(props.data1[index]);
         console.log("Row id", props.data1[index].row_id);
-        // const row_id = props.data1[index].row_id;
         deleteTask(window.userId, props.data1[index].row_id);
         setRows(props.data1.splice(index,1));
-        // setRows(props.data1.filter(row => row.row_id !== props.data1[index].row_id));
         if (props.data1.length === 0){
             setShowTable(false);
         }
