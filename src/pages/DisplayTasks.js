@@ -27,6 +27,7 @@ const DisplayTasks = (props) => {
             id: response.data[i].id,
             date: moment(response.data[i].taskdate).format('LL'),
             userid: response.data[i].userid,
+            username: response.data[i].username,
             data: [{
                 row_id: response.data[i].row_id,
                 stime: response.data[i].start_time,
