@@ -1,13 +1,13 @@
 .tasks{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    /* gap: 5px; */
 }
 .task-table{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }  
 .task-date{
     background: #051367;

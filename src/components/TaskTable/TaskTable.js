@@ -16,14 +16,15 @@ const TaskTable = (props) => {
     const [row, setRow] = useState(props.data1);
     const [showTable, setShowTable] = useState(true);
 
-    const removeTask = async (index) => {
-        console.log(index);
-        console.log(props.data1[index]);
-        console.log(props.data1[index].id);
-        setRow(props.data1.splice(index,1));
-        if (props.data1.length === 0){
-            setShowTable(false);
-        }
+    const removeTask = async (row_id) => {
+        // console.log(index);
+        // console.log(props.data1[index]);
+        // console.log(props.data1[index].id);
+        console.log("Row id", row_id);
+        // setRow(props.data1.splice(index,1));
+        // if (props.data1.length === 0){
+        //     setShowTable(false);
+        // }
     };
     return (
       <div>
@@ -67,7 +68,7 @@ const TaskTable = (props) => {
                     )}
                     {props.button1 === false ? null : (
                       <td>
-                        <IconButton onClick={() => removeTask(index)}>
+                        <IconButton onClick={() => removeTask(task.row_id)}>
                           <RemoveCircleIcon className={classes.removeButton} />
                         </IconButton>
                       </td>
