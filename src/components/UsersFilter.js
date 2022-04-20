@@ -12,7 +12,7 @@ const UsersFilter = (props) => {
     }
     const uniqueUserids = [...new Set(userids)];
     const uniqueUsernames = [...new Set(usernames)];
-    const useroptions = [];
+    const useroptions = [<option value='0'>All Users</option>];
     console.log("Unique", uniqueUserids);
     for(var i=0;i<uniqueUserids.length;i++){
       useroptions.push(<option value={uniqueUserids[i]}>{uniqueUsernames[i]}</option>)
@@ -23,7 +23,7 @@ const UsersFilter = (props) => {
         <div className="expenses-filter__control">
           <label>Choose a user:</label>
           <select value={props.selected} onChange={dropdownchange}>
-              <option value='0'>All Users</option>
+              {/* <option value='0'>All Users</option> */}
             {/* {uniqueUserids.map((item) => (
               <option value={item}>{item}</option>
             ))} */}
