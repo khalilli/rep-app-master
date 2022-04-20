@@ -16,10 +16,6 @@ const UsersFilter = (props) => {
           <label>Choose a user:</label>
           <select value={props.selected} onChange={dropdownchange}>
               <option value='0'>All Users</option>
-            {/* <option value='0'>Users</option>
-            <option value='100991'>100991</option>
-            <option value='18884'>18884</option>
-            <option value='?'>?</option> */}
             {uniqueUserids.map((item) => (
               <option value={item}>{item}</option>
             ))}

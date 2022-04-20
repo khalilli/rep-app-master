@@ -72,7 +72,7 @@ const Homepage = () => {
     getData(window.userId);
   }, []);
 
-  const setData = async (id, day, start_time, end_time, task, userid, row_id) => {
+  const setData = async (id, day, start_time, end_time, task, userid, row_id, username) => {
     var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=106810&objAction=RunReport";
     if(id){
         url += `&id=${id}`;
@@ -96,6 +96,9 @@ const Homepage = () => {
     if(row_id){
       url += `&row_id=${row_id}`;
     }
+    if(username){
+      url += `&username=${username}`;
+    }
     url += '&nexturl='+ window.nextUrl;
     axios.get(url);
   };
@@ -106,7 +109,7 @@ const Homepage = () => {
       return [enteredTask, ...prevTasks];
     });
     enteredTask.data.map((task) => (
-      setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId, task.row_id)
+      setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId, task.row_id, window.userName)
     ))
   };
 

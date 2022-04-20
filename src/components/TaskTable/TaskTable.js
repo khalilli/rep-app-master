@@ -41,7 +41,6 @@ const TaskTable = (props) => {
     };
     return (
       <div>
-        {window.userName}
         {showTable ? (
           <div className="task-table">
             <div className="task-date">{props.date1}</div>
