@@ -112,7 +112,7 @@ const Homepage = () => {
       return [enteredTask, ...prevTasks];
     });
     enteredTask.data.map((task) => (
-      setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId, task.row_id, window.userName, 'true')
+      setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId, task.row_id, window.userName, "True")
     ))
   };
 
