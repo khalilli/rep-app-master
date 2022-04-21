@@ -160,6 +160,7 @@ const Homepage = () => {
   };
       return (
         <div>
+          {console.log(window.userName)}
           <NewTask onAddTask={AddTaskHandler} />
           {/* <Grid container direction="column" alignItems="center">
             <Grid item>
