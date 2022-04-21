@@ -164,6 +164,7 @@ const Homepage = () => {
           {console.log("Actual user id", window.userId)}
           {console.log("Actual group name", window.groupName)}
           {console.log(window.groupId)}
+          {console.log("Group Members", window.groupMembers)}
           <NewTask onAddTask={AddTaskHandler} />
           {/* <Grid container direction="column" alignItems="center">
             <Grid item>
