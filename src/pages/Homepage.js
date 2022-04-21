@@ -99,6 +99,9 @@ const Homepage = () => {
     if(username){
       url += `&username=${username}`;
     }
+    if(status){
+      url += `&status=${status}`;
+    }
     url += '&nexturl='+ window.nextUrl;
     axios.get(url);
   };
