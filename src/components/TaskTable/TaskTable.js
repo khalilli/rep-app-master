@@ -16,11 +16,20 @@ const TaskTable = (props) => {
     const [rows, setRows] = useState(props.data1);
     const [showTable, setShowTable] = useState(true);
 
+    const setStatus = async(status) => {
+      var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=106810&objAction=RunReport";
+      if(status){
+          url += `&status=${status}`;
+      }
+      url += '&nexturl='+ window.nextUrl;
+      axios.get(url);
+    };
     const removeTask = (index) => {
         console.log(index);
         console.log("Array", props.data1);
         console.log(props.data1[index]);
         console.log("Row id", props.data1[index].row_id);
+        setStatus('false');
         setRows(props.data1.splice(index,1));
         if (props.data1.length === 0){
             setShowTable(false);
