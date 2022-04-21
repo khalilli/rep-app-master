@@ -160,10 +160,10 @@ const Homepage = () => {
   };
       return (
         <div>
-          {console.log(window.userName)}
+          {console.log("Actual user name", window.userName)}
           {console.log("Actual user id", window.userId)}
           {console.log("Actual group name", window.groupName)}
-          {console.log(window.groupLeaderId)}
+          {console.log("'group' leader id",window.groupLeaderId)}
           <NewTask onAddTask={AddTaskHandler} />
           {/* <Grid container direction="column" alignItems="center">
             <Grid item>
