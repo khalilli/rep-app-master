@@ -30,6 +30,9 @@ const TaskTable = (props) => {
         console.log(props.data1[index]);
 
         console.log("Row id", props.data1[index].row_id);
+        if(props.data1[index].row_id){
+          console.log("I clicked!");
+        }
         setStatus('false');
         setRows(props.data1.splice(index,1));
         if (props.data1.length === 0){
@@ -56,8 +59,8 @@ const TaskTable = (props) => {
                     {props.data1[index].status === 'false' ? null : <td>{task.stime === "?" ? "undefined" : task.stime}</td>}
                     {props.data1[index].status === 'false' ? null : <td>{task.etime === "?" ? "undefined" : task.etime}</td>}
                     {props.data1[index].status === 'false' ? null : <td>{task.tasktitle === "?" ? "undefined" : task.tasktitle}</td> } 
-                                   
-                    {props.button1 === false ? null : (
+
+                    {props.button1 === false  ? null : (
                       <td>
                         <IconButton onClick={() => removeTask(index)}>
                           <RemoveCircleIcon className={classes.removeButton} />
