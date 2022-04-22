@@ -28,8 +28,9 @@ const TaskTable = (props) => {
         console.log(index);
         console.log("Array", props.data1);
         console.log(props.data1[index]);
+
         console.log("Row id", props.data1[index].row_id);
-        // setStatus('1');
+        setStatus('false');
         setRows(props.data1.splice(index,1));
         if (props.data1.length === 0){
             setShowTable(false);
@@ -52,6 +53,7 @@ const TaskTable = (props) => {
               <tbody>
                 {(props.data1 || []).map((task, index) => (
                   <tr key={index}>
+
                     {props.button1 === false ? (
                       <td style={{ padding: "10px" }}>
                         {task.stime === "?" ? "undefined" : task.stime}
@@ -59,6 +61,7 @@ const TaskTable = (props) => {
                     ) : (
                       <td>{task.stime === "?" ? "undefined" : task.stime}</td>
                     )}
+
                     {props.button1 === false ? (
                       <td style={{ padding: "10px" }}>
                         {task.etime === "?" ? "undefined" : task.etime}
@@ -66,15 +69,15 @@ const TaskTable = (props) => {
                     ) : (
                       <td>{task.etime === "?" ? "undefined" : task.etime}</td>
                     )}
+
                     {props.button1 === false ? (
                       <td style={{ padding: "10px" }}>
                         {task.tasktitle === "?" ? "undefined" : task.tasktitle}
                       </td>
                     ) : (
-                      <td>
-                        {task.tasktitle === "?" ? "undefined" : task.tasktitle}
-                      </td>
+                      <td>{task.tasktitle === "?" ? "undefined" : task.tasktitle}</td>
                     )}
+                    
                     {props.button1 === false ? null : (
                       <td>
                         <IconButton onClick={() => removeTask(index)}>

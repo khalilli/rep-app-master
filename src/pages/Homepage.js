@@ -41,6 +41,7 @@ const Homepage = () => {
       date: moment(response.data[i].taskdate).format('LL'),
       data: [{
         row_id: response.data[i].row_id,
+        status: response.data[i].status,
         stime: response.data[i].start_time,
         etime: response.data[i].end_time,
         tasktitle: response.data[i].task}, ]
