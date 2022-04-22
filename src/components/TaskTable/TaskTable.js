@@ -54,14 +54,6 @@ const TaskTable = (props) => {
                     {props.data1[index].status === 'false' ? null : <td style={{ padding: "10px" }}>{task.stime === "?" ? "undefined" : task.stime}</td>}
                     {props.data1[index].status === 'false' ? null : <td style={{ padding: "10px" }}>{task.etime === "?" ? "undefined" : task.etime}</td>}
                     {props.data1[index].status === 'false' ? null : <td style={{ padding: "10px" }}>{task.tasktitle === "?" ? "undefined" : task.tasktitle}</td> } 
-
-                    {/* {props.button1 === false  ? null : (
-                      <td>
-                        <IconButton onClick={() => removeTask(index)}>
-                          <RemoveCircleIcon className={classes.removeButton} />
-                        </IconButton>
-                      </td>
-                    )} */}
                   </tr>
                 ))}
               </tbody> : <tbody>
@@ -70,11 +62,11 @@ const TaskTable = (props) => {
                     {props.data1[index].status === 'false' ? null : <td>{task.stime === "?" ? "undefined" : task.stime}</td>}
                     {props.data1[index].status === 'false' ? null : <td>{task.etime === "?" ? "undefined" : task.etime}</td>}
                     {props.data1[index].status === 'false' ? null : <td>{task.tasktitle === "?" ? "undefined" : task.tasktitle}</td> } 
-                    <td>
+                    {props.data1[index].status === 'false' ? null : <td>
                       <IconButton onClick={() => removeTask(index)}>
                         <RemoveCircleIcon className={classes.removeButton} />
                       </IconButton>
-                    </td>
+                    </td>}
                   </tr>
                 ))}
               </tbody>}
