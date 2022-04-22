@@ -16,10 +16,10 @@ const TaskTable = (props) => {
     const [rows, setRows] = useState(props.data1);
     const [showTable, setShowTable] = useState(true);
 
-    const setStatus = async(stnum) => {
+    const setStatus = async(status) => {
       var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=123508&objAction=RunReport";
-      if(stnum){
-          url += `&stnum=${stnum}`;
+      if(status){
+          url += `&status=${status}`;
       }
       url += '&nexturl='+ window.nextUrl;
       axios.get(url);
@@ -34,6 +34,7 @@ const TaskTable = (props) => {
             setShowTable(false);
         }
     };
+    console.log("Check", rows);
     return (
       <div>
         {showTable ? (
