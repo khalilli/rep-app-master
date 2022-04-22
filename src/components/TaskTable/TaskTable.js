@@ -26,13 +26,8 @@ const TaskTable = (props) => {
     };
     const removeTask = (index) => {
         console.log(index);
-        console.log("Array", props.data1);
         console.log(props.data1[index]);
-
         console.log("Row id", props.data1[index].row_id);
-        if(props.data1[index].row_id){
-          console.log("I clicked!");
-        }
         setStatus('false');
         setRows(props.data1.splice(index,1));
         if (props.data1.length === 0){
@@ -53,23 +48,36 @@ const TaskTable = (props) => {
                   {props.button1 === false ? null : <th></th>}
                 </tr>
               </thead>
-              <tbody>
+              {props.button1 === false ? <tbody>
                 {(props.data1 || []).map((task, index) => (
                   <tr key={index}>
-                    {props.data1[index].status === 'false' ? null : <td>{task.stime === "?" ? "undefined" : task.stime}</td>}
-                    {props.data1[index].status === 'false' ? null : <td>{task.etime === "?" ? "undefined" : task.etime}</td>}
-                    {props.data1[index].status === 'false' ? null : <td>{task.tasktitle === "?" ? "undefined" : task.tasktitle}</td> } 
+                    {props.data1[index].status === 'false' ? null : <td style={{ padding: "10px" }}>{task.stime === "?" ? "undefined" : task.stime}</td>}
+                    {props.data1[index].status === 'false' ? null : <td style={{ padding: "10px" }}>{task.etime === "?" ? "undefined" : task.etime}</td>}
+                    {props.data1[index].status === 'false' ? null : <td style={{ padding: "10px" }}>{task.tasktitle === "?" ? "undefined" : task.tasktitle}</td> } 
 
-                    {props.button1 === false  ? null : (
+                    {/* {props.button1 === false  ? null : (
                       <td>
                         <IconButton onClick={() => removeTask(index)}>
                           <RemoveCircleIcon className={classes.removeButton} />
                         </IconButton>
                       </td>
-                    )}
+                    )} */}
                   </tr>
                 ))}
-              </tbody>
+              </tbody> : <tbody>
+                {(props.data1 || []).map((task, index) => (
+                  <tr key={index}>
+                    {props.data1[index].status === 'false' ? null : <td>{task.stime === "?" ? "undefined" : task.stime}</td>}
+                    {props.data1[index].status === 'false' ? null : <td>{task.etime === "?" ? "undefined" : task.etime}</td>}
+                    {props.data1[index].status === 'false' ? null : <td>{task.tasktitle === "?" ? "undefined" : task.tasktitle}</td> } 
+                    <td>
+                      <IconButton onClick={() => removeTask(index)}>
+                        <RemoveCircleIcon className={classes.removeButton} />
+                      </IconButton>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>}
             </table>
           </div>
         ) : null}
