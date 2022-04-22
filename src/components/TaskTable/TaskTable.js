@@ -17,19 +17,19 @@ const TaskTable = (props) => {
     const [rows, setRows] = useState(props.data1);
     const [showTable, setShowTable] = useState(true);
 
-    const setStatus = async(stnum) => {
-      var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=123508&objAction=RunReport";
-      if(stnum){
-          url += `&stnum=${stnum}`;
-      }
-      url += '&nexturl='+ window.nextUrl;
-      axios.get(url);
-    };
+    // const setStatus = async(stnum) => {
+    //   var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=123508&objAction=RunReport";
+    //   if(stnum){
+    //       url += `&stnum=${stnum}`;
+    //   }
+    //   url += '&nexturl='+ window.nextUrl;
+    //   axios.get(url);
+    // };
     const removeTask = (index) => {
         console.log(index);
         console.log(props.data1[index]);
         console.log("Row id", props.data1[index].row_id);
-        setStatus(index);
+        // setStatus(index);
         setRows(props.data1.splice(index,1));
         if (props.data1.length === 0){
             setShowTable(false);
