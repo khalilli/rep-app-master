@@ -40,7 +40,7 @@ const TaskTable = (props) => {
       <div>
         {showTable ? (
           <div className="task-table">
-            <Grid container direction={"row"} sx={{ml: '490px'}}>
+            <Grid container direction={"row"} spacing={5} sx={{ml: '600px'}}>
               <Grid item>
                 {props.button1 === false ? <div className='task-date'>{props.username1}</div> : null}
               </Grid>
