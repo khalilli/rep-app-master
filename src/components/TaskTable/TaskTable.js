@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import IconButton from '@mui/material/IconButton';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { makeStyles } from '@material-ui/core';
+import Grid from '@mui/material/Grid';
 import axios from 'axios';
 import './TaskTable.css';
 const useStyles = makeStyles(theme => ({
@@ -39,8 +40,14 @@ const TaskTable = (props) => {
       <div>
         {showTable ? (
           <div className="task-table">
-            <div className="task-date">{props.date1}</div>
-            {props.button1 === false ? <div className='task-date'>{props.username1}</div> : null}
+            <Grid container direction={"row"} spacing={2}>
+              <Grid item>
+                <div className="task-date">{props.date1}</div>
+              </Grid>
+              <Grid item>
+                {props.button1 === false ? <div className='task-date'>{props.username1}</div> : null}
+              </Grid>
+            </Grid>
             <table>
               <thead>
                 <tr>
