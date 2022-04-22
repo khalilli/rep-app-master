@@ -18,7 +18,7 @@ const TaskTable = (props) => {
     const [showTable, setShowTable] = useState(true);
 
     const setStatus = async(stnum) => {
-      var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=123508&objAction=RunReport";
+      var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=123519&objAction=RunReport";
       if(stnum){
           url += `&stnum=${stnum}`;
       }
