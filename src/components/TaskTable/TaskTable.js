@@ -29,7 +29,7 @@ const TaskTable = (props) => {
         console.log("Array", props.data1);
         console.log(props.data1[index]);
         console.log("Row id", props.data1[index].row_id);
-        setStatus('1');
+        // setStatus('1');
         setRows(props.data1.splice(index,1));
         if (props.data1.length === 0){
             setShowTable(false);
