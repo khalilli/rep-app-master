@@ -40,6 +40,7 @@ const TaskTable = (props) => {
         {showTable ? (
           <div className="task-table">
             <div className="task-date">{props.date1}</div>
+            {props.button1 === false ? <div className='task-date'>{props.username1}</div> : null}
             <table>
               <thead>
                 <tr>
