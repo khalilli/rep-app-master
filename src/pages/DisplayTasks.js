@@ -70,11 +70,18 @@ const DisplayTasks = (props) => {
     const filteredTasks = tasks.filter(task => {
       return task.userid === filteredUser;
     });
-    console.log(filteredTasks);
+    
 
+
+    if(filteredUser === '0'){
+      filteredTasks = tasks.filter(task => {
+        return task;
+      })
+    }
+
+    console.log("Filtered Tasks", filteredTasks);
 
     console.log("Selected User", filteredUser);
-
 
 
     let tasksContent = <Tasks items={tasks} button={removeButton}/>
