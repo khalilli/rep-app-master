@@ -52,22 +52,22 @@ const TaskTable = (props) => {
               {props.button1 === false ? <tbody>
                 {(props.data1 || []).map((task, index) => (
                   <tr key={index}>
-                    {props.data1[index].status === 'false' ? null : <td style={{ padding: "10px" }}>{task.stime === "?" ? "undefined" : task.stime}</td>}
-                    {props.data1[index].status === 'false' ? null : <td style={{ padding: "10px" }}>{task.etime === "?" ? "undefined" : task.etime}</td>}
-                    {props.data1[index].status === 'false' ? null : <td style={{ padding: "10px" }}>{task.tasktitle === "?" ? "undefined" : task.tasktitle}</td> } 
+                    <td style={{ padding: "10px" }}>{task.stime === "?" ? "undefined" : task.stime}</td>
+                    <td style={{ padding: "10px" }}>{task.etime === "?" ? "undefined" : task.etime}</td>
+                    <td style={{ padding: "10px" }}>{task.tasktitle === "?" ? "undefined" : task.tasktitle}</td> 
                   </tr>
                 ))}
               </tbody> : <tbody>
                 {(props.data1 || []).map((task, index) => (
                   <tr key={index}>
-                    {props.data1[index].status === 'false' ? null : <td>{task.stime === "?" ? "undefined" : task.stime}</td>}
-                    {props.data1[index].status === 'false' ? null : <td>{task.etime === "?" ? "undefined" : task.etime}</td>}
-                    {props.data1[index].status === 'false' ? null : <td>{task.tasktitle === "?" ? "undefined" : task.tasktitle}</td> } 
-                    {props.data1[index].status === 'false' ? null : <td>
+                    <td>{task.stime === "?" ? "undefined" : task.stime}</td>
+                    <td>{task.etime === "?" ? "undefined" : task.etime}</td>
+                    <td>{task.tasktitle === "?" ? "undefined" : task.tasktitle}</td>
+                    <td>
                       <IconButton onClick={() => removeTask(index)}>
                         <RemoveCircleIcon className={classes.removeButton} />
                       </IconButton>
-                    </td>}
+                    </td>
                   </tr>
                 ))}
               </tbody>}
