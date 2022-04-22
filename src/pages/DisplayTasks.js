@@ -23,6 +23,7 @@ const DisplayTasks = (props) => {
         console.log("response", response);
         const taskTables = [{},];
         for (var i=0; i<response.data.length-1; i++){
+          if(response.data[i].status === 'true'){
             const Task = {
             id: response.data[i].id,
             date: moment(response.data[i].taskdate).format('LL'),
@@ -36,6 +37,7 @@ const DisplayTasks = (props) => {
                 tasktitle: response.data[i].task}, ]
             };
             taskTables.unshift(Task);
+          }
         } 
             const groupedTables = [];
             taskTables.forEach(function(item) {
