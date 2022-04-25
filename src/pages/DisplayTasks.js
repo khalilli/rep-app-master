@@ -54,13 +54,16 @@ const DisplayTasks = (props) => {
             }
             });
             groupedTables.pop();
-            groupedTables.sort(function compare(a, b) {
-              // var timeA = new Date('1970/01/01 ' + a.data.stime);
-              // var timeB = new Date('1970/01/01 ' + b.data.stime);
-              // return timeA - timeB;
-              console.log("Check1", a.data.stime, b.data.stime);
-            });
-            console.log("Grouped", groupedTables);
+            for( var i=0; i<groupedTables.length; i++){
+              if(groupedTables[i].data.length > 0){
+                  groupedTables[i].data.sort(function compare(a, b) {
+                  var dateA = new Date('1970/01/01 ' + a.stime);
+                  var dateB = new Date('1970/01/01 ' + b.stime);
+                  console.log("Check", a.stime, b.stime);
+                  return dateA - dateB;
+                  });
+              }
+            }
             setTasks(groupedTables);
     }
     useEffect(() => {
