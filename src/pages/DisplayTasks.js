@@ -59,7 +59,6 @@ const DisplayTasks = (props) => {
                   groupedTables[i].data.sort(function compare(a, b) {
                   var dateA = new Date('1970/01/01 ' + a.stime);
                   var dateB = new Date('1970/01/01 ' + b.stime);
-                  console.log("Check", a.stime, b.stime);
                   return dateA - dateB;
                   });
               }
@@ -116,7 +115,8 @@ const DisplayTasks = (props) => {
           }
         }
       }
-      setTasks(weeklytables);
+      // setTasks(weeklytables);
+      tasksContent = <Tasks items={weeklytables} button={removeButton}/>
     };
     const Reset = () => {
       window.location.reload(true);

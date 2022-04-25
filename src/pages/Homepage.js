@@ -72,7 +72,6 @@ const Homepage = () => {
           groupedTables[i].data.sort(function compare(a, b) {
           var dateA = new Date('1970/01/01 ' + a.stime);
           var dateB = new Date('1970/01/01 ' + b.stime);
-          console.log("Check", a.stime, b.stime);
           return dateA - dateB;
           });
       }
