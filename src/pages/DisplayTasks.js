@@ -59,6 +59,7 @@ const DisplayTasks = (props) => {
               var timeB = new Date('1970/01/01 ' + b.data.stime);
               return timeA - timeB;
             });
+            console.log("Grouped", groupedTables);
             setTasks(groupedTables);
     }
     useEffect(() => {
