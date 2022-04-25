@@ -115,8 +115,7 @@ const DisplayTasks = (props) => {
           }
         }
       }
-      // setTasks(weeklytables);
-      tasksContent = <Tasks items={weeklytables} button={removeButton}/>
+      setTasks(weeklytables);
     };
     const Reset = () => {
       window.location.reload(true);
