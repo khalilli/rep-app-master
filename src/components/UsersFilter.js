@@ -4,6 +4,8 @@ const UsersFilter = (props) => {
         props.onChangefilter(event.target.value);
     };
 
+    console.log(props.items);
+
     const userids = [];
     const usernames = [];
     for(var i=0; i<props.items.length; i++){
