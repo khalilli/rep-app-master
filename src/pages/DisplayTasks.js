@@ -54,6 +54,11 @@ const DisplayTasks = (props) => {
             }
             });
             groupedTables.pop();
+            groupedTables.sort(function compare(a, b) {
+              var timeA = new Date('1970/01/01 ' + a.data.stime);
+              var timeB = new Date('1970/01/01 ' + b.data.stime);
+              return timeA - timeB;
+            });
             setTasks(groupedTables);
     }
     useEffect(() => {
