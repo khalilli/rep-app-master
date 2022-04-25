@@ -39,12 +39,6 @@ const DisplayTasks = (props) => {
             taskTables.unshift(Task);
           }
         } 
-        taskTables.sort(function compare(a, b) {
-          var timeA = new Date('1970/01/01 ' + a.data.stime);
-          var timeB = new Date('1970/01/01 ' + b.data.stime);
-          return timeA - timeB;
-        });
-        console.log("Grouped", taskTables);
             const groupedTables = [];
             taskTables.forEach(function(item) {
             var existing = groupedTables.filter(function(v) {
@@ -60,6 +54,12 @@ const DisplayTasks = (props) => {
             }
             });
             groupedTables.pop();
+            groupedTables.sort(function compare(a, b) {
+              var timeA = new Date('1970/01/01 ' + a.data.stime);
+              var timeB = new Date('1970/01/01 ' + b.data.stime);
+              return timeA - timeB;
+            });
+            console.log("Grouped", groupedTables);
             setTasks(groupedTables);
     }
     useEffect(() => {
