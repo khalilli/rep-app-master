@@ -14,6 +14,7 @@ import { v4 as uuid } from 'uuid';
 
 const DisplayTasks = (props) => {
     const [tasks, setTasks] = useState([]);
+    const [alltasks, setAllTasks] = useState([]);
     const removeButton = false;
 
     const getData = async(userid) => {
@@ -64,11 +65,11 @@ const DisplayTasks = (props) => {
               }
             }
             setTasks(groupedTables);
+            setAllTasks(groupedTables);
     }
     useEffect(() => {
         getData();
     }, []);
-    const secondGroupedTables = [...tasks];
 
     const [filteredUser, setFilteredUser] = useState('0');
 
@@ -110,7 +111,6 @@ const DisplayTasks = (props) => {
         for( var j=frstdate.getDate(); j<=lastDate.getDate(); j++){
           const first = j;
           const day = moment(curr.setDate(first)).format('LL');
-          console.log("day", day);
           if(filteredTasks[i].date === day){
             weeklytables.push(filteredTasks[i]);
           }
@@ -126,7 +126,7 @@ const DisplayTasks = (props) => {
         <div>
           <div>
             <div className='selection'>
-              <UsersFilter selected={filteredUser} onChangefilter={filterChange} items={secondGroupedTables}/>
+              <UsersFilter selected={filteredUser} onChangefilter={filterChange} items={alltasks}/>
               <form onSubmit={submitHandler}>
               <Grid container direction={"row"} spacing={3} sx={{mt: 3, pb:3, pl:2}} >
                 <Grid item>
