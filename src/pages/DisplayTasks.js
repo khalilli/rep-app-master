@@ -68,6 +68,7 @@ const DisplayTasks = (props) => {
     useEffect(() => {
         getData();
     }, []);
+    const secondGroupedTables = [...tasks];
 
     const [filteredUser, setFilteredUser] = useState('0');
 
@@ -125,7 +126,7 @@ const DisplayTasks = (props) => {
         <div>
           <div>
             <div className='selection'>
-              <UsersFilter selected={filteredUser} onChangefilter={filterChange} items={tasks}/>
+              <UsersFilter selected={filteredUser} onChangefilter={filterChange} items={secondGroupedTables}/>
               <form onSubmit={submitHandler}>
               <Grid container direction={"row"} spacing={3} sx={{mt: 3, pb:3, pl:2}} >
                 <Grid item>

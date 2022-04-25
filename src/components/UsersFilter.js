@@ -3,6 +3,7 @@ const UsersFilter = (props) => {
     const dropdownchange = (event) => {
         props.onChangefilter(event.target.value);
     };
+    console.log(props.items);
 
     const userids = [];
     const usernames = [];
