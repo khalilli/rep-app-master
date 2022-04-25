@@ -55,7 +55,7 @@ const Homepage = () => {
     const groupedTables = [];
     taskTables.forEach(function(item) {
       var existing = groupedTables.filter(function(v) {
-        return v.id === item.id;
+        return v.date === item.date;
       });
       if (existing.length) {
         var existingIndex = groupedTables.indexOf(existing[0]);
