@@ -83,7 +83,7 @@ const DisplayTasks = (props) => {
     console.log("Filtered Tasks", filteredTasks);
     console.log("Selected User", filteredUser);
 
-    let tasksContent = <Tasks items={tasks} button={removeButton}/>
+    let tasksContent = <Tasks items={alltasks} button={removeButton}/>
     if(filteredTasks.length > 0){
       tasksContent = <Tasks items={filteredTasks} button={removeButton}/>
     }
