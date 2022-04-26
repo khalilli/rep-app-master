@@ -40,12 +40,12 @@ const TaskTable = (props) => {
       <div>
         {showTable ? (
           <div className="task-table">
-            <Grid container direction={"row"} spacing={1} alignItems="center" justifyContent="center">
-              <Grid item>
-                <div className="task-date">{props.date1}</div>
-              </Grid>
+            <Grid container direction={"row"} spacing={0} alignItems="center" justifyContent="center">
               <Grid item>
                 {props.button1 === false ? <div className='task-date'>{props.username1}</div> : null}
+              </Grid>
+              <Grid item>
+                <div className="task-date">{props.date1}</div>
               </Grid>
             </Grid>
             <table>
