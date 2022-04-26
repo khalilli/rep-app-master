@@ -92,7 +92,7 @@ const DisplayTasks = (props) => {
       }
     }
     console.log("Filtered Tasks", filteredTasks);
-    console.log("Selected User", filteredUser);
+    console.log("Tasks", tasks);
 
     let tasksContent = <Tasks items={alltasks} button={removeButton}/>
     if(filteredTasks.length > 0){
@@ -117,7 +117,6 @@ const DisplayTasks = (props) => {
       const lastDate = new Date(secondDate);
       const curr = new Date();
       for( var i=0; i<filteredTasks.length; i++){
-        console.log("filtered date", filteredTasks[i].date);
         for( var j=frstdate.getDate(); j<=lastDate.getDate(); j++){
           const first = j;
           const day = moment(curr.setDate(first)).format('LL');
@@ -128,9 +127,7 @@ const DisplayTasks = (props) => {
       }
       setTasks(weeklytables);
     };
-    // const Reset = () => {
-    //   window.location.reload(true);
-    // };
+
     const changeButton = () => {
       setButton(!button);
       if(button === false){
