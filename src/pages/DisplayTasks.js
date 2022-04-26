@@ -15,6 +15,8 @@ import { v4 as uuid } from 'uuid';
 const DisplayTasks = (props) => {
     const [tasks, setTasks] = useState([]);
     const [alltasks, setAllTasks] = useState([]);
+    const [button, setButton] = useState(false);
+    const [buttonName, setButtonName] = useState('Show');
     const removeButton = false;
 
     const getData = async(userid) => {
@@ -126,8 +128,17 @@ const DisplayTasks = (props) => {
       }
       setTasks(weeklytables);
     };
-    const Reset = () => {
-      window.location.reload(true);
+    // const Reset = () => {
+    //   window.location.reload(true);
+    // };
+    const changeButton = () => {
+      setButton(!button);
+      if(button === false){
+        setButtonName('Reset');
+      }else{
+        setButtonName('Show');
+        window.location.reload(true);
+      }
     };
 
     return(
@@ -168,10 +179,10 @@ const DisplayTasks = (props) => {
                     />
                 </Grid>
                 <Grid item>
-                <Button variant="contained" size="small" type='submit'>Show</Button>
+                <Button variant="contained" size="small" type='submit' onClick={changeButton}>{buttonName}</Button>
                 </Grid>
                 <Grid item>
-                <Button variant="contained"  size="small" type='submit' onClick={Reset}>Reset</Button>
+                {/* <Button variant="contained"  size="small" type='submit' onClick={Reset}>Reset</Button> */}
                 </Grid>
               </Grid>
             </form>
