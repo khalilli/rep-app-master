@@ -6,19 +6,18 @@
     padding: 0.2rem;
     width: 80%;
 }
-
-/*     const [filteredUser, setFilteredUser] = useState();
-
-    const filterChange = selectedUser => {
-      setFilteredUser(selectedUser);
-    };
-    
-    const filteredTasks = tasks.filter(task => {
-      return task.userid === filteredUser;
-    });
-
-    let tasksContent = <Tasks items={tasks} />
-
-    if(filteredTasks.length > 0){
-      tasksContent = <Tasks items={filteredTasks} />
-    } */
+.task_notification{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid black;
+  background: #041562;
+  border-radius: 10px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  margin: 20px 350px 0px 350px;
+}
+.task_notification p {
+  color: white;
+  padding: 20px 0px 6px 0;
+  font-size: x-large;
+}

@@ -94,7 +94,8 @@ const DisplayTasks = (props) => {
     console.log("Filtered Tasks", filteredTasks);
     console.log("Tasks", tasks);
 
-    let tasksContent = <Tasks items={alltasks} button={removeButton}/>
+    // let tasksContent = <Tasks items={alltasks} button={removeButton}/>
+    let tasksContent = <div className='task_notification'><p>No tasks added in this date.</p></div>
     if(filteredTasks.length > 0){
       tasksContent = <Tasks items={filteredTasks} button={removeButton}/>
     }
