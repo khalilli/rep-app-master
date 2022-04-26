@@ -77,9 +77,18 @@ const DisplayTasks = (props) => {
       setFilteredUser(selectedUser);
     };
   
-    const filteredTasks = tasks.filter(task => {
-      return task.userid === filteredUser;
-    });
+    // const filteredTasks = tasks.filter(task => {
+    //   return task.userid === filteredUser;
+    // });
+    const filteredTasks = [];
+    for(var i=0;i<tasks.length;i++){
+      if(tasks[i].userid === filteredUser){
+        filteredTasks.push(tasks[i]);
+      }
+      else if(filteredUser === '0'){
+        filteredTasks.push(tasks[i]);
+      }
+    }
     console.log("Filtered Tasks", filteredTasks);
     console.log("Selected User", filteredUser);
 
