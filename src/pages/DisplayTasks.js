@@ -43,7 +43,7 @@ const DisplayTasks = (props) => {
             const groupedTables = [];
             taskTables.forEach(function(item) {
             var existing = groupedTables.filter(function(v) {
-                return v.date === item.date;
+                return (v.date === item.date && v.userid === item.userid);
             });
             if (existing.length) {
                 var existingIndex = groupedTables.indexOf(existing[0]);
