@@ -17,7 +17,6 @@ const UsersFilter = (props) => {
     console.log("Unique name", uniqueUsernames);
     for(var i=0;i<uniqueUserids.length;i++){
       useroptions.push(<option value={uniqueUserids[i]}>{uniqueUsernames[i]}</option>)
-      props.getTasks(); //lastnew
     }
     return (
       <div className="expenses-filter">
