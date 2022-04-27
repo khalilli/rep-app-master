@@ -128,9 +128,7 @@ const DisplayTasks = (props) => {
   
 
     const resetButton = () => {
-      window.location.reload(true);
-      // setFirstDate('');
-      // setSecondDate('');
+      window.location.href = 'http://192.168.14.33/otcs/llisapi.dll/displaytasks?func=ll&objId=107301&objAction=RunReport';
     };
 
     return(
