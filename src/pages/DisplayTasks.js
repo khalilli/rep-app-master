@@ -168,13 +168,10 @@ const DisplayTasks = (props) => {
                     onChange={secondDateChange} 
                     />
                 </Grid>
-                {/* <Grid item>
-                <Button variant="contained" size="small" type='submit' onClick={resetButton}>Reset time</Button>
-                </Grid> */}
               </Grid>
             </form>
             <Grid item sx={{ml: 2, mb: 1}}>
-              <Button variant="contained" size="small" type='submit' onClick={resetButton}>Show all time</Button>
+              <Button variant="contained" size="small" type='submit' onClick={resetButton}>Reset time</Button>
             </Grid>
             </div>
           </div>
