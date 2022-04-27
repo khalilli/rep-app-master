@@ -118,7 +118,7 @@ const DisplayTasks = (props) => {
     console.log("Weeklytables", weeklytables);
 
 
-    let tasksContent = <div className='task_notification'><p>No tasks added by this user.</p><p>All tasks are shown below:</p></div>
+    let tasksContent = <div className='task_notification'><p>No tasks added by this user.</p></div>
     if(filteredTasks.length > 0){
       tasksContent = <Tasks items={filteredTasks} button={removeButton} show={showtasks} />
       if(weeklytables.length > 0){
