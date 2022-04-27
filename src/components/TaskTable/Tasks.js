@@ -4,8 +4,7 @@ import './TaskTable';
 
 const Tasks = (props) => {
     return(
-        <div className='tasks'>     
-        {props.show === false ? <div className='task_notification'><p>Choose a correct date range <br/>All tasks are shown below:</p></div> : null}       
+        <div className='tasks'>          
         {props.items.map((task, id) => (
             <TaskTable 
             key={task.id}

@@ -15,7 +15,6 @@ import { v4 as uuid } from 'uuid';
 const DisplayTasks = (props) => {
     const [tasks, setTasks] = useState([]);
     const [alltasks, setAllTasks] = useState([]);
-    const [showtasks, setShowTasks] = useState(false);
     const removeButton = false;
 
     const getData = async(userid) => {
@@ -117,37 +116,23 @@ const DisplayTasks = (props) => {
     }
     console.log("Weeklytables", weeklytables);
 
-
-    let tasksContent = <div className='task_notification'><p>No tasks added by this user.</p></div>
-    if(filteredTasks.length > 0){
-      tasksContent = <Tasks items={filteredTasks} button={removeButton} show={showtasks} />
+    let tasksContent = null;
+    if(firstDate[0] === '2' && secondDate[0]=== '2'){
       if(weeklytables.length > 0){
         tasksContent = <Tasks items={weeklytables} button={removeButton} />
       }
+      else{
+        tasksContent = <div className='task_notification'><p>No tasks</p></div>
+      }
+    }else{
+      tasksContent = <Tasks items={filteredTasks} button={removeButton} />
     }
   
 
-    const submitHandler = (event) => {
-      // event.preventDefault();
-      // const weeklytables = [];
-      // const frstdate = new Date(firstDate);
-      // console.log("firstday", frstdate);
-      // const lastDate = new Date(secondDate);
-      // const curr = new Date();
-      // for( var i=0; i<filteredTasks.length; i++){
-      //   for( var j=frstdate.getDate(); j<=lastDate.getDate(); j++){
-      //     const first = j;
-      //     const day = moment(curr.setDate(first)).format('LL');
-      //     if(filteredTasks[i].date === day){
-      //       weeklytables.push(filteredTasks[i]);
-      //     }
-      //   }
-      // }
-      // setTasks(weeklytables);
-    };
-
     const resetButton = () => {
-      window.location.reload(true);
+      // window.location.reload(true);
+      setFirstDate('');
+      setSecondDate('');
     };
 
     return(
@@ -155,7 +140,7 @@ const DisplayTasks = (props) => {
           <div>
             <div className='selection'>
               <UsersFilter selected={filteredUser} onChangefilter={filterChange} items={alltasks} />
-              <form onSubmit={submitHandler}>
+              <form>
               <Grid container direction={"row"} spacing={3} sx={{mt: 3, pb:3, pl:2}} >
                 <Grid item>
                     <TextField
@@ -188,7 +173,7 @@ const DisplayTasks = (props) => {
                     />
                 </Grid>
                 <Grid item>
-                <Button variant="contained" size="small" type='submit' onClick={resetButton}>Show all time</Button>
+                <Button variant="contained" size="small" type='submit' onClick={resetButton}>Reset time</Button>
                 </Grid>
               </Grid>
             </form>
