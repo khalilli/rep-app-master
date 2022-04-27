@@ -2,7 +2,6 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import { makeStyles } from "@material-ui/core/styles";
 import TextField from '@mui/material/TextField';
 import './DisplayTasks';
 import Tasks from '../components/TaskTable/Tasks';
@@ -10,7 +9,6 @@ import UsersFilter from '../components/UsersFilter';
 import './DisplayTasks.css';
 import axios from 'axios';
 import moment from 'moment';
-import { v4 as uuid } from 'uuid';
 
 const DisplayTasks = (props) => {
     const [tasks, setTasks] = useState([]);
@@ -130,9 +128,9 @@ const DisplayTasks = (props) => {
   
 
     const resetButton = () => {
-      // window.location.reload(true);
-      setFirstDate('');
-      setSecondDate('');
+      window.location.reload(true);
+      // setFirstDate('');
+      // setSecondDate('');
     };
 
     return(
