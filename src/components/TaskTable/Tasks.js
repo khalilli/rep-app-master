@@ -4,16 +4,17 @@ import './TaskTable';
 
 const Tasks = (props) => {
     return(
-        <div className='tasks'>           
-            {props.items.map((task, id) => (
-                <TaskTable 
-                key={task.id}
-                date1={task.date}
-                username1={task.username}
-                data1={task.data}
-                items1={props.items}
-                button1={props.button}
-                />
+        <div className='tasks'>     
+        {props.show === false ? <div className='task_notification'><p>Choose a correct date range</p></div> : null}       
+        {props.items.map((task, id) => (
+            <TaskTable 
+            key={task.id}
+            date1={task.date}
+            username1={task.username}
+            data1={task.data}
+            items1={props.items}
+            button1={props.button}
+            />
             ))}
         </div>
     );

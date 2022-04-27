@@ -15,8 +15,7 @@ import { v4 as uuid } from 'uuid';
 const DisplayTasks = (props) => {
     const [tasks, setTasks] = useState([]);
     const [alltasks, setAllTasks] = useState([]);
-    const [button, setButton] = useState(false);
-    const [buttonName, setButtonName] = useState('Show');
+    const [showtasks, setShowTasks] = useState(false);
     const removeButton = false;
 
     const getData = async(userid) => {
@@ -79,9 +78,17 @@ const DisplayTasks = (props) => {
       setFilteredUser(selectedUser);
     };
   
-    // const filteredTasks = tasks.filter(task => {
-    //   return task.userid === filteredUser;
-    // });
+    const [firstDate, setFirstDate] = useState('');
+    const [secondDate, setSecondDate] = useState('');
+  
+    const firstDateChange = (event) => {
+      setFirstDate(event.target.value);
+    };
+    const secondDateChange = (event) => {
+      setSecondDate(event.target.value);
+    };
+
+
     const filteredTasks = [];
     for(var i=0;i<tasks.length;i++){
       if(tasks[i].userid === filteredUser){
@@ -94,49 +101,53 @@ const DisplayTasks = (props) => {
     console.log("Filtered Tasks", filteredTasks);
     console.log("Tasks", tasks);
 
-    // let tasksContent = <Tasks items={alltasks} button={removeButton}/>
-    let tasksContent = <div className='task_notification'><p>No tasks added in this date.</p></div>
-    if(filteredTasks.length > 0){
-      tasksContent = <Tasks items={filteredTasks} button={removeButton}/>
-    }
-  
-    const [firstDate, setFirstDate] = useState('');
-    const [secondDate, setSecondDate] = useState('');
-  
-    const firstDateChange = (event) => {
-      setFirstDate(event.target.value);
-    };
-    const secondDateChange = (event) => {
-      setSecondDate(event.target.value);
-    };
-
-    const submitHandler = (event) => {
-      event.preventDefault();
-      const weeklytables = [];
-      const frstdate = new Date(firstDate);
-      console.log("firstday", frstdate);
-      const lastDate = new Date(secondDate);
-      const curr = new Date();
-      for( var i=0; i<filteredTasks.length; i++){
-        for( var j=frstdate.getDate(); j<=lastDate.getDate(); j++){
-          const first = j;
-          const day = moment(curr.setDate(first)).format('LL');
-          if(filteredTasks[i].date === day){
-            weeklytables.push(filteredTasks[i]);
-          }
+    const weeklytables = [];
+    const frstdate = new Date(firstDate);
+    console.log("firstday", frstdate);
+    const lastDate = new Date(secondDate);
+    const curr = new Date();
+    for( var i=0; i<filteredTasks.length; i++){
+      for( var j=frstdate.getDate(); j<=lastDate.getDate(); j++){
+        const first = j;
+        const day = moment(curr.setDate(first)).format('LL');
+        if(filteredTasks[i].date === day){
+          weeklytables.push(filteredTasks[i]);
         }
       }
-      setTasks(weeklytables);
+    }
+    console.log("Weeklytables", weeklytables);
+
+
+    let tasksContent = <div className='task_notification'><p>No tasks added by this user.</p></div>
+    if(filteredTasks.length > 0){
+      tasksContent = <Tasks items={filteredTasks} button={removeButton} show={showtasks} />
+      if(weeklytables.length > 0){
+        tasksContent = <Tasks items={weeklytables} button={removeButton} />
+      }
+    }
+  
+
+    const submitHandler = (event) => {
+      // event.preventDefault();
+      // const weeklytables = [];
+      // const frstdate = new Date(firstDate);
+      // console.log("firstday", frstdate);
+      // const lastDate = new Date(secondDate);
+      // const curr = new Date();
+      // for( var i=0; i<filteredTasks.length; i++){
+      //   for( var j=frstdate.getDate(); j<=lastDate.getDate(); j++){
+      //     const first = j;
+      //     const day = moment(curr.setDate(first)).format('LL');
+      //     if(filteredTasks[i].date === day){
+      //       weeklytables.push(filteredTasks[i]);
+      //     }
+      //   }
+      // }
+      // setTasks(weeklytables);
     };
 
-    const changeButton = () => {
-      setButton(!button);
-      if(button === false){
-        setButtonName('Reset');
-      }else{
-        setButtonName('Show');
-        window.location.reload(true);
-      }
+    const resetButton = () => {
+      window.location.reload(true);
     };
 
     return(
@@ -177,10 +188,7 @@ const DisplayTasks = (props) => {
                     />
                 </Grid>
                 <Grid item>
-                <Button variant="contained" size="small" type='submit' onClick={changeButton}>{buttonName}</Button>
-                </Grid>
-                <Grid item>
-                {/* <Button variant="contained"  size="small" type='submit' onClick={Reset}>Reset</Button> */}
+                <Button variant="contained" size="small" type='submit' onClick={resetButton}>Show all time</Button>
                 </Grid>
               </Grid>
             </form>
