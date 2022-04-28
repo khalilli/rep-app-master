@@ -171,7 +171,7 @@ const DisplayTasks = (props) => {
               </Grid>
             </form>
             <Grid item sx={{ml: 2, mb: 1}}>
-              <Button variant="contained" size="small" type='submit' onClick={resetButton}>Reset time</Button>
+              <Button variant="contained" size="small" type='submit' onClick={resetButton}>Reset</Button>
             </Grid>
             </div>
           </div>

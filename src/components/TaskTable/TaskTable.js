@@ -26,13 +26,17 @@ const TaskTable = (props) => {
       axios.get(url);
     };
     const removeTask = (index) => {
-        console.log(index);
-        console.log(props.data1[index]);
-        console.log("Row id", props.data1[index].seq);
-        setStatus(props.data1[index].seq);
-        setRows(props.data1.splice(index,1));
-        if (props.data1.length === 0){
-            setShowTable(false);
+        if (window.confirm("Delete this task?")) {
+          console.log(index);
+          console.log(props.data1[index]);
+          console.log("Row id", props.data1[index].seq);
+          setStatus(props.data1[index].seq);
+          setRows(props.data1.splice(index,1));
+          if (props.data1.length === 0){
+              setShowTable(false);
+          }
+        } else {
+          console.log("Not deleted...");
         }
     };
     
