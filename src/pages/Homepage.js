@@ -40,6 +40,7 @@ const Homepage = () => {
       const Task = {
         id: response.data[i].id,
         date: moment(response.data[i].taskdate).format('LL'),
+        adddate: response.data[i].adddate,
         data: [{
           row_id: response.data[i].row_id,
           status: response.data[i].status,
@@ -84,7 +85,7 @@ const Homepage = () => {
     getData(window.userId);
   }, []);
 
-  const setData = async (id, day, start_time, end_time, task, userid, row_id, username, status) => {
+  const setData = async (id, day, start_time, end_time, task, userid, row_id, username, status, adddate) => {
     var url = "http://192.168.14.33/otcs/llisapi.dll?func=ll&objId=106810&objAction=RunReport";
     if(id){
         url += `&id=${id}`;
@@ -114,12 +115,16 @@ const Homepage = () => {
     if(status){
       url += `&status=${status}`;
     }
+    if(adddate){
+      url += `&adddate=${adddate}`;
+    }
     url += '&nexturl='+ window.nextUrl;
     axios.get(url);
   };
 
-  const todaydate = moment(new Date()).format('LL');
-  console.log("today date", todaydate);
+  const adddate = moment(new Date()).format('LL');
+  console.log("today date", adddate);
+
   const AddTaskHandler = (enteredTask) => {
     console.log("Entered", enteredTask);
     setTasks((prevTasks)=>{
@@ -127,7 +132,7 @@ const Homepage = () => {
     });
     
     enteredTask.data.map((task) => (
-      setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId, task.row_id, window.userName, 'true')
+      setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId, task.row_id, window.userName, 'true', adddate)
     ))
   };
 
