@@ -118,13 +118,14 @@ const Homepage = () => {
     axios.get(url);
   };
 
+  const todaydate = moment(new Date()).format('LL');
+  console.log("today date", todaydate);
   const AddTaskHandler = (enteredTask) => {
     console.log("Entered", enteredTask);
     setTasks((prevTasks)=>{
       return [enteredTask, ...prevTasks];
     });
-    const todaydate = moment(new Date()).format('LL');
-    console.log("today date", todaydate);
+    
     enteredTask.data.map((task) => (
       setData(enteredTask.id, enteredTask.date, task.stime, task.etime, task.tasktitle, window.userId, task.row_id, window.userName, 'true')
     ))
