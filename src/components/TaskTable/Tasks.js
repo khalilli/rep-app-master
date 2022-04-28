@@ -9,6 +9,7 @@ const Tasks = (props) => {
             <TaskTable 
             key={task.id}
             date1={task.date}
+            adddate1={task.adddate}
             username1={task.username}
             data1={task.data}
             items1={props.items}

@@ -3,6 +3,7 @@ import IconButton from '@mui/material/IconButton';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { makeStyles } from '@material-ui/core';
 import Grid from '@mui/material/Grid';
+import moment from 'moment';
 import axios from 'axios';
 import './TaskTable.css';
 const useStyles = makeStyles(theme => ({
@@ -24,6 +25,19 @@ const TaskTable = (props) => {
       url += '&nexturl='+ window.nextUrl;
       axios.get(url);
     };
+
+    let timer = true;
+    const today = new Date();
+    console.log(moment(today).format('LL'));
+    console.log(props.adddate1);
+    if(moment(today).format('LL') === props.adddate1){
+      console.log("Keep button", timer);
+    }
+    else{
+      timer = false;
+      console.log("Remove button", timer);
+    }
+
     const removeTask = (index) => {
         if (window.confirm("Delete this task?")) {
           console.log(index);
@@ -75,9 +89,9 @@ const TaskTable = (props) => {
                     <td>{task.etime === "?" ? "undefined" : task.etime}</td>
                     <td>{task.tasktitle === "?" ? "undefined" : task.tasktitle}</td>
                     <td>
-                      <IconButton onClick={() => removeTask(index)}>
+                      {timer === true ? <IconButton onClick={() => removeTask(index)}>
                         <RemoveCircleIcon className={classes.removeButton} />
-                      </IconButton>
+                      </IconButton> : null}
                     </td>
                   </tr>
                 ))}
