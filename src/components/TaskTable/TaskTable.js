@@ -7,7 +7,6 @@ import axios from 'axios';
 import './TaskTable.css';
 const useStyles = makeStyles(theme => ({
     removeButton: {
-        // color: "#DD4A48"
         color: "#EF224B"
     }
 }));
