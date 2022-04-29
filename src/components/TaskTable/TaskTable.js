@@ -48,14 +48,14 @@ const TaskTable = (props) => {
     };
 
     let timer = true;
-    // const today = new Date();
-    // if(moment(today).format('LL') === props.adddate1){
-    //   console.log("Keep button", timer);
-    // }
-    // else{
-    //   timer = false;
-    //   console.log("Remove button", timer);
-    // }
+    const today = new Date();
+    if(moment(today).format('LL') === props.adddate1){
+      console.log("Keep button", timer);
+    }
+    else{
+      timer = false;
+      console.log("Remove button", timer);
+    }
 
     const removeTask = (index) => {
         if (window.confirm("Delete this task?")) {
