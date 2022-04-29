@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import IconButton from '@mui/material/IconButton';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { makeStyles } from '@material-ui/core';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import moment from 'moment';
 import axios from 'axios';
@@ -11,6 +12,26 @@ const useStyles = makeStyles(theme => ({
         color: "#EF224B"
     }
 }));
+
+const theme = createTheme({
+  components: {
+    MuiButtonBase: {
+      styleOverrides: {
+        root: {
+          padding: '1px',
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          padding: '1px',
+        },
+      },
+    },
+  },
+});
+
 const TaskTable = (props) => {
     const classes = useStyles();
 
@@ -54,6 +75,7 @@ const TaskTable = (props) => {
     };
     
     return (
+      <ThemeProvider theme={theme}>
       <div>
         {showTable ? (
           <div className="task-table">
@@ -77,9 +99,9 @@ const TaskTable = (props) => {
               {props.button1 === false ? <tbody>
                 {(props.data1 || []).map((task, index) => (
                   <tr key={index}>
-                    <td style={{ padding: "10px" }}>{task.stime === "?" ? "undefined" : task.stime}</td>
-                    <td style={{ padding: "10px" }}>{task.etime === "?" ? "undefined" : task.etime}</td>
-                    <td style={{ padding: "10px" }}>{task.tasktitle === "?" ? "undefined" : task.tasktitle}</td> 
+                    <td>{task.stime === "?" ? "undefined" : task.stime}</td>
+                    <td>{task.etime === "?" ? "undefined" : task.etime}</td>
+                    <td>{task.tasktitle === "?" ? "undefined" : task.tasktitle}</td> 
                   </tr>
                 ))}
               </tbody> : <tbody>
@@ -100,6 +122,7 @@ const TaskTable = (props) => {
           </div>
         ) : null}
       </div>
+      </ThemeProvider>
     );
 };
 
