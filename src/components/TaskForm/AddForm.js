@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
         borderRadius: "6px"
     },
     addButton: {
-        color: "#041562"
+        color: "#000D6B"
     },
 }));
 

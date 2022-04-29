@@ -10,10 +10,9 @@
     margin-bottom: 25px;
 }  
 .task-date{
-    background: #051367;
+    background: #22577E;
     color:#EEEEEE;
     font-weight: bold;
-    /*border-radius: 2px 2px 0 0;*/
     padding: 5px 30px 5px 30px;
 } 
     
@@ -27,14 +26,15 @@ table{
     
 th{
     text-align: center;
-    background-color: #051367;
+    background-color: #22577E;
     color: #EEEEEE;
     padding: 7px;
-    border-bottom: 1px solid #92A9BD;
+    border-bottom: 1px solid #D3DEDC;
 }
     
 td{
     text-align: center;
     background-color: white;
-    border-bottom: 1px solid #92A9BD;
+    border-bottom: 1px solid #D3DEDC;
+    padding: 8px;
 }
