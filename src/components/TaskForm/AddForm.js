@@ -51,7 +51,8 @@ const AddForm = (props) => {
     };
 
     const refresh = () => {
-        window.location.reload(true);
+        // window.location.reload(true);
+        window.location.href = 'http://192.168.14.33/otcs/llisapi.dll/homepage?func=ll&objId=107301&objAction=RunReport';
     }
     return(
         <form onSubmit={submitHandler}>
