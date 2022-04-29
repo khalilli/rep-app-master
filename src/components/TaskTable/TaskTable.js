@@ -18,14 +18,14 @@ const theme = createTheme({
     MuiButtonBase: {
       styleOverrides: {
         root: {
-          padding: '1px',
+          padding: '0px',
         },
       },
     },
     MuiIconButton: {
       styleOverrides: {
         root: {
-          padding: '1px',
+          padding: '0px',
         },
       },
     },
@@ -49,8 +49,6 @@ const TaskTable = (props) => {
 
     let timer = true;
     const today = new Date();
-    console.log(moment(today).format('LL'));
-    console.log(props.adddate1);
     if(moment(today).format('LL') === props.adddate1){
       console.log("Keep button", timer);
     }
@@ -61,8 +59,6 @@ const TaskTable = (props) => {
 
     const removeTask = (index) => {
         if (window.confirm("Delete this task?")) {
-          console.log(index);
-          console.log(props.data1[index]);
           console.log("Row id", props.data1[index].seq);
           setStatus(props.data1[index].seq);
           setRows(props.data1.splice(index,1));
