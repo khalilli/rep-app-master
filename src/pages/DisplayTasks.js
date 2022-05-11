@@ -9,6 +9,18 @@ import UsersFilter from '../components/UsersFilter';
 import './DisplayTasks.css';
 import axios from 'axios';
 import moment from 'moment';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+const theme = createTheme({
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            background:'#22577E',
+          },
+        },
+      },
+    },
+});
 
 const DisplayTasks = (props) => {
     const [tasks, setTasks] = useState([]);
@@ -132,6 +144,7 @@ const DisplayTasks = (props) => {
     };
 
     return(
+      <ThemeProvider theme={theme}>
         <div>
           <div>
             <div className='selection'>
@@ -177,6 +190,7 @@ const DisplayTasks = (props) => {
           </div>
           {tasksContent}
         </div>
+      </ThemeProvider>
     );
 };
 export default DisplayTasks;
