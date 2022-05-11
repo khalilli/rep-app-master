@@ -20,8 +20,3 @@ input[type="date"]::-webkit-calendar-picker-indicator,input[type="time"]::-webki
     top: 0;
     width: auto;
 }
-
-textarea{
-    border-radius: 4px;
-    border-color: rgba(0,0,0,0.26);
-}

@@ -117,13 +117,15 @@ const AddForm = (props) => {
                             onChange={ event => handleChangeInput(id, event)}/>
                         </Grid>
                         <Grid item>
-                            <textarea
+                            <TextField
                             label="Task"
                             id="outlined-size-small"
                             variant="outlined"
                             size="small"
                             type="text"
                             name='tasktitle'
+                            multiline
+                            maxRows={4}
                             value={inputFields.tasktitle}
                             onChange={ event => handleChangeInput(id, event)}/>
                         </Grid>
