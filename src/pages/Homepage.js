@@ -25,7 +25,6 @@ const Homepage = () => {
   }
   url += '&nexturl='+ window.nextUrl;
   const response = await axios.get(url);
-  console.log("Response in Homepage", response);
   const taskTables = [{},];
        
   for (var i=0; i<response.data.length-1; i++){
@@ -116,10 +115,8 @@ const Homepage = () => {
   };
 
   const adddate = moment(new Date()).format('LL');
-  console.log("today date", adddate);
 
   const AddTaskHandler = (enteredTask) => {
-    console.log("Entered", enteredTask);
     setTasks((prevTasks)=>{
       return [enteredTask, ...prevTasks];
     });

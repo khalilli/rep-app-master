@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import TextField from '@mui/material/TextField';
 import { makeStyles } from "@material-ui/core/styles";
 import Button from '@mui/material/Button';
@@ -51,6 +52,12 @@ const AddForm = (props) => {
 
     const handleAddFields = () => {
         setInputFields([...inputFields, {stime: '', etime: '', tasktitle: '', row_id: uuid()}]);
+    };
+
+    const handleRemoveFields = (id) => {
+        const rows = [...inputFields];
+        rows.pop();
+        setInputFields(rows);
     };
 
     const submitHandler = (event) => {
@@ -134,6 +141,11 @@ const AddForm = (props) => {
                                 <AddCircleIcon className={classes.addButton} />
                             </IconButton>
                         </Grid>
+                        { id+1 === inputFields.length ?  <Grid item>
+                            <IconButton onClick={() => handleRemoveFields(id)}>
+                                <RemoveCircleIcon className={classes.addButton} />
+                            </IconButton>
+                        </Grid> : null }
 
                     </Grid>
                 </Grid>
