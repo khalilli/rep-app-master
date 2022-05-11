@@ -8,6 +8,18 @@ import Grid from '@mui/material/Grid';
 import { v4 as uuid } from 'uuid';
 import moment from 'moment';
 import "./AddForm.css";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+const theme = createTheme({
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            background:'#22577E',
+          },
+        },
+      },
+    },
+  });
 
 const useStyles = makeStyles(theme => ({
     textField: {
@@ -15,7 +27,7 @@ const useStyles = makeStyles(theme => ({
         borderRadius: "6px"
     },
     addButton: {
-        color: "#000D6B"
+        color: "#1b4564"
     },
 }));
 
@@ -55,6 +67,7 @@ const AddForm = (props) => {
         window.location.href = 'http://192.168.14.33/otcs/llisapi.dll/homepage?func=ll&objId=107301&objAction=RunReport';
     }
     return(
+        <ThemeProvider theme={theme}>
         <form onSubmit={submitHandler}>
             <Grid container direction={"column"} spacing={2}>
             <Grid item >
@@ -104,7 +117,7 @@ const AddForm = (props) => {
                             onChange={ event => handleChangeInput(id, event)}/>
                         </Grid>
                         <Grid item>
-                            <TextField
+                            <textarea
                             label="Task"
                             id="outlined-size-small"
                             variant="outlined"
@@ -128,6 +141,7 @@ const AddForm = (props) => {
                 </Grid>
             </Grid>
         </form>
+        </ThemeProvider>
     );
 };
 

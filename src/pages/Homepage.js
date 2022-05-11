@@ -2,21 +2,14 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import NewTask from "../components/TaskForm/NewTask";
 import Tasks from "../components/TaskTable/Tasks";
-import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
 import { makeStyles } from "@material-ui/core/styles";
 import axios from 'axios';
 import moment from 'moment';
-import { v4 as uuid } from 'uuid';
 
 const Initdata = [];
 
-const useStyles = makeStyles(theme => ({
-
-}));
 
 const Homepage = () => {
-  const classes = useStyles(); 
   const [tasks, setTasks] = useState(Initdata);
 
   const getData = async(userid, staskdate, etaskdate) => {
