@@ -2,9 +2,22 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import NewTask from "../components/TaskForm/NewTask";
 import Tasks from "../components/TaskTable/Tasks";
-import { makeStyles } from "@material-ui/core/styles";
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
 import axios from 'axios';
 import moment from 'moment';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+const theme = createTheme({
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            background:'#22577E',
+          },
+        },
+      },
+    },
+});
 
 const Initdata = [];
 
@@ -178,13 +191,15 @@ const Homepage = () => {
           {console.log("Actual group name", window.groupName)}
           {console.log("'group' leader id",window.groupLeaderId)}
           <NewTask onAddTask={AddTaskHandler} />
-          {/* <Grid container direction="column" alignItems="center">
+          <ThemeProvider theme={theme}>
+          <Grid container direction="column" alignItems="center">
             <Grid item>
               <Button variant="contained" type="submit" sx={{mb: "10px" }} onClick={sendData}>
                 Send
               </Button>
             </Grid>
-          </Grid> */}
+          </Grid>
+          </ThemeProvider>
           <Tasks items={tasks} />
         </div>
       );
