@@ -152,13 +152,13 @@ const Homepage = () => {
         const first = curr.getDate() - curr.getDay() + i 
         const day = moment(curr.setDate(first)).format('LL');
         if( tasks[k].date === day){
-          // console.log("date", tasks[k].date, "i", i);
+          console.log("date", tasks[k].date, "i", i);
           formData.append('taskdate'+ i, tasks[k].date);
           formData.append('datalength', tasks[k].data.length);
           for(var j=0;j<tasks[k].data.length;j++){
-            // console.log("stime", tasks[k].data[j].stime, "ij",i, j);
-            // console.log("etime", tasks[k].data[j].etime, "ij", i, j);
-            // console.log("tasktitle", tasks[k].data[j].tasktitle, "ij", i, j);
+            console.log("stime", tasks[k].data[j].stime, "ij",i, j);
+            console.log("etime", tasks[k].data[j].etime, "ij", i, j);
+            console.log("tasktitle", tasks[k].data[j].tasktitle, "ij", i, j);
             formData.append('stime' + i + (j+1), tasks[k].data[j] ? tasks[k].data[j].stime : undefined);
             formData.append('etime' + i + (j+1), tasks[k].data[j] ? tasks[k].data[j].etime : undefined); 
             formData.append('tasktitle' + i + (j+1),tasks[k].data[j] ? tasks[k].data[j].tasktitle : undefined); 
