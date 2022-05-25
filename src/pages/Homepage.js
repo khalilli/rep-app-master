@@ -140,10 +140,9 @@ const Homepage = () => {
   };
 
   const sendWeeklydata = async (tasks) =>{
-    console.log("Length", tasks.length);
     const formData = new FormData();
     formData.append('func', 'll');
-    formData.append('objId', 115288);
+    formData.append('objId', 128530);
     formData.append('objAction', 'RunReport');
     formData.append('user_name', window.user_name);
     formData.append('datelength', 5);
@@ -154,14 +153,12 @@ const Homepage = () => {
         const day = moment(curr.setDate(first)).format('LL');
         if( tasks[k].date === day){
           // console.log("date", tasks[k].date, "i", i);
-
           formData.append('taskdate'+ i, tasks[k].date);
           formData.append('datalength', tasks[k].data.length);
           for(var j=0;j<tasks[k].data.length;j++){
             // console.log("stime", tasks[k].data[j].stime, "ij",i, j);
             // console.log("etime", tasks[k].data[j].etime, "ij", i, j);
             // console.log("tasktitle", tasks[k].data[j].tasktitle, "ij", i, j);
-
             formData.append('stime' + i + (j+1), tasks[k].data[j] ? tasks[k].data[j].stime : undefined);
             formData.append('etime' + i + (j+1), tasks[k].data[j] ? tasks[k].data[j].etime : undefined); 
             formData.append('tasktitle' + i + (j+1),tasks[k].data[j] ? tasks[k].data[j].tasktitle : undefined); 
