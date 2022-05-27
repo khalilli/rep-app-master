@@ -2,8 +2,6 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import NewTask from "../components/TaskForm/NewTask";
 import Tasks from "../components/TaskTable/Tasks";
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
 import axios from 'axios';
 import moment from 'moment';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -183,12 +181,8 @@ const Homepage = () => {
   };
       return (
         <div>
-          {console.log("Actual user name", window.userName)}
-          {console.log("Actual user id", window.userId)}
-          {console.log("Actual group name", window.groupName)}
-          {console.log("'group' leader id",window.groupLeaderId)}
           <NewTask onAddTask={AddTaskHandler} />
-          <ThemeProvider theme={theme}>
+          {/*
           <Grid container direction="column" alignItems="center">
             <Grid item>
               <Button variant="contained" type="submit" sx={{mb: "10px" }} onClick={sendData}>
@@ -196,7 +190,7 @@ const Homepage = () => {
               </Button>
             </Grid>
           </Grid>
-          </ThemeProvider>
+          */}
           <Tasks items={tasks} />
         </div>
       );
